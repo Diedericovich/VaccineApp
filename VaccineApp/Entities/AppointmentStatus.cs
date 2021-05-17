@@ -8,6 +8,7 @@ namespace VaccineApp.Entities
     public class AppointmentStatus
     {
         public int Id { get; set; }
+
         public string Status { get; set; }
     }
 }
