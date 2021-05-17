@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-using AutoMapper;
-
-namespace VaccineApp.Services
+﻿namespace VaccineApp.Services
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Runtime.CompilerServices;
+    using System.Threading.Tasks;
+
+    using AutoMapper;
 
     using DTO;
 

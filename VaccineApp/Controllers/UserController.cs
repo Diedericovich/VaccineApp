@@ -1,19 +1,13 @@
-﻿#region
-
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-using Microsoft.AspNetCore.Mvc;
-
-#endregion
-
-namespace VaccineApp
+﻿namespace VaccineApp.Controllers
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+
     using DTO;
 
     using Entities;
 
-    using Repositories;
+    using Microsoft.AspNetCore.Mvc;
 
     using Services;
 
@@ -30,14 +24,14 @@ namespace VaccineApp
             await _service.AddUserAsync(user);
         }
 
-        [HttpDelete("{id})")]
+        [HttpDelete("{id:int})")]
         public async Task<ActionResult> DeleteUserAsync(int id)
         {
             await _service.DeleteUserAsync(id);
             return Ok("Delete OK");
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<UserDto> GetUserAsync(int id) => await _service.GetUserAsync(id);
 
         [HttpGet]
