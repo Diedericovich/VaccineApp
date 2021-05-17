@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace VaccineApp.Entities
+using VaccineApp.Entities;
+
+namespace VaccineApp.DTO
 {
-    public class User
+    public class UserDto
     {
         public string Address { get; set; }
 
@@ -13,11 +15,11 @@ namespace VaccineApp.Entities
 
         public DateTime BirthDate { get; set; }
 
+        public string Email { get; set; }
+
         public string FirstName { get; set; }
 
         public int Id { get; set; }
-
-        public Login Login { get; set; }
 
         public string Surname { get; set; }
     }
