@@ -12,7 +12,10 @@
     {
         private IUserService _service;
 
-        public UserController(IUserService service) => _service = service;
+        public UserController(IUserService service)
+        {
+            _service = service;
+        }
 
         [HttpPost]
         public async Task AddUserAsync(User user)
@@ -28,10 +31,16 @@
         }
 
         [HttpGet("{id:int}")]
-        public async Task<UserDto> GetUserAsync(int id) => await _service.GetUserAsync(id);
+        public async Task<UserDto> GetUserAsync(int id)
+        {
+            return await _service.GetUserAsync(id);
+        }
 
         [HttpGet]
-        public async Task<IEnumerable<UserDto>> GetUsersAsync() => await _service.GetUsersAsync();
+        public async Task<IEnumerable<UserDto>> GetUsersAsync()
+        {
+            return await _service.GetUsersAsync();
+        }
 
         [HttpPut]
         public async Task<ActionResult> UpdateUserAsync(User user)

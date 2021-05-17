@@ -43,7 +43,10 @@ namespace VaccineApp.Tests
 
         private IUserRepo testRepo;
 
-        private List<User> userList => new();
+        private List<User> userList
+        {
+            get { return new(); }
+        }
 
         [TestCase(1)]
         public async Task GetUserIsNotNull(int id)

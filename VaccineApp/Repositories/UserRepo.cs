@@ -5,7 +5,9 @@
     using System.Linq;
     using System.Security.Cryptography.X509Certificates;
     using System.Threading.Tasks;
+
     using Entities;
+
     using Microsoft.AspNetCore.Server.IIS.Core;
     using Microsoft.EntityFrameworkCore;
 
@@ -13,7 +15,10 @@
     {
         private DatabaseContext _context;
 
-        public UserRepo(DatabaseContext context) => _context = context;
+        public UserRepo(DatabaseContext context)
+        {
+            _context = context;
+        }
 
         public async Task AddUserAsync(User user)
         {
@@ -23,7 +28,7 @@
 
         public async Task DeleteUserAsync(int id)
         {
-            var user = new User {Id = id};
+            var user = new User { Id = id };
             _context.Attach(user);
             _context.Remove(user);
             await _context.SaveChangesAsync();
