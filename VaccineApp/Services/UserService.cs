@@ -5,13 +5,9 @@
     using System.Linq;
     using System.Runtime.CompilerServices;
     using System.Threading.Tasks;
-
     using AutoMapper;
-
     using DTO;
-
     using Entities;
-
     using Repositories;
 
     public class UserService : IUserService

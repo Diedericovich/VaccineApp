@@ -5,9 +5,7 @@
     using System.Linq;
     using System.Security.Cryptography.X509Certificates;
     using System.Threading.Tasks;
-
     using Entities;
-
     using Microsoft.AspNetCore.Server.IIS.Core;
     using Microsoft.EntityFrameworkCore;
 
@@ -25,7 +23,7 @@
 
         public async Task DeleteUserAsync(int id)
         {
-            var user = new User { Id = id };
+            var user = new User {Id = id};
             _context.Attach(user);
             _context.Remove(user);
             await _context.SaveChangesAsync();
@@ -34,7 +32,7 @@
         public async Task<User> GetUserAsync(int id)
         {
             return await _context.Users.Include(x => x.Appointments).Include(y => y.Login)
-                .FirstOrDefaultAsync(user => user.Id == id);
+                                 .FirstOrDefaultAsync(user => user.Id == id);
         }
 
         public async Task<List<User>> GetUsersAsync()

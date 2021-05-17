@@ -2,9 +2,8 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-
-    using VaccineApp.DTO;
-    using VaccineApp.Entities;
+    using DTO;
+    using Entities;
 
     public interface IUserService
     {

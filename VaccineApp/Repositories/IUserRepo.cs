@@ -2,8 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-
-    using VaccineApp.Entities;
+    using Entities;
 
     public interface IUserRepo
     {
