@@ -9,10 +9,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace VaccineApp
 {
-    using VaccineApp.DTO;
-    using VaccineApp.Entities;
-    using VaccineApp.Repositories;
-    using VaccineApp.Services;
+    using DTO;
+
+    using Entities;
+
+    using Repositories;
+
+    using Services;
 
     [ApiController, Route("api/[controller]")]
     public class UserController : ControllerBase

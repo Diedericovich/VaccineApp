@@ -9,9 +9,11 @@ namespace VaccineApp.Services
 {
     using System.Runtime.CompilerServices;
 
-    using VaccineApp.DTO;
-    using VaccineApp.Entities;
-    using VaccineApp.Repositories;
+    using DTO;
+
+    using Entities;
+
+    using Repositories;
 
     public class UserService : IUserService
     {
@@ -35,13 +37,6 @@ namespace VaccineApp.Services
             await _userRepo.DeleteUserAsync(id);
         }
 
-        public async Task<UserDto> GetUserAsync(int id)
-        {
-            User user = await _userRepo.GetUserAsync(id);
-            UserDto result = _mapper.Map<UserDto>(user);
-            return result;
-        }
-
         public async Task<List<UserDto>> GetUsersAsync()
         {
             List<User> userList = await _userRepo.GetUsersAsync();
@@ -49,6 +44,16 @@ namespace VaccineApp.Services
             return resultList;
         }
 
-        public async Task UpdateUserAsync(User user) => await _userRepo.UpdateUserAsync(user);
+        public async Task UpdateUserAsync(User user)
+        {
+            await _userRepo.UpdateUserAsync(user);
+        }
+
+        public async Task<UserDto> GetUserAsync(int id)
+        {
+            User user = await _userRepo.GetUserAsync(id);
+            UserDto result = _mapper.Map<UserDto>(user);
+            return result;
+        }
     }
 }
