@@ -3,31 +3,50 @@ namespace VaccineApp.Tests
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-
     using AutoMapper;
-
     using Moq;
     using Moq.Language.Flow;
-
     using NUnit.Framework;
     using NUnit.Framework.Internal;
-
-    using VaccineApp.DTO;
-    using VaccineApp.Entities;
-    using VaccineApp.Helpers;
-    using VaccineApp.Repositories;
-    using VaccineApp.Services;
+    using DTO;
+    using Entities;
+    using Helpers;
+    using Repositories;
+    using Services;
 
     [TestFixture]
     public class UserRepoTest
     {
+        [SetUp]
+        public void Setup()
+        {
+            mokMock = new Mock<IUserRepo>();
+
+            fakeUser = new User
+                       {
+                           Address = "TestAddress",
+                           Appointments = null,
+                           BirthDate = DateTime.Today,
+                           FirstName = "Pieter",
+                           Surname = "Pan"
+                       };
+
+            for (var i = 0; i < 10; i++)
+            {
+                userList.Add(fakeUser);
+            }
+        }
+
         private User fakeUser;
 
         private Mock<IUserRepo> mokMock;
 
         private IUserRepo testRepo;
 
-        private List<User> userList => new();
+        private List<User> userList
+        {
+            get { return new(); }
+        }
 
         [TestCase(1)]
         public async Task GetUserIsNotNull(int id)
@@ -54,23 +73,6 @@ namespace VaccineApp.Tests
 
             List<UserDto> result = await testService.GetUsersAsync();
             Assert.AreEqual(userList, result);
-        }
-
-        [SetUp]
-        public void Setup()
-        {
-            mokMock = new Mock<IUserRepo>();
-
-            fakeUser = new User
-            {
-                Address = "TestAddress",
-                Appointments = null,
-                BirthDate = DateTime.Today,
-                FirstName = "Pieter",
-                Surname = "Pan"
-            };
-
-            for (var i = 0; i < 10; i++) userList.Add(fakeUser);
         }
     }
 }

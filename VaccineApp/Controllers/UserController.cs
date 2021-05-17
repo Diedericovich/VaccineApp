@@ -1,20 +1,10 @@
-﻿#region
-
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-using Microsoft.AspNetCore.Mvc;
-
-#endregion
-
-namespace VaccineApp
+﻿namespace VaccineApp.Controllers
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
     using DTO;
-
     using Entities;
-
-    using Repositories;
-
+    using Microsoft.AspNetCore.Mvc;
     using Services;
 
     [ApiController, Route("api/[controller]")]
@@ -22,7 +12,10 @@ namespace VaccineApp
     {
         private IUserService _service;
 
-        public UserController(IUserService service) => _service = service;
+        public UserController(IUserService service)
+        {
+            _service = service;
+        }
 
         [HttpPost]
         public async Task AddUserAsync(User user)
@@ -30,18 +23,24 @@ namespace VaccineApp
             await _service.AddUserAsync(user);
         }
 
-        [HttpDelete("{id})")]
+        [HttpDelete("{id:int})")]
         public async Task<ActionResult> DeleteUserAsync(int id)
         {
             await _service.DeleteUserAsync(id);
             return Ok("Delete OK");
         }
 
-        [HttpGet("{id}")]
-        public async Task<UserDto> GetUserAsync(int id) => await _service.GetUserAsync(id);
+        [HttpGet("{id:int}")]
+        public async Task<UserDto> GetUserAsync(int id)
+        {
+            return await _service.GetUserAsync(id);
+        }
 
         [HttpGet]
-        public async Task<IEnumerable<UserDto>> GetUsersAsync() => await _service.GetUsersAsync();
+        public async Task<IEnumerable<UserDto>> GetUsersAsync()
+        {
+            return await _service.GetUsersAsync();
+        }
 
         [HttpPut]
         public async Task<ActionResult> UpdateUserAsync(User user)

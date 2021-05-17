@@ -1,9 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-
-using VaccineApp.Entities;
-
-namespace VaccineApp.Repositories
+﻿namespace VaccineApp.Repositories
 {
     using System;
     using System.Collections.Generic;
@@ -11,16 +6,19 @@ namespace VaccineApp.Repositories
     using System.Security.Cryptography.X509Certificates;
     using System.Threading.Tasks;
 
+    using Entities;
+
     using Microsoft.AspNetCore.Server.IIS.Core;
     using Microsoft.EntityFrameworkCore;
-
-    using VaccineApp.Entities;
 
     public class UserRepo : IUserRepo
     {
         private DatabaseContext _context;
 
-        public UserRepo(DatabaseContext context) => _context = context;
+        public UserRepo(DatabaseContext context)
+        {
+            _context = context;
+        }
 
         public async Task AddUserAsync(User user)
         {
@@ -39,7 +37,7 @@ namespace VaccineApp.Repositories
         public async Task<User> GetUserAsync(int id)
         {
             return await _context.Users.Include(x => x.Appointments).Include(y => y.Login)
-                       .FirstOrDefaultAsync(user => user.Id == id);
+                                 .FirstOrDefaultAsync(user => user.Id == id);
         }
 
         public async Task<List<User>> GetUsersAsync()
