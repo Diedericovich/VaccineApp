@@ -1,6 +1,6 @@
 import {Appointment} from './appointment'
 
-export interface Users{
+export interface User{
     id: number;
     email: string;
     firstname: string;
