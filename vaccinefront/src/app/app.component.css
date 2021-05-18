@@ -19,11 +19,22 @@
   p {
     margin: 0;
   }
-
+  .container-fluid {
+    text-align: center;
+    align-items: center;
+    padding-right:0;
+    padding-left:0;
+    margin-right:auto;
+    margin-left:auto
+ }
   .spacer {
     flex: 1;
   }
-
+.navbar {
+  color: white;
+  font-weight: 600;
+  background-color:#1C6F73;
+}
   .toolbar {
     position: absolute;
     top: 0;
@@ -292,3 +303,7 @@
       visibility: hidden;
     }
   }
+  .fill { 
+    min-height: 100%;
+    height: 100%;
+}
