@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BodyComponent } from './body/body.component';
@@ -9,6 +8,7 @@ import { TorsoVaccinsComponent } from './torso-vaccins/torso-vaccins.component';
 import { LegsVaccinsComponent } from './legs-vaccins/legs-vaccins.component';
 import { LeftArmVaccinsComponent } from './left-arm-vaccins/left-arm-vaccins.component';
 import { RightArmVaccinsComponent } from './right-arm-vaccins/right-arm-vaccins.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { RightArmVaccinsComponent } from './right-arm-vaccins/right-arm-vaccins.
     LegsVaccinsComponent,
     LeftArmVaccinsComponent,
     RightArmVaccinsComponent,
+    UserDetailComponent,
 
   ],
   imports: [
