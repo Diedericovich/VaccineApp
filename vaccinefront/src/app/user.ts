@@ -3,9 +3,9 @@ import {Appointment} from './appointment'
 export interface User{
     id: number;
     email: string;
-    firstname: string;
-    surname: string;
-    adress: string;
+    firstName: string;
+    surName: string;
+    address: string;
     birthDate: Date;
     appointments: Appointment[];
 }
