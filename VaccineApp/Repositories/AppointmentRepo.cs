@@ -11,51 +11,30 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
 
-    public class AppointmentRepo : IAppointmentRepo
+    public class AppointmentRepo : GenericRepo<Appointment>
     {
-        private DatabaseContext _context;
-
         public AppointmentRepo(DatabaseContext context)
+            : base(context)
         {
-            _context = context;
         }
 
-        public async Task<Appointment> GetAppointmentAsync(int id)
+        public override async Task<Appointment> GetAsync(int id)
         {
             return await _context.Appointments
                                  .Include(x => x.Location)
-                                 .Include(z => z.Vaccination)
-                                 .Include(y => y.Status)
+                                 .Include(x => x.Vaccination)
+                                    .ThenInclude(x => x.BodyPart)
+                                 .Include(x => x.Status)
                                  .FirstOrDefaultAsync();
         }
 
-        public async Task<List<Appointment>> GetAppointmentsAsync()
+        public override async Task<List<Appointment>> GetAllAsync()
         {
             return await _context.Appointments
                                  .Include(x => x.Location)
-                                 .Include(z => z.Vaccination)
-                                 .Include(y => y.Status)
+                                 .Include(x => x.Vaccination)
+                                 .Include(x => x.Status)
                                  .ToListAsync();
-        }
-
-        public async Task AddAppointmentAsync(Appointment appointment)
-        {
-            await _context.Appointments.AddAsync(appointment);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task DeleteAppointmentAsync(int id)
-        {
-            var appointment = new Appointment() { Id = id };
-            _context.Attach(appointment);
-            _context.Remove(appointment);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task UpdateAppointmentAsync(Appointment appointment)
-        {
-            _context.Appointments.Update(appointment);
-            await _context.SaveChangesAsync();
         }
     }
 }

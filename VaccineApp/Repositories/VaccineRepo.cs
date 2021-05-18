@@ -10,49 +10,27 @@
 
     using Microsoft.EntityFrameworkCore;
 
-    public class VaccineRepo : IVaccineRepo
+    public class VaccineRepo : GenericRepo<Vaccine>
     {
-        private DatabaseContext _context;
-
         public VaccineRepo(DatabaseContext context)
+            : base(context)
         {
-            _context = context;
         }
 
-        public async Task AddVaccineAsync(Vaccine vaccine)
-        {
-            await _context.Vaccines.AddAsync(vaccine);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task DeleteVaccineAsync(int id)
-        {
-            var vaccine = new Vaccine() { Id = id };
-            _context.Attach(vaccine);
-            _context.Remove(vaccine);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task<Vaccine> GetVaccineAsync(int id)
+        public override async Task<Vaccine> GetAsync(int id)
         {
             return await _context.Vaccines
-                                 .Include(x => x.Company)
-                                 .Include(y => y.BodyPart)
-                                 .FirstOrDefaultAsync(x => x.Id == id);
+                .Include(x => x.BodyPart)
+                .Include(x => x.Company)
+                .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<List<Vaccine>> GetVaccinesAsync()
+        public override async Task<List<Vaccine>> GetAllAsync()
         {
             return await _context.Vaccines
-                                 .Include(x => x.Company)
-                                 .Include(y => y.BodyPart)
-                                 .ToListAsync();
-        }
-
-        public async Task UpdateVaccineAsync(Vaccine vaccine)
-        {
-            _context.Vaccines.Update(vaccine);
-            await _context.SaveChangesAsync();
+                .Include(x => x.BodyPart)
+                .Include(x => x.Company)
+                .ToListAsync();
         }
     }
 }

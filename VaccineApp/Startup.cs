@@ -3,10 +3,11 @@ namespace VaccineApp
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text;
     using System.Threading.Tasks;
 
     using Helpers;
-
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.HttpsPolicy;
@@ -16,11 +17,13 @@ namespace VaccineApp
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.Extensions.Logging;
+    using Microsoft.IdentityModel.Tokens;
     using Microsoft.OpenApi.Models;
 
     using Repositories;
 
     using Services;
+    using VaccineApp.Entities;
 
     public class Startup
     {
@@ -44,6 +47,7 @@ namespace VaccineApp
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
 
             app.UseAuthorization();
 
@@ -54,16 +58,34 @@ namespace VaccineApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddCors();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"])),
+                };
+            });
+
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "VaccineApp", Version = "v1" }));
+
             services.AddDbContext<DatabaseContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("OnlineConnectionString")));
+                options => options.UseSqlServer(Configuration.GetConnectionString("LocalConnectionString")));
 
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
 
-            services.AddScoped<IUserRepo, UserRepo>();
+            services.AddScoped<IGenericRepo<User>, UserRepo>();
+            services.AddScoped<IGenericRepo<Vaccine>, VaccineRepo>();
+            services.AddScoped<IGenericRepo<Appointment>, AppointmentRepo>();
+
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IVaccineRepo, VaccineRepo>();
             services.AddScoped<IVaccineService, VaccineService>();
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IAccountService, AccountService>();
         }
     }
 }

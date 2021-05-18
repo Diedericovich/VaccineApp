@@ -1,20 +1,16 @@
-﻿namespace VaccineApp.Services
-{
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
-    using DTO;
-    using Entities;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using VaccineApp.DTO;
 
+namespace VaccineApp.Services
+{
     public interface IUserService
     {
-        Task AddUserAsync(User user);
-
+        Task AddAppointment(UserDto user, int id);
+        Task AddUserAsync(UserDto user);
         Task DeleteUserAsync(int id);
-
         Task<UserDto> GetUserAsync(int id);
-
         Task<List<UserDto>> GetUsersAsync();
-
-        Task UpdateUserAsync(User user);
+        Task UpdateUserAsync(UserDto user);
     }
 }

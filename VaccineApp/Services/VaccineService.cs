@@ -18,9 +18,9 @@
     {
         private IMapper _mapper;
 
-        private IVaccineRepo _vaccineRepo;
+        private IGenericRepo<Vaccine> _vaccineRepo;
 
-        public VaccineService(IVaccineRepo vaccineRepo, IMapper mapper)
+        public VaccineService(IGenericRepo<Vaccine> vaccineRepo, IMapper mapper)
         {
             _vaccineRepo = vaccineRepo;
             _mapper = mapper;
@@ -28,29 +28,29 @@
 
         public async Task AddVaccineAsync(Vaccine vaccine)
         {
-            await _vaccineRepo.AddVaccineAsync(vaccine);
+            await _vaccineRepo.AddAsync(vaccine);
         }
 
         public async Task DeleteVaccineAsync(int id)
         {
-            await _vaccineRepo.DeleteVaccineAsync(id);
+            await _vaccineRepo.DeleteAsync(id);
         }
 
         public async Task<List<VaccineDto>> GetVaccinesAsync()
         {
-            List<Vaccine> vaccineList = await _vaccineRepo.GetVaccinesAsync();
+            List<Vaccine> vaccineList = await _vaccineRepo.GetAllAsync();
             List<VaccineDto> resultList = _mapper.Map<List<VaccineDto>>(vaccineList);
             return resultList;
         }
 
         public async Task UpdateVaccineAsync(Vaccine vaccine)
         {
-            await _vaccineRepo.UpdateVaccineAsync(vaccine);
+            await _vaccineRepo.UpdateAsync(vaccine);
         }
 
         public async Task<VaccineDto> GetVaccineAsync(int id)
         {
-            Vaccine vaccine = await _vaccineRepo.GetVaccineAsync(id);
+            Vaccine vaccine = await _vaccineRepo.GetAsync(id);
             VaccineDto result = _mapper.Map<VaccineDto>(vaccine);
             return result;
         }

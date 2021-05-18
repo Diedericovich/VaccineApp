@@ -14,41 +14,54 @@
     {
         private IMapper _mapper;
 
-        private IUserRepo _userRepo;
+        private IGenericRepo<User> _userRepo;
+        private IGenericRepo<Vaccine> _vaccineRepo;
 
-        public UserService(IUserRepo userRepo, IMapper mapper)
+        public UserService(IGenericRepo<User> userRepo, IGenericRepo<Vaccine> vaccineRepo, IMapper mapper)
         {
             _userRepo = userRepo;
+            _vaccineRepo = vaccineRepo;
             _mapper = mapper;
         }
 
-        public async Task AddUserAsync(User user)
+        public async Task AddUserAsync(UserDto user)
         {
-            await _userRepo.AddUserAsync(user);
+            await _userRepo.AddAsync(_mapper.Map<User>(user));
         }
 
         public async Task DeleteUserAsync(int id)
         {
-            await _userRepo.DeleteUserAsync(id);
+            await _userRepo.DeleteAsync(id);
         }
 
         public async Task<List<UserDto>> GetUsersAsync()
         {
-            List<User> userList = await _userRepo.GetUsersAsync();
+            List<User> userList = await _userRepo.GetAllAsync();
             List<UserDto> resultList = _mapper.Map<List<UserDto>>(userList);
             return resultList;
         }
 
-        public async Task UpdateUserAsync(User user)
+        public async Task UpdateUserAsync(UserDto user)
         {
-            await _userRepo.UpdateUserAsync(user);
+            await _userRepo.UpdateAsync(_mapper.Map<User>(user));
         }
 
         public async Task<UserDto> GetUserAsync(int id)
         {
-            User user = await _userRepo.GetUserAsync(id);
+            User user = await _userRepo.GetAsync(id);
             UserDto result = _mapper.Map<UserDto>(user);
             return result;
+        }
+
+        public async Task AddAppointment(int , int id)
+        {
+            Vaccine temp = await _vaccineRepo.GetAsync(id);
+            user.Appointments.Add(new Appointment
+            {
+                Vaccination = temp,
+                Date = DateTime.Now.AddDays(7),
+            });
+            await UpdateUserAsync(user);
         }
     }
 }
