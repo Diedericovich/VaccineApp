@@ -9,6 +9,7 @@ import { TorsoVaccinsComponent } from './torso-vaccins/torso-vaccins.component';
 import { LegsVaccinsComponent } from './legs-vaccins/legs-vaccins.component';
 import { LeftArmVaccinsComponent } from './left-arm-vaccins/left-arm-vaccins.component';
 import { RightArmVaccinsComponent } from './right-arm-vaccins/right-arm-vaccins.component';
+import { VaccineDetailComponent } from './vaccine-detail/vaccine-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { RightArmVaccinsComponent } from './right-arm-vaccins/right-arm-vaccins.
     LegsVaccinsComponent,
     LeftArmVaccinsComponent,
     RightArmVaccinsComponent,
+    VaccineDetailComponent,
 
   ],
   imports: [

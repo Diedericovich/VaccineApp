@@ -9,14 +9,7 @@
             </ul>
             </div>
 <div class="col-5">
-<div *ngIf="selectedVaccine">
-    <h6>{{selectedVaccine.name | uppercase}} Details</h6>
-    <div class="col-5">
-        <label for="Vaccine-name">Vaccine name: </label>
-        {{selectedVaccine.description}}<br/>
-    </div><br />
-    <button class="btn btn-primary">Make an appointment for this vaccine</button>
-</div>
+  <app-vaccine-detail [vaccine]="selectedVaccine"></app-vaccine-detail>
 </div>
 </div>
 </div>

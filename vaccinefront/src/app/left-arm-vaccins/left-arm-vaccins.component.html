@@ -1,1 +1,15 @@
-<p>left-arm-vaccins works!</p>
+<div class="container h-100">
+    <h2>Vaccines for your left arm</h2>
+        <div class="row">
+        <div class="col-6">
+                <ul class="vaccines list-group mx-3 mb-2 bg-primary text-left">
+                  <li class="list-group-item list-group-item-info" *ngFor="let vaccine of vaccines" (click)="onSelect(vaccine)" [class.active]="vaccine == selectedVaccine">
+                    <span class="text-dark text-left font-weight-bold">{{vaccine.name}}</span> --> {{vaccine.description}}
+                  </li>
+                </ul>
+                </div>
+    <div class="col-5">
+   <app-vaccine-detail [vaccine]="selectedVaccine"></app-vaccine-detail>
+    </div>
+    </div>
+    </div>
