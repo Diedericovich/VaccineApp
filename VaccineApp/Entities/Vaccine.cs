@@ -14,6 +14,7 @@
         [Required]
         public string Description { get; set; }
 
+        public int BodyPartId { get; set; }
         public BodyPart BodyPart { get; set; }
 
         public VaccineCompany Company { get; set; }

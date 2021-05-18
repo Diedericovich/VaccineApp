@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VaccineApp;
 
 namespace VaccineApp.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20210518142738_AddedUserToAppointment")]
+    partial class AddedUserToAppointment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,10 +34,10 @@ namespace VaccineApp.Migrations
                     b.Property<int?>("LocationId")
                         .HasColumnType("int");
 
-                    b.Property<int>("StatusId")
+                    b.Property<int?>("StatusId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.Property<int?>("VaccinationId")
@@ -68,23 +70,6 @@ namespace VaccineApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppointmentStatuses");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Status = "Approved"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Status = "Canceled"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Status = "Administered"
-                        });
                 });
 
             modelBuilder.Entity("VaccineApp.Entities.BodyPart", b =>
@@ -101,48 +86,6 @@ namespace VaccineApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("BodyParts");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Eyes"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Nose"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Mouth"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Ears"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Left Arm"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Right Arm"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Torso"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Legs"
-                        });
                 });
 
             modelBuilder.Entity("VaccineApp.Entities.Login", b =>
@@ -226,7 +169,7 @@ namespace VaccineApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BodyPartId")
+                    b.Property<int?>("BodyPartId")
                         .HasColumnType("int");
 
                     b.Property<int?>("CompanyId")
@@ -249,15 +192,6 @@ namespace VaccineApp.Migrations
                     b.HasIndex("CompanyId");
 
                     b.ToTable("Vaccines");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            BodyPartId = 3,
-                            Description = "desctestest",
-                            Name = "TestVaxx"
-                        });
                 });
 
             modelBuilder.Entity("VaccineApp.Entities.VaccineCompany", b =>
@@ -293,15 +227,11 @@ namespace VaccineApp.Migrations
 
                     b.HasOne("VaccineApp.Entities.AppointmentStatus", "Status")
                         .WithMany()
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StatusId");
 
-                    b.HasOne("VaccineApp.Entities.User", null)
+                    b.HasOne("VaccineApp.Entities.User", "User")
                         .WithMany("Appointments")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.HasOne("VaccineApp.Entities.Vaccine", "Vaccination")
                         .WithMany()
@@ -310,6 +240,8 @@ namespace VaccineApp.Migrations
                     b.Navigation("Location");
 
                     b.Navigation("Status");
+
+                    b.Navigation("User");
 
                     b.Navigation("Vaccination");
                 });
@@ -327,9 +259,7 @@ namespace VaccineApp.Migrations
                 {
                     b.HasOne("VaccineApp.Entities.BodyPart", "BodyPart")
                         .WithMany()
-                        .HasForeignKey("BodyPartId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BodyPartId");
 
                     b.HasOne("VaccineApp.Entities.VaccineCompany", "Company")
                         .WithMany()

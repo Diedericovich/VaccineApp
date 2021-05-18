@@ -9,10 +9,6 @@
 
     public class DatabaseContext : DbContext
     {
-        public DatabaseContext(DbContextOptions options) : base(options)
-        {
-        }
-
         public DbSet<User> Users { get; set; }
 
         public DbSet<Login> Logins { get; set; }
@@ -28,5 +24,14 @@
         public DbSet<Vaccine> Vaccines { get; set; }
 
         public DbSet<VaccineCompany> VaccineCompanies { get; set; }
+
+        public DatabaseContext(DbContextOptions options) : base(options)
+        {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Seed();
+        }
     }
 }
