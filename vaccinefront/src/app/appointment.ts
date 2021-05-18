@@ -4,7 +4,7 @@ import { Vaccine } from './vaccine'
 export interface Appointment{
     id: number
     date: Date;
-    locaction: VaccinationCenter;
+    location: VaccinationCenter;
     vaccination:Vaccine;
     status: Status;
 }

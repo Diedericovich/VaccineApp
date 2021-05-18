@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BodyComponent } from './body/body.component';
@@ -8,7 +9,10 @@ import { TorsoVaccinsComponent } from './torso-vaccins/torso-vaccins.component';
 import { LegsVaccinsComponent } from './legs-vaccins/legs-vaccins.component';
 import { LeftArmVaccinsComponent } from './left-arm-vaccins/left-arm-vaccins.component';
 import { RightArmVaccinsComponent } from './right-arm-vaccins/right-arm-vaccins.component';
-import { UserDetailComponent } from './user-detail/user-detail.component';
+import { VaccineDetailComponent } from './vaccine-detail/vaccine-detail.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
 
 @NgModule({
   declarations: [
@@ -19,11 +23,16 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     LegsVaccinsComponent,
     LeftArmVaccinsComponent,
     RightArmVaccinsComponent,
-    UserDetailComponent,
+    VaccineDetailComponent,
+    UserDetailsComponent,
+    NavigationComponent,
+    AppointmentsComponent,
 
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],

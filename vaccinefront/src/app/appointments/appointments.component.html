@@ -1,0 +1,18 @@
+<div class="card text-left bg-light">
+    <div>
+        <h1>Appointments</h1>
+    </div>
+    <div *ngIf="user.appointments" class="card-body">
+        <!-- <p class="card-text"> -->
+            <ul class="vaccines list-group mx-3 mb-2 bg-primary text-left">
+                <li class="list-group-item list-group-item-info" *ngFor="let appointment of user.appointments">
+                  <span class="text-dark text-left font-weight-bold">{{appointment.date}}</span> --> {{appointment.location.name}}:{{appointment.location.location}}
+                </li>
+              </ul>
+        <!-- </p> -->
+    <div class="text-right">
+
+        <a class="btn btn-outline-primary" href="#">Add</a>
+    </div>
+    </div>
+</div>
