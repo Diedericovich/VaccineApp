@@ -53,7 +53,7 @@
             return result;
         }
 
-        public async Task AddAppointment(int , int id)
+        public async Task AddAppointment(UserDto user, int id)
         {
             Vaccine temp = await _vaccineRepo.GetAsync(id);
             user.Appointments.Add(new Appointment
