@@ -1,53 +1,61 @@
-﻿//namespace VaccineApp.Repositories
-//{
-//    using System;
-//    using System.Collections.Generic;
-//    using System.Linq;
-//    using System.Threading.Tasks;
+﻿namespace VaccineApp.Repositories
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Runtime.InteropServices;
+    using System.Threading.Tasks;
 
-//    using Entities;
+    using Entities;
 
-//    using Microsoft.EntityFrameworkCore;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
 
-//    public class AppointmentRepo
-//    {
-//        private DatabaseContext _context;
+    public class AppointmentRepo : IAppointmentRepo
+    {
+        private DatabaseContext _context;
 
-//        public AppointmentRepo(DatabaseContext context)
-//        {
-//            _context = context;
-//        }
+        public AppointmentRepo(DatabaseContext context)
+        {
+            _context = context;
+        }
 
-//        public async Task(User user)
-//        {
-//            await _context.Users.AddAsync(user);
-//            await _context.SaveChangesAsync();
-//        }
+        public async Task<Appointment> GetAppointmentAsync(int id)
+        {
+            return await _context.Appointments
+                                 .Include(x => x.Location)
+                                 .Include(z => z.Vaccination)
+                                 .Include(y => y.Status)
+                                 .FirstOrDefaultAsync();
+        }
 
-//        public async Task DeleteUserAsync(int id)
-//        {
-//            var user = new User { Id = id };
-//            _context.Attach(user);
-//            _context.Remove(user);
-//            await _context.SaveChangesAsync();
-//        }
+        public async Task<List<Appointment>> GetAppointmentsAsync()
+        {
+            return await _context.Appointments
+                                 .Include(x => x.Location)
+                                 .Include(z => z.Vaccination)
+                                 .Include(y => y.Status)
+                                 .ToListAsync();
+        }
 
-//        public async Task<User> GetUserAsync(int id)
-//        {
-//            return await _context.Users.Include(x => x.Appointments).Include(y => y.Login)
-//                                 .FirstOrDefaultAsync(user => user.Id == id);
-//        }
+        public async Task AddAppointmentAsync(Appointment appointment)
+        {
+            await _context.Appointments.AddAsync(appointment);
+            await _context.SaveChangesAsync();
+        }
 
-//        public async Task<List<User>> GetUsersAsync()
-//        {
-//            return await _context.Users.Include(x => x.Appointments).Include(y => y.Login).ToListAsync();
-//        }
+        public async Task DeleteAppointmentAsync(int id)
+        {
+            var appointment = new Appointment() { Id = id };
+            _context.Attach(appointment);
+            _context.Remove(appointment);
+            await _context.SaveChangesAsync();
+        }
 
-//        public async Task UpdateUserAsync(User user)
-//        {
-//            _context.Users.Update(user);
-//            await _context.SaveChangesAsync();
-//        }
-//    }
-//}
-
+        public async Task UpdateAppointmentAsync(Appointment appointment)
+        {
+            _context.Appointments.Update(appointment);
+            await _context.SaveChangesAsync();
+        }
+    }
+}

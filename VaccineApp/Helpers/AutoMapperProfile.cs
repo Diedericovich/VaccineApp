@@ -19,7 +19,7 @@
         {
             CreateMap<User, UserDto>().ForMember(
                 destinationMember => destinationMember.Email,
-                opt => opt.MapFrom(src => src.Login.EMail));
+                opt => opt.MapFrom(src => src.Login.Email));
 
             CreateMap<Vaccine, VaccineDto>()
                 .ForMember(dest => dest.CompanyName, opt => opt.MapFrom(src => src.BodyPart.Name))
