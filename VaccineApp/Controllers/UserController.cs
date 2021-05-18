@@ -2,9 +2,13 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
+
     using DTO;
+
     using Entities;
+
     using Microsoft.AspNetCore.Mvc;
+
     using Services;
 
     [ApiController, Route("api/[controller]")]
@@ -18,7 +22,7 @@
         }
 
         [HttpPost]
-        public async Task AddUserAsync(User user)
+        public async Task AddUserAsync(UserDto user)
         {
             await _service.AddUserAsync(user);
         }
@@ -43,10 +47,17 @@
         }
 
         [HttpPut]
-        public async Task<ActionResult> UpdateUserAsync(User user)
+        public async Task<ActionResult> UpdateUserAsync(UserDto user)
         {
             await _service.UpdateUserAsync(user);
             return Ok("Update OK");
+        }
+
+        [HttpPut("CreateAppointment/{id}")]
+        public async Task<ActionResult> AddAppointmentToUserAsync(UserDto user, int id)
+        {
+            await _service.AddAppointment(user, id);
+            return Ok("");
         }
     }
 }

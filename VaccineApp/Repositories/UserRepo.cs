@@ -1,54 +1,49 @@
 ﻿namespace VaccineApp.Repositories
 {
-    using System;
+    using Entities;
+    using Microsoft.EntityFrameworkCore;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Security.Cryptography.X509Certificates;
     using System.Threading.Tasks;
 
-    using Entities;
-
-    using Microsoft.AspNetCore.Server.IIS.Core;
-    using Microsoft.EntityFrameworkCore;
-
-    public class UserRepo : IUserRepo
+    public class UserRepo : GenericRepo<User>
     {
-        private DatabaseContext _context;
-
         public UserRepo(DatabaseContext context)
+            : base(context)
         {
-            _context = context;
         }
 
-        public async Task AddUserAsync(User user)
+        public override async Task<User> GetAsync(int id)
         {
-            await _context.Users.AddAsync(user);
-            await _context.SaveChangesAsync();
+            return await _context.Users
+                .Include(x => x.Appointments)
+                    .ThenInclude(x => x.Vaccination)
+                        .ThenInclude(x => x.BodyPart)
+                .Include(x => x.Appointments)
+                .ThenInclude(x => x.Status)
+                .Include(x => x.Appointments)
+                    .ThenInclude(x => x.Vaccination)
+                    .ThenInclude(x => x.Company)
+                .Include(x => x.Appointments)
+                    .ThenInclude(x => x.Location)
+                .Include(x => x.Login)
+                .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task DeleteUserAsync(int id)
+        public override async Task<List<User>> GetAllAsync()
         {
-            var user = new User { Id = id };
-            _context.Attach(user);
-            _context.Remove(user);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task<User> GetUserAsync(int id)
-        {
-            return await _context.Users.Include(x => x.Appointments).Include(y => y.Login)
-                                 .FirstOrDefaultAsync(user => user.Id == id);
-        }
-
-        public async Task<List<User>> GetUsersAsync()
-        {
-            return await _context.Users.Include(x => x.Appointments).Include(y => y.Login).ToListAsync();
-        }
-
-        public async Task UpdateUserAsync(User user)
-        {
-            _context.Users.Update(user);
-            await _context.SaveChangesAsync();
+            return await _context.Users
+                .Include(x => x.Appointments)
+                    .ThenInclude(x => x.Vaccination)
+                        .ThenInclude(x => x.BodyPart)
+                .Include(x => x.Appointments)
+                .ThenInclude(x => x.Status)
+                .Include(x => x.Appointments)
+                    .ThenInclude(x => x.Vaccination)
+                    .ThenInclude(x => x.Company)
+                .Include(x => x.Appointments)
+                    .ThenInclude(x => x.Location)
+                .Include(x => x.Login)
+                .ToListAsync();
         }
     }
 }

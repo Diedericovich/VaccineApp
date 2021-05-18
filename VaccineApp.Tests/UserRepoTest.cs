@@ -17,31 +17,33 @@ namespace VaccineApp.Tests
     [TestFixture]
     public class UserRepoTest
     {
+        private User fakeUser;
+
+        private Mock<IGenericRepo<User>> mokMock;
+        private Mock<IGenericRepo<Vaccine>> mokVaxx;
+
+        private IGenericRepo<User> testRepo;
+
         [SetUp]
         public void Setup()
         {
-            mokMock = new Mock<IUserRepo>();
+            mokMock = new Mock<IGenericRepo<User>>();
+            mokVaxx = new Mock<IGenericRepo<Vaccine>>();
 
             fakeUser = new User
-                       {
-                           Address = "TestAddress",
-                           Appointments = null,
-                           BirthDate = DateTime.Today,
-                           FirstName = "Pieter",
-                           Surname = "Pan"
-                       };
+            {
+                Address = "TestAddress",
+                Appointments = null,
+                BirthDate = DateTime.Today,
+                FirstName = "Pieter",
+                Surname = "Pan"
+            };
 
             for (var i = 0; i < 10; i++)
             {
                 userList.Add(fakeUser);
             }
         }
-
-        private User fakeUser;
-
-        private Mock<IUserRepo> mokMock;
-
-        private IUserRepo testRepo;
 
         private List<User> userList
         {
@@ -51,10 +53,10 @@ namespace VaccineApp.Tests
         [TestCase(1)]
         public async Task GetUserIsNotNull(int id)
         {
-            mokMock.Setup(repo => repo.GetUserAsync(1)).ReturnsAsync(fakeUser);
+            mokMock.Setup(repo => repo.GetAsync(1)).ReturnsAsync(fakeUser);
             var testconfig = new MapperConfiguration(x => x.AddProfile<AutoMapperProfile>());
 
-            var testService = new UserService(mokMock.Object, testconfig.CreateMapper());
+            var testService = new UserService(mokMock.Object, mokVaxx.Object, testconfig.CreateMapper());
 
             UserDto result = await testService.GetUserAsync(1);
             string name1 = result.FirstName;
@@ -66,10 +68,10 @@ namespace VaccineApp.Tests
         [Test]
         public async Task GetUsersReturnsUsers()
         {
-            mokMock.Setup(repo => repo.GetUsersAsync()).ReturnsAsync(userList);
+            mokMock.Setup(repo => repo.GetAllAsync()).ReturnsAsync(userList);
             var testconfig = new MapperConfiguration(x => x.AddProfile<AutoMapperProfile>());
 
-            var testService = new UserService(mokMock.Object, testconfig.CreateMapper());
+            var testService = new UserService(mokMock.Object, mokVaxx.Object, testconfig.CreateMapper());
 
             List<UserDto> result = await testService.GetUsersAsync();
             Assert.AreEqual(userList, result);
