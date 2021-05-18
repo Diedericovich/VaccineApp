@@ -38,7 +38,12 @@ namespace VaccineApp
         private static void BuildVaccinationCenters(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<VaccinationCenter>().HasData(
-                new VaccinationCenter { Id = 1, Name = "testCentre", Location = "location" }
+                new VaccinationCenter { Id = 1, Name = "testCentre", Location = "location" },
+                new VaccinationCenter { Id = 2, Name = "VaxxCenter", Location = "location" },
+                new VaccinationCenter { Id = 3, Name = "PokeCenter", Location = "location" },
+                new VaccinationCenter { Id = 4, Name = "Cent er", Location = "location" },
+                new VaccinationCenter { Id = 5, Name = "Help", Location = "location" },
+                new VaccinationCenter { Id = 6, Name = "IkKanGeenLeukeNaamMeerVinden", Location = "location" }
                 );
         }
 
