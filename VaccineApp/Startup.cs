@@ -4,7 +4,9 @@ namespace VaccineApp
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
     using Helpers;
+
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.HttpsPolicy;
@@ -15,7 +17,9 @@ namespace VaccineApp
     using Microsoft.Extensions.Hosting;
     using Microsoft.Extensions.Logging;
     using Microsoft.OpenApi.Models;
+
     using Repositories;
+
     using Services;
 
     public class Startup
@@ -50,7 +54,7 @@ namespace VaccineApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo {Title = "VaccineApp", Version = "v1"}));
+            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "VaccineApp", Version = "v1" }));
             services.AddDbContext<DatabaseContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("OnlineConnectionString")));
 
@@ -58,6 +62,8 @@ namespace VaccineApp
 
             services.AddScoped<IUserRepo, UserRepo>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IVaccineRepo, VaccineRepo>();
+            services.AddScoped<IVaccineService, VaccineService>();
         }
     }
 }
