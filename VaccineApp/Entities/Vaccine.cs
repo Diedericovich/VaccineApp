@@ -1,6 +1,7 @@
 ﻿namespace VaccineApp.Entities
 {
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public class Vaccine
     {
@@ -14,9 +15,11 @@
         [Required]
         public string Description { get; set; }
 
+        [ForeignKey("BodyPart")]
         public int BodyPartId { get; set; }
-        public BodyPart BodyPart { get; set; }
 
+        public BodyPart BodyPart { get; set; }
+        public int CompanyId { get; set; }
         public VaccineCompany Company { get; set; }
     }
 }

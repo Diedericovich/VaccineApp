@@ -23,7 +23,7 @@
             CreateMap<User, UserDto>().ReverseMap();
 
             CreateMap<Vaccine, VaccineDto>()
-                .ForMember(dest => dest.CompanyName, opt => opt.MapFrom(src => src.BodyPart.Name))
+                .ForMember(dest => dest.BodyPart, opt => opt.MapFrom(src => src.BodyPart.Name))
                 .ForMember(dest => dest.CompanyName, opt => opt.MapFrom(src => src.Company.Name));
         }
     }

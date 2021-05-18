@@ -11,11 +11,9 @@
         public int Id { get; set; }
 
         [StringLength(50)]
-        [Required]
         public string Name { get; set; }
 
         [StringLength(50)]
-        [Required]
         public string Country { get; set; }
 
         public bool IsEmaApproved { get; set; }

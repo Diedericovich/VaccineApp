@@ -29,7 +29,7 @@ namespace VaccineApp.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("LocationId")
+                    b.Property<int>("LocationId")
                         .HasColumnType("int");
 
                     b.Property<int>("StatusId")
@@ -38,7 +38,7 @@ namespace VaccineApp.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("VaccinationId")
+                    b.Property<int>("VaccinationId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -52,6 +52,17 @@ namespace VaccineApp.Migrations
                     b.HasIndex("VaccinationId");
 
                     b.ToTable("Appointments");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Date = new DateTime(2021, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LocationId = 1,
+                            StatusId = 1,
+                            UserId = 1,
+                            VaccinationId = 1
+                        });
                 });
 
             modelBuilder.Entity("VaccineApp.Entities.AppointmentStatus", b =>
@@ -164,6 +175,15 @@ namespace VaccineApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Logins");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "test",
+                            PasswordHash = new byte[] { 225, 180, 33, 211, 247, 127, 135, 104, 3, 50, 63, 89, 86, 74, 164, 246, 167, 78, 7, 29, 197, 111, 231, 116, 225, 31, 100, 97, 36, 111, 117, 134, 11, 143, 240, 158, 98, 65, 162, 168, 92, 191, 179, 230, 73, 173, 33, 147, 255, 179, 52, 102, 16, 154, 74, 231, 240, 87, 222, 231, 150, 57, 250, 18 },
+                            PasswordSalt = new byte[] { 225, 15, 107, 209, 27, 191, 227, 179, 135, 85, 226, 19, 237, 89, 0, 27, 60, 171, 87, 63, 56, 131, 1, 236, 174, 27, 161, 127, 203, 180, 9, 113, 166, 185, 192, 120, 153, 200, 168, 46, 12, 215, 6, 65, 254, 190, 117, 252, 135, 168, 35, 70, 11, 138, 212, 156, 75, 36, 46, 142, 206, 213, 145, 160, 7, 6, 215, 28, 210, 159, 34, 245, 219, 79, 153, 255, 84, 0, 137, 216, 185, 255, 243, 45, 147, 21, 159, 41, 185, 136, 39, 40, 210, 213, 126, 19, 96, 252, 197, 205, 36, 93, 17, 182, 121, 38, 91, 193, 185, 7, 176, 205, 27, 9, 238, 40, 0, 145, 194, 12, 77, 105, 149, 234, 169, 130, 6, 203 }
+                        });
                 });
 
             modelBuilder.Entity("VaccineApp.Entities.User", b =>
@@ -183,7 +203,7 @@ namespace VaccineApp.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<int?>("LoginId")
+                    b.Property<int>("LoginId")
                         .HasColumnType("int");
 
                     b.Property<string>("Surname")
@@ -195,6 +215,17 @@ namespace VaccineApp.Migrations
                     b.HasIndex("LoginId");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "test",
+                            BirthDate = new DateTime(1990, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "test",
+                            LoginId = 1,
+                            Surname = "test"
+                        });
                 });
 
             modelBuilder.Entity("VaccineApp.Entities.VaccinationCenter", b =>
@@ -217,6 +248,14 @@ namespace VaccineApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("VaccinationCenters");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Location = "location",
+                            Name = "testCentre"
+                        });
                 });
 
             modelBuilder.Entity("VaccineApp.Entities.Vaccine", b =>
@@ -229,7 +268,7 @@ namespace VaccineApp.Migrations
                     b.Property<int>("BodyPartId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CompanyId")
+                    b.Property<int>("CompanyId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -255,6 +294,7 @@ namespace VaccineApp.Migrations
                         {
                             Id = 1,
                             BodyPartId = 3,
+                            CompanyId = 1,
                             Description = "desctestest",
                             Name = "TestVaxx"
                         });
@@ -268,7 +308,6 @@ namespace VaccineApp.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Country")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -276,20 +315,37 @@ namespace VaccineApp.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
                     b.ToTable("VaccineCompanies");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Country = "Russia",
+                            IsEmaApproved = false,
+                            Name = "BigEvilCo"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Country = "test",
+                            IsEmaApproved = false,
+                            Name = "test"
+                        });
                 });
 
             modelBuilder.Entity("VaccineApp.Entities.Appointment", b =>
                 {
                     b.HasOne("VaccineApp.Entities.VaccinationCenter", "Location")
                         .WithMany()
-                        .HasForeignKey("LocationId");
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("VaccineApp.Entities.AppointmentStatus", "Status")
                         .WithMany()
@@ -305,7 +361,9 @@ namespace VaccineApp.Migrations
 
                     b.HasOne("VaccineApp.Entities.Vaccine", "Vaccination")
                         .WithMany()
-                        .HasForeignKey("VaccinationId");
+                        .HasForeignKey("VaccinationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Location");
 
@@ -318,7 +376,9 @@ namespace VaccineApp.Migrations
                 {
                     b.HasOne("VaccineApp.Entities.Login", "Login")
                         .WithMany()
-                        .HasForeignKey("LoginId");
+                        .HasForeignKey("LoginId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Login");
                 });
@@ -333,7 +393,9 @@ namespace VaccineApp.Migrations
 
                     b.HasOne("VaccineApp.Entities.VaccineCompany", "Company")
                         .WithMany()
-                        .HasForeignKey("CompanyId");
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("BodyPart");
 

@@ -7,7 +7,7 @@
     public class User
     {
         public int Id { get; set; }
-
+        public int LoginId { get; set; }
         public Login Login { get; set; }
 
         [StringLength(30)]

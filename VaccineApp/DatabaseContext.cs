@@ -16,14 +16,13 @@
         public DbSet<Appointment> Appointments { get; set; }
 
         public DbSet<AppointmentStatus> AppointmentStatuses { get; set; }
+        public DbSet<VaccineCompany> VaccineCompanies { get; set; }
 
         public DbSet<BodyPart> BodyParts { get; set; }
 
         public DbSet<VaccinationCenter> VaccinationCenters { get; set; }
 
         public DbSet<Vaccine> Vaccines { get; set; }
-
-        public DbSet<VaccineCompany> VaccineCompanies { get; set; }
 
         public DatabaseContext(DbContextOptions options) : base(options)
         {
