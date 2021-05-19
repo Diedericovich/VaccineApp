@@ -10,7 +10,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
   //TODO: link to API = need to be filled in!!
-  private userUrl = 'https://localhost:44334/api/users';
+  private userUrl = 'https://localhost:44317/api/User';
   httpOptions = {
     headers: new HttpHeaders({'Content-Type':'application/json'})
   };

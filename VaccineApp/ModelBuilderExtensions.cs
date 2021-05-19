@@ -24,6 +24,8 @@ namespace VaccineApp
         {
             modelBuilder.Entity<Appointment>().HasData(
                 new Appointment { Id = 1, Date = new DateTime(2021, 07, 10), StatusId = 1, UserId = 1, LocationId = 1, VaccinationId = 1 }
+                //data aanvullen
+
                 );
         }
 
@@ -39,6 +41,8 @@ namespace VaccineApp
         {
             modelBuilder.Entity<VaccinationCenter>().HasData(
                 new VaccinationCenter { Id = 1, Name = "testCentre", Location = "location" }
+                //data aanvullen
+
                 );
         }
 
@@ -52,7 +56,9 @@ namespace VaccineApp
         private static void BuildVaccines(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Vaccine>().HasData(
-                new Vaccine { Id = 1, Name = "TestVaxx", BodyPartId = 3, Description = "desctestest", CompanyId = 1 }
+                new Vaccine { Id = 1, Name = "TestVaxx", BodyPartId = 3, Description = "desctestest", CompanyId = 1 },
+                new Vaccine { Id= 2, Name = "TryalVaxx", BodyPartId = 5, Description = "whatever", CompanyId = 2}
+                //data aanvullen
                 );
         }
 
@@ -61,6 +67,8 @@ namespace VaccineApp
             modelBuilder.Entity<VaccineCompany>().HasData(
                 new VaccineCompany { Id = 1, Name = "BigEvilCo", IsEmaApproved = false, Country = "Russia" },
                 new VaccineCompany { Id = 2, Name = "test", Country = "test" }
+                //data aanvullen
+
                 );
         }
 

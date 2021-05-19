@@ -1,21 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { VACCINES  } from '../mock-vaccineshead';
+import { VACCINES } from '../mock-vaccines';
 import { Vaccine } from '../vaccine';
+import { VaccineService } from '../vaccine.service';
 @Component({
   selector: 'app-head-vaccins',
   templateUrl: './head-vaccins.component.html',
   styleUrls: ['./head-vaccins.component.css']
 })
 export class HeadVaccinsComponent implements OnInit {
-vaccines = VACCINES;
+vaccines: Vaccine [] = [];
 selectedVaccine?: Vaccine;
 
 onSelect(vaccine: Vaccine): void {
   this.selectedVaccine = vaccine;
 }
-  constructor() { }
+constructor(private vaccineService: VaccineService ) { }
 
-  ngOnInit(): void {
-  }
+ngOnInit(): void {
+  this.getHeadVaccines();
+}
+
+getHeadVaccines(): void {
+// ....
+};
 
 }

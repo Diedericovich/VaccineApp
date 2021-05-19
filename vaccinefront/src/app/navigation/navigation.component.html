@@ -40,21 +40,22 @@
             </ul>
 
 
-            <form #loginForm="ngForm" 
+            <form #loginForm="ngForm"
+                (ngSubmit)="login()" 
                   class="d-flex right"
 
                   autocomplete="off">
 
                 <input  name="username"
                         class="form-control me-2" 
-             
+                        [(ngModel)]="model.email"
                         type="text" 
                         placeholder="UserName" />
 
 
                 <input  name="password"
                         class="form-control me-2" 
-              
+                        [(ngModel)]="model.password"
                         type="password" 
                         placeholder="Password" />
 

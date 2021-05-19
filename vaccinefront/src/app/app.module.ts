@@ -14,6 +14,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { AllVaccinsComponent } from './all-vaccins/all-vaccins.component';
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AllVaccinsComponent } from './all-vaccins/all-vaccins.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
