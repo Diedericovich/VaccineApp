@@ -1,1 +1,34 @@
-<p>register works!</p>
+<div class="d-flex">
+    <div class="card text-left bg-light">
+        <div>
+            <h1>User Details</h1>
+        </div>
+        <div *ngIf="register" class="card-body">
+            <p class="card-text">
+            <label> Email: </label>
+            <input id="user-firstname" [(ngModel)]="register.email" placeholder="name">
+    </p>
+    <p class="card-text">
+        <label> Name: </label>
+            <input id="user-firstname" [(ngModel)]="register.firstName" placeholder="name">
+        </p>
+            <p class="card-text">
+            <label> Surname: </label>
+            <input id="user-surname" [(ngModel)]="register.surName" placeholder="name">
+    </p>    
+    <p class="card-text">
+            <label>Address: </label>
+            <input id="user-address" [(ngModel)]="register.address" placeholder="name">
+            </p>
+            <p class="card-text">
+            <label>Birthdate: </label>
+         
+            <input id="user-birthdate" [(ngModel)]="register.birthDate" placeholder="name">
+        </p>
+        <div class="text-right">
+    
+            <a class="btn btn-outline-primary" (click)="Register()">Register</a>
+        </div>
+        </div>
+    </div>
+    </div>

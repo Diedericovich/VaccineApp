@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { VACCINES } from '../mock-vaccines-rightarm';
+import { VaccineService } from '../services/vaccine.service';
 import { Vaccine } from '../vaccine';
 @Component({
   selector: 'app-right-arm-vaccins',
@@ -7,15 +7,16 @@ import { Vaccine } from '../vaccine';
   styleUrls: ['./right-arm-vaccins.component.css']
 })
 export class RightArmVaccinsComponent implements OnInit {
-vaccines = VACCINES;
-selectedVaccine?: Vaccine;
+  vaccines: Vaccine[] | undefined;
+  selectedVaccine?: Vaccine;
   
 onSelect(vaccine: Vaccine): void {
   this.selectedVaccine = vaccine;
 }
-  constructor() { }
+  constructor(private vaccineService : VaccineService) { }
 
   ngOnInit(): void {
+    this.vaccineService.getVaccinesByBodyPart("Right Arm").subscribe(x => {this.vaccines=x})
   }
 
 }

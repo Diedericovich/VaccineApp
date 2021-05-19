@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Vaccine } from '../vaccine';
-import { VaccineService } from '../vaccine.service';
-import { VACCINES } from '../mock-vaccines';
+import { VaccineService } from '../services/vaccine.service';
 @Component({
   selector: 'app-all-vaccins',
   templateUrl: './all-vaccins.component.html',

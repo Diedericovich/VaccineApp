@@ -10,8 +10,10 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { AllVaccinsComponent } from './all-vaccins/all-vaccins.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
   { path: '', redirectTo: 'user-details', pathMatch: 'full' },
+  { path: 'register', component: RegisterComponent},
   { path: 'appointments', component: AppointmentsComponent},
   { path: 'edit-profile', component: EditProfileComponent},
   { path: 'user-details', component: UserDetailsComponent},

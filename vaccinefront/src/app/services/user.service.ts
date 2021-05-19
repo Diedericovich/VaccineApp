@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from './user';
+import { User } from '../user';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,11 @@ export class UserService {
 
   getUser(id: number): Observable<User> {
     const url = `${this.userUrl}/${id}`;
+    const user = this.http.get<User>(url);
+    return user;
+  }
+  getUserByEmail(email: string): Observable<User> {
+    const url = `${this.userUrl}/${email}`;
     const user = this.http.get<User>(url);
     return user;
   }

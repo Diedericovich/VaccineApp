@@ -2,7 +2,6 @@ import { Component, OnInit} from '@angular/core';
 import { User } from '../user';
 import { Appointment } from '../appointment';
 import { Router } from '@angular/router';
-import { DatastoreService } from '../datastore-service.service';
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -14,10 +13,10 @@ export class EditProfileComponent implements OnInit {
     this.newUser();
     this.router.navigateByUrl('user-details'); 
   }
-  constructor(private router: Router, private data: DatastoreService) { }
+  constructor(private router: Router) { }
   
   ngOnInit(): void {
-    this.data.currentUser.subscribe(user => this.user = user )
+    // this.data.currentUser?.subscribe(user => this.user = user )
   }
 newUser() {
  // this.data.changeUser();
