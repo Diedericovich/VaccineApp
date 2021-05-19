@@ -15,9 +15,9 @@
         private IMapper _mapper;
 
         private IGenericRepo<User> _userRepo;
-        private IGenericRepo<Vaccine> _vaccineRepo;
+        private VaccineRepo _vaccineRepo;
 
-        public UserService(IGenericRepo<User> userRepo, IGenericRepo<Vaccine> vaccineRepo, IMapper mapper)
+        public UserService(IGenericRepo<User> userRepo, VaccineRepo vaccineRepo, IMapper mapper)
         {
             _userRepo = userRepo;
             _vaccineRepo = vaccineRepo;

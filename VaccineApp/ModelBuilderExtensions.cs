@@ -60,8 +60,14 @@ namespace VaccineApp
         {
             modelBuilder.Entity<Vaccine>().HasData(
                 new Vaccine { Id = 1, Name = "TestVaxx", BodyPartId = 3, Description = "desctestest", CompanyId = 1 },
-                new Vaccine { Id= 2, Name = "TryalVaxx", BodyPartId = 5, Description = "whatever", CompanyId = 2}
-                //data aanvullen
+                new Vaccine { Id = 2, Name = "EyeVax", BodyPartId = 1, Description = "desctestest", CompanyId = 1 },
+                new Vaccine { Id = 3, Name = "NoseVax", BodyPartId = 2, Description = "desctestest", CompanyId = 1 },
+                new Vaccine { Id = 4, Name = "LeftArmVax", BodyPartId = 5, Description = "desctestest", CompanyId = 1 },
+                new Vaccine { Id = 5, Name = "LeftArmVax2", BodyPartId = 5, Description = "desctestest", CompanyId = 1 },
+                new Vaccine { Id = 6, Name = "TorsoVax", BodyPartId = 7, Description = "desctestest", CompanyId = 1 },
+                new Vaccine { Id = 7, Name = "LegsVax", BodyPartId = 8, Description = "desctestest", CompanyId = 1 },
+                new Vaccine { Id = 8, Name = "RightArmVax", BodyPartId = 6, Description = "desctestest", CompanyId = 1 },
+                new Vaccine { Id = 9, Name = "RightArmVax2", BodyPartId = 6, Description = "desctestest", CompanyId = 1 }
                 );
         }
 

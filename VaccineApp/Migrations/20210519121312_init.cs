@@ -184,25 +184,33 @@ namespace VaccineApp.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Eyes" },
-                    { 2, "Nose" },
-                    { 3, "Mouth" },
-                    { 4, "Ears" },
-                    { 5, "Left Arm" },
+                    { 8, "Legs" },
                     { 6, "Right Arm" },
+                    { 5, "Left Arm" },
                     { 7, "Torso" },
-                    { 8, "Legs" }
+                    { 3, "Mouth" },
+                    { 2, "Nose" },
+                    { 1, "Eyes" },
+                    { 4, "Ears" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Logins",
                 columns: new[] { "Id", "Email", "PasswordHash", "PasswordSalt" },
-                values: new object[] { 1, "test", new byte[] { 225, 180, 33, 211, 247, 127, 135, 104, 3, 50, 63, 89, 86, 74, 164, 246, 167, 78, 7, 29, 197, 111, 231, 116, 225, 31, 100, 97, 36, 111, 117, 134, 11, 143, 240, 158, 98, 65, 162, 168, 92, 191, 179, 230, 73, 173, 33, 147, 255, 179, 52, 102, 16, 154, 74, 231, 240, 87, 222, 231, 150, 57, 250, 18 }, new byte[] { 225, 15, 107, 209, 27, 191, 227, 179, 135, 85, 226, 19, 237, 89, 0, 27, 60, 171, 87, 63, 56, 131, 1, 236, 174, 27, 161, 127, 203, 180, 9, 113, 166, 185, 192, 120, 153, 200, 168, 46, 12, 215, 6, 65, 254, 190, 117, 252, 135, 168, 35, 70, 11, 138, 212, 156, 75, 36, 46, 142, 206, 213, 145, 160, 7, 6, 215, 28, 210, 159, 34, 245, 219, 79, 153, 255, 84, 0, 137, 216, 185, 255, 243, 45, 147, 21, 159, 41, 185, 136, 39, 40, 210, 213, 126, 19, 96, 252, 197, 205, 36, 93, 17, 182, 121, 38, 91, 193, 185, 7, 176, 205, 27, 9, 238, 40, 0, 145, 194, 12, 77, 105, 149, 234, 169, 130, 6, 203 } });
+                values: new object[] { 1, "test", new byte[] { 213, 22, 126, 29, 188, 65, 215, 80, 90, 18, 66, 248, 39, 16, 176, 146, 253, 12, 58, 85, 85, 63, 253, 253, 106, 148, 32, 194, 110, 140, 25, 25, 25, 74, 145, 96, 212, 135, 216, 212, 55, 197, 234, 223, 195, 188, 211, 89, 9, 100, 33, 35, 221, 146, 89, 92, 249, 255, 88, 122, 233, 165, 166, 124 }, new byte[] { 28, 183, 40, 177, 249, 199, 52, 38, 134, 69, 58, 49, 157, 22, 2, 149, 90, 18, 71, 139, 112, 142, 64, 164, 191, 218, 227, 58, 193, 14, 161, 90, 109, 38, 170, 145, 66, 213, 130, 44, 84, 84, 237, 166, 116, 169, 0, 216, 71, 27, 209, 228, 121, 247, 242, 213, 58, 178, 240, 82, 130, 131, 190, 18, 160, 90, 131, 236, 218, 114, 101, 23, 161, 32, 99, 60, 34, 190, 109, 165, 40, 189, 214, 194, 129, 138, 0, 168, 239, 7, 210, 214, 111, 167, 43, 33, 25, 245, 49, 131, 0, 236, 33, 206, 158, 37, 46, 47, 30, 59, 102, 18, 87, 200, 146, 42, 166, 68, 151, 198, 28, 51, 165, 72, 190, 88, 35, 147 } });
 
             migrationBuilder.InsertData(
                 table: "VaccinationCenters",
                 columns: new[] { "Id", "Location", "Name" },
-                values: new object[] { 1, "location", "testCentre" });
+                values: new object[,]
+                {
+                    { 1, "location", "testCentre" },
+                    { 2, "location", "VaxxCenter" },
+                    { 3, "location", "PokeCenter" },
+                    { 4, "location", "Cent er" },
+                    { 5, "location", "Help" },
+                    { 6, "location", "IkKanGeenLeukeNaamMeerVinden" }
+                });
 
             migrationBuilder.InsertData(
                 table: "VaccineCompanies",
@@ -221,7 +229,18 @@ namespace VaccineApp.Migrations
             migrationBuilder.InsertData(
                 table: "Vaccines",
                 columns: new[] { "Id", "BodyPartId", "CompanyId", "Description", "Name" },
-                values: new object[] { 1, 3, 1, "desctestest", "TestVaxx" });
+                values: new object[,]
+                {
+                    { 1, 3, 1, "desctestest", "TestVaxx" },
+                    { 2, 1, 1, "desctestest", "EyeVax" },
+                    { 3, 2, 1, "desctestest", "NoseVax" },
+                    { 4, 5, 1, "desctestest", "LeftArmVax" },
+                    { 5, 5, 1, "desctestest", "LeftArmVax2" },
+                    { 6, 7, 1, "desctestest", "TorsoVax" },
+                    { 7, 8, 1, "desctestest", "LegsVax" },
+                    { 8, 6, 1, "desctestest", "RightArmVax" },
+                    { 9, 6, 1, "desctestest", "RightArmVax2" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Appointments",
