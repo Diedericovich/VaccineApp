@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { Appointment } from '../appointment';
-import { DatastoreService } from '../datastore-service.service';
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
-user?: User ;
+user?: User  ;
 // = {
 //   id:1,
 //   email: "ward@impesoft.com",
@@ -21,10 +20,11 @@ user?: User ;
 save() :void {
 
 }
-  constructor(private data: DatastoreService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.data.currentUser.subscribe(user => this.user = user )
+    this.user = JSON.parse(localStorage.getItem('fullUser')||'{}');
+
   }
 
 }
