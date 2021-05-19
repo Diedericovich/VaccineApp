@@ -40,6 +40,12 @@
             return await _service.GetUserAsync(id);
         }
 
+        [HttpGet("{email}")]
+        public async Task<UserDto> GetUserByEmailAsync(string email)
+        {
+            return await _service.GetUserByEmailAsync(email);
+        }
+
         [HttpGet]
         public async Task<IEnumerable<UserDto>> GetUsersAsync()
         {
