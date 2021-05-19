@@ -40,12 +40,19 @@ namespace VaccineApp
         private static void BuildVaccinationCenters(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<VaccinationCenter>().HasData(
-                new VaccinationCenter { Id = 1, Name = "testCentre", Location = "location" },
-                new VaccinationCenter { Id = 2, Name = "VaxxCenter", Location = "location" },
-                new VaccinationCenter { Id = 3, Name = "PokeCenter", Location = "location" },
-                new VaccinationCenter { Id = 4, Name = "Cent er", Location = "location" },
-                new VaccinationCenter { Id = 5, Name = "Help", Location = "location" },
-                new VaccinationCenter { Id = 6, Name = "IkKanGeenLeukeNaamMeerVinden", Location = "location" }
+                new VaccinationCenter { Id = 1, Name = "Basilik of Koekelmountain", Location = "Brussels" },
+                new VaccinationCenter { Id = 2, Name = "Dukestones", Location = "Ghent" },
+                new VaccinationCenter { Id = 3, Name = "Sportpalace", Location = "Antwerp" },
+                new VaccinationCenter { Id = 4, Name = "Chocostory Center", Location = "Brughes" },
+                new VaccinationCenter { Id = 5, Name = "Casino Center", Location = "Oostende" },
+                new VaccinationCenter { Id = 6, Name = "IkKanGeenLeukeNaamMeerVinden", Location = "Durbuy" },
+                new VaccinationCenter { Id = 5, Name = "Help", Location = "Namen" },
+                new VaccinationCenter { Id = 5, Name = "Help", Location = "Luik" },
+                new VaccinationCenter { Id = 5, Name = "Help", Location = "Knokke-Heist" },
+                new VaccinationCenter { Id = 5, Name = "Help", Location = "Mariakerke" },
+                new VaccinationCenter { Id = 5, Name = "Help", Location = "Aalter" },
+                new VaccinationCenter { Id = 5, Name = "Help", Location = "Grimbergen" },
+                new VaccinationCenter { Id = 5, Name = "Help", Location = "Mechelen" }
                 );
         }
 
