@@ -10,7 +10,7 @@ export class VaccineService {
 
   constructor(private http: HttpClient) { }
   //TODO: link to API = need to be filled in!!
-  private vaccineUrl = 'https://localhost:44334/api/vaccines';
+  private vaccineUrl = 'https://localhost:44317/api/Vaccine/';
   httpOptions = {
     headers: new HttpHeaders({'Content-Type':'application/json'})
   };
@@ -21,8 +21,8 @@ export class VaccineService {
     return vaccine;
   }
 
-  getVaccins(): Observable<Vaccine[]>{
-    const vaccines = this.http.get<Vaccine[]>(this.vaccineUrl);
+  getVaccines(): Observable<Vaccine[]>{
+    const vaccines = this.http.get<Vaccine[]>(this.vaccineUrl, this.httpOptions);
     return vaccines;
   }
 
