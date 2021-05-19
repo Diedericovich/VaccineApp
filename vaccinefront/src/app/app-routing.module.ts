@@ -9,9 +9,12 @@ import { TorsoVaccinsComponent } from './torso-vaccins/torso-vaccins.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { AllVaccinsComponent } from './all-vaccins/all-vaccins.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'user-details', pathMatch: 'full' },
   { path: 'appointments', component: AppointmentsComponent},
+  { path: 'edit-profile', component: EditProfileComponent},
+  { path: 'user-details', component: UserDetailsComponent},
   { path: 'body', component: BodyComponent, children: [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'head', component: HeadVaccinsComponent },

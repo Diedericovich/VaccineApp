@@ -14,6 +14,9 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { AllVaccinsComponent } from './all-vaccins/all-vaccins.component';
+import { RegisterComponent } from './register/register.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,13 +32,16 @@ import { AllVaccinsComponent } from './all-vaccins/all-vaccins.component';
     NavigationComponent,
     AppointmentsComponent,
     AllVaccinsComponent,
+    RegisterComponent,
+    EditProfileComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
