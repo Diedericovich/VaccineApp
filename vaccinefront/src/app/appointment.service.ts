@@ -10,7 +10,7 @@ export class AppointmentService {
 
   constructor(private http: HttpClient) { }
   //TODO: #54 link to API = need to be filled in!!
-  private appointmentUrl = 'https://localhost:44317/api/api/Appointment';
+  private appointmentUrl = 'https://localhost:44317/api/Appointment';
   httpOptions = {
     headers: new HttpHeaders({'Content-Type':'application/json'})
   };
