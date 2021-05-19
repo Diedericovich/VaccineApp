@@ -15,8 +15,11 @@ private localUser = new BehaviorSubject<User>({
   birthDate : new Date(1974, 4,19,4,50),
   appointments: [] as Appointment[]
 });
-currentUser = this.localUser?.asObservable();
-  constructor() { }
+currentUser = this.localUser.asObservable();
+
+constructor() { 
+  
+  }
 
   changeUser(user: User) {
     this.localUser.next(user)
