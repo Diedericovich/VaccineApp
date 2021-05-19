@@ -15,7 +15,7 @@
 
         public VaccinationCenter Location { get; set; }
 
-        public Vaccine Vaccination { get; set; }
+        public VaccineDto Vaccination { get; set; }
 
         public AppointmentStatus Status { get; set; }
     }

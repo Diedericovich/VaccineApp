@@ -55,8 +55,8 @@
 
         public async Task AddAppointment(UserDto user, int id)
         {
-            Vaccine temp = await _vaccineRepo.GetAsync(id);
-            user.Appointments.Add(new Appointment
+            VaccineDto temp = _mapper.Map<VaccineDto>(await _vaccineRepo.GetAsync(id));
+            user.Appointments.Add(new AppointmentDto
             {
                 Vaccination = temp,
                 Date = DateTime.Now.AddDays(7),

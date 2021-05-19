@@ -12,6 +12,6 @@
         public string Surname { get; set; }
         public string Address { get; set; }
         public DateTime BirthDate { get; set; }
-        public List<Appointment> Appointments { get; set; }
+        public List<AppointmentDto> Appointments { get; set; }
     }
 }
