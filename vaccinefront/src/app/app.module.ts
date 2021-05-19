@@ -17,33 +17,35 @@ import { AllVaccinsComponent } from './all-vaccins/all-vaccins.component';
 import { RegisterComponent } from './register/register.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    BodyComponent,
-    HeadVaccinsComponent,
-    TorsoVaccinsComponent,
-    LegsVaccinsComponent,
-    LeftArmVaccinsComponent,
-    RightArmVaccinsComponent,
-    VaccineDetailComponent,
-    UserDetailsComponent,
-    NavigationComponent,
-    AppointmentsComponent,
-    AllVaccinsComponent,
-    RegisterComponent,
-    EditProfileComponent,
+    declarations: [
+        AppComponent,
+        BodyComponent,
+        HeadVaccinsComponent,
+        TorsoVaccinsComponent,
+        LegsVaccinsComponent,
+        LeftArmVaccinsComponent,
+        RightArmVaccinsComponent,
+        VaccineDetailComponent,
+        UserDetailsComponent,
+        NavigationComponent,
+        AppointmentsComponent,
+        AllVaccinsComponent,
+        RegisterComponent,
+        EditProfileComponent,
 
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    NoopAnimationsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        AppRoutingModule,
+        NoopAnimationsModule,
+        HttpClientModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

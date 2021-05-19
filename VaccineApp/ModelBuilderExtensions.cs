@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Security.Cryptography;
 using System.Text;
@@ -24,6 +24,8 @@ namespace VaccineApp
         {
             modelBuilder.Entity<Appointment>().HasData(
                 new Appointment { Id = 1, Date = new DateTime(2021, 07, 10), StatusId = 1, UserId = 1, LocationId = 1, VaccinationId = 1 }
+                //data aanvullen
+
                 );
         }
 
@@ -38,7 +40,12 @@ namespace VaccineApp
         private static void BuildVaccinationCenters(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<VaccinationCenter>().HasData(
-                new VaccinationCenter { Id = 1, Name = "testCentre", Location = "location" }
+                new VaccinationCenter { Id = 1, Name = "testCentre", Location = "location" },
+                new VaccinationCenter { Id = 2, Name = "VaxxCenter", Location = "location" },
+                new VaccinationCenter { Id = 3, Name = "PokeCenter", Location = "location" },
+                new VaccinationCenter { Id = 4, Name = "Cent er", Location = "location" },
+                new VaccinationCenter { Id = 5, Name = "Help", Location = "location" },
+                new VaccinationCenter { Id = 6, Name = "IkKanGeenLeukeNaamMeerVinden", Location = "location" }
                 );
         }
 
@@ -52,7 +59,15 @@ namespace VaccineApp
         private static void BuildVaccines(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Vaccine>().HasData(
-                new Vaccine { Id = 1, Name = "TestVaxx", BodyPartId = 3, Description = "desctestest", CompanyId = 1 }
+                new Vaccine { Id = 1, Name = "TestVaxx", BodyPartId = 3, Description = "desctestest", CompanyId = 1 },
+                new Vaccine { Id = 2, Name = "EyeVax", BodyPartId = 1, Description = "desctestest", CompanyId = 1 },
+                new Vaccine { Id = 3, Name = "NoseVax", BodyPartId = 2, Description = "desctestest", CompanyId = 1 },
+                new Vaccine { Id = 4, Name = "LeftArmVax", BodyPartId = 5, Description = "desctestest", CompanyId = 1 },
+                new Vaccine { Id = 5, Name = "LeftArmVax2", BodyPartId = 5, Description = "desctestest", CompanyId = 1 },
+                new Vaccine { Id = 6, Name = "TorsoVax", BodyPartId = 7, Description = "desctestest", CompanyId = 1 },
+                new Vaccine { Id = 7, Name = "LegsVax", BodyPartId = 8, Description = "desctestest", CompanyId = 1 },
+                new Vaccine { Id = 8, Name = "RightArmVax", BodyPartId = 6, Description = "desctestest", CompanyId = 1 },
+                new Vaccine { Id = 9, Name = "RightArmVax2", BodyPartId = 6, Description = "desctestest", CompanyId = 1 }
                 );
         }
 
@@ -61,6 +76,8 @@ namespace VaccineApp
             modelBuilder.Entity<VaccineCompany>().HasData(
                 new VaccineCompany { Id = 1, Name = "BigEvilCo", IsEmaApproved = false, Country = "Russia" },
                 new VaccineCompany { Id = 2, Name = "test", Country = "test" }
+                //data aanvullen
+
                 );
         }
 

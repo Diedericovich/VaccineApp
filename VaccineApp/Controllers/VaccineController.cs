@@ -29,14 +29,14 @@
             await _service.AddVaccineAsync(vaccine);
         }
 
-        [HttpDelete("{id:int})")]
+        [HttpDelete("{id})")]
         public async Task<ActionResult> DeleteVaccineAsync(int id)
         {
             await _service.DeleteVaccineAsync(id);
             return Ok("Delete OK");
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("{id}")]
         public async Task<VaccineDto> GetVaccineAsync(int id)
         {
             return await _service.GetVaccineAsync(id);
@@ -46,6 +46,12 @@
         public async Task<IEnumerable<VaccineDto>> GetVaccinesAsync()
         {
             return await _service.GetVaccinesAsync();
+        }
+
+        [HttpGet("ForBodyPart/{bodypart}")]
+        public async Task<IEnumerable<VaccineDto>> GetVaccinesByPartAsync(string bodypart)
+        {
+            return await _service.GetVaccinesAsyncByPartAsync(bodypart);
         }
 
         [HttpPut]

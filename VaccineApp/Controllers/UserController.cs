@@ -52,12 +52,5 @@
             await _service.UpdateUserAsync(user);
             return Ok("Update OK");
         }
-
-        [HttpPut("CreateAppointment/{id}")]
-        public async Task<ActionResult> AddAppointmentToUserAsync(UserDto user, int id)
-        {
-            await _service.AddAppointment(user, id);
-            return Ok("");
-        }
     }
 }

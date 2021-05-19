@@ -15,12 +15,10 @@
         private IMapper _mapper;
 
         private IGenericRepo<User> _userRepo;
-        private IGenericRepo<Vaccine> _vaccineRepo;
 
-        public UserService(IGenericRepo<User> userRepo, IGenericRepo<Vaccine> vaccineRepo, IMapper mapper)
+        public UserService(IGenericRepo<User> userRepo, IMapper mapper)
         {
             _userRepo = userRepo;
-            _vaccineRepo = vaccineRepo;
             _mapper = mapper;
         }
 
@@ -51,17 +49,6 @@
             User user = await _userRepo.GetAsync(id);
             UserDto result = _mapper.Map<UserDto>(user);
             return result;
-        }
-
-        public async Task AddAppointment(UserDto user, int id)
-        {
-            Vaccine temp = await _vaccineRepo.GetAsync(id);
-            user.Appointments.Add(new Appointment
-            {
-                Vaccination = temp,
-                Date = DateTime.Now.AddDays(7),
-            });
-            await UpdateUserAsync(user);
         }
     }
 }

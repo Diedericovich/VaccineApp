@@ -18,9 +18,9 @@
     {
         private IMapper _mapper;
 
-        private IGenericRepo<Vaccine> _vaccineRepo;
+        private IVaccineRepo _vaccineRepo;
 
-        public VaccineService(IGenericRepo<Vaccine> vaccineRepo, IMapper mapper)
+        public VaccineService(IVaccineRepo vaccineRepo, IMapper mapper)
         {
             _vaccineRepo = vaccineRepo;
             _mapper = mapper;
@@ -53,6 +53,20 @@
             Vaccine vaccine = await _vaccineRepo.GetAsync(id);
             VaccineDto result = _mapper.Map<VaccineDto>(vaccine);
             return result;
+        }
+
+        public async Task<IEnumerable<VaccineDto>> GetVaccinesAsyncByPartAsync(string bodypart)
+        {
+            if (bodypart == "Head")
+            {
+                List<VaccineDto> resultList = _mapper.Map<List<VaccineDto>>(await _vaccineRepo.GetAllByPartAsync("Head"));
+                return resultList;
+            }
+            else
+            {
+                List<VaccineDto> resultList = _mapper.Map<List<VaccineDto>>(await _vaccineRepo.GetAllByPartAsync(bodypart));
+                return resultList;
+            }
         }
     }
 }

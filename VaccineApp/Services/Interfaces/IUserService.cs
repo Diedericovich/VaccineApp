@@ -6,7 +6,6 @@ namespace VaccineApp.Services
 {
     public interface IUserService
     {
-        Task AddAppointment(UserDto user, int id);
         Task AddUserAsync(UserDto user);
         Task DeleteUserAsync(int id);
         Task<UserDto> GetUserAsync(int id);

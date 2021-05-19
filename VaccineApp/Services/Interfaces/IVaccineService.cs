@@ -12,5 +12,6 @@
         Task<List<VaccineDto>> GetVaccinesAsync();
         Task UpdateVaccineAsync(Vaccine vaccine);
         Task<VaccineDto> GetVaccineAsync(int id);
+        Task<IEnumerable<VaccineDto>> GetVaccinesAsyncByPartAsync(string bodypart);
     }
 }
