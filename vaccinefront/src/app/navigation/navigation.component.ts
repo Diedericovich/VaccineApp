@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountService } from '../account.service';
+import { AccountService } from '../services/account.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-navigation',
@@ -7,11 +8,12 @@ import { AccountService } from '../account.service';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
+
   title = 'Vaxx.id';
   model: any = {};
   loggedIn: boolean = false;
 
-  constructor(private accountService: AccountService) { }
+  constructor(private accountService: AccountService, private userService: UserService) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +27,8 @@ login(): void {
   error => { console.log(error);
   }
   );
+  //this.userService.getUserByEmail(JSON.parse(localStorage.getItem('user')||'{}').email)
+  //console.log(this.dataStore.changeUser);
 }
 
 }

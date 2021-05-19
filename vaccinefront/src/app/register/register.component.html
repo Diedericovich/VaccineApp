@@ -3,30 +3,31 @@
         <div>
             <h1>User Details</h1>
         </div>
-        <div *ngIf="user" class="card-body">
+        <div *ngIf="register" class="card-body">
             <p class="card-text">
             <label> Email: </label>
-          {{user.email}}
+            <input id="user-firstname" [(ngModel)]="register.email" placeholder="name">
     </p>
     <p class="card-text">
         <label> Name: </label>
-            {{user.firstName}}
+            <input id="user-firstname" [(ngModel)]="register.firstName" placeholder="name">
         </p>
             <p class="card-text">
             <label> Surname: </label>
-            {{user.surname}}
+            <input id="user-surname" [(ngModel)]="register.surName" placeholder="name">
     </p>    
     <p class="card-text">
             <label>Address: </label>
-            {{user.address}}
+            <input id="user-address" [(ngModel)]="register.address" placeholder="name">
             </p>
             <p class="card-text">
             <label>Birthdate: </label>
-            {{user.birthDate}}
+         
+            <input id="user-birthdate" [(ngModel)]="register.birthDate" placeholder="name">
         </p>
         <div class="text-right">
     
-            <a class="btn btn-outline-primary" href="edit-profile">Edit Profile</a>
+            <a class="btn btn-outline-primary" (click)="Register()">Register</a>
         </div>
         </div>
     </div>

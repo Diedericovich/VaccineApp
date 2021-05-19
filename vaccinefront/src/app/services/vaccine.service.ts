@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Vaccine } from './vaccine';
+import { Vaccine } from '../vaccine';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,11 @@ export class VaccineService {
     const url = `${this.vaccineUrl}/${id}`;
     const vaccine = this.http.get<Vaccine>(url);
     return vaccine;
+  }
+  getVaccinesByBodyPart(bodypart: string): Observable<Vaccine[]> {
+    const url = `${this.vaccineUrl}ForBodyPart/${bodypart}`;
+    const vaccines = this.http.get<Vaccine[]>(url);
+    return vaccines;
   }
 
   getVaccines(): Observable<Vaccine[]>{
