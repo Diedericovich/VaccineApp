@@ -17,7 +17,7 @@ namespace VaccineApp.Controllers
             _service = service;
         }
 
-        [HttpPost]
+        [HttpPost("{userId}/{vaccineId}")]
         public async Task AddAppointmentAsync(int userId, int vaccineId)
         {
             await _service.AddAppointmentAsync(userId, vaccineId);

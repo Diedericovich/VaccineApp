@@ -20,7 +20,7 @@ namespace VaccineApp.Tests
         private User fakeUser;
 
         private Mock<IGenericRepo<User>> mokMock;
-        private Mock<IGenericRepo<Vaccine>> mokVaxx;
+        private Mock<VaccineRepo> mokVaxx;
 
         private IGenericRepo<User> testRepo;
 
@@ -28,7 +28,7 @@ namespace VaccineApp.Tests
         public void Setup()
         {
             mokMock = new Mock<IGenericRepo<User>>();
-            mokVaxx = new Mock<IGenericRepo<Vaccine>>();
+            mokVaxx = new Mock<VaccineRepo>();
 
             fakeUser = new User
             {

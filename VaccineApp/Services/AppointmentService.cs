@@ -16,11 +16,11 @@
     public class AppointmentService : IAppointmentService
     {
         private IGenericRepo<Appointment> _appointmentRepo;
-        private IGenericRepo<Vaccine> _vaccineRepo;
+        private VaccineRepo _vaccineRepo;
         private IVaccinationCenterRepo _centerRepo;
         private IMapper _mapper;
 
-        public AppointmentService(IGenericRepo<Appointment> appointmentRepo, IGenericRepo<Vaccine> vaccineRepo, IVaccinationCenterRepo centerRepo, IMapper mapper)
+        public AppointmentService(IGenericRepo<Appointment> appointmentRepo, VaccineRepo vaccineRepo, IVaccinationCenterRepo centerRepo, IMapper mapper)
         {
             _appointmentRepo = appointmentRepo;
             _vaccineRepo = vaccineRepo;
