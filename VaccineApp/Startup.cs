@@ -78,7 +78,7 @@ namespace VaccineApp
 
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
 
-            services.AddScoped<IGenericRepo<User>, UserRepo>();
+            services.AddScoped<IUserRepo, UserRepo>();
             services.AddScoped<IGenericRepo<Appointment>, AppointmentRepo>();
             services.AddScoped<IVaccinationCenterRepo, VaccinationCenterRepo>();
             services.AddScoped<IVaccineRepo, VaccineRepo>();

@@ -15,18 +15,21 @@ namespace VaccineApp.Tests
     using Services;
 
     [TestFixture]
-    public class UserRepoTest
+    public class UserServiceTest
     {
         private User fakeUser;
 
-        private Mock<IGenericRepo<User>> mokMock;
+        private Mock<IUserRepo> mokMock;
 
-        private IGenericRepo<User> testRepo;
+        private List<User> userList
+        {
+            get { return new(); }
+        }
 
         [SetUp]
         public void Setup()
         {
-            mokMock = new Mock<IGenericRepo<User>>();
+            mokMock = new Mock<IUserRepo>();
 
             fakeUser = new User
             {
@@ -43,17 +46,11 @@ namespace VaccineApp.Tests
             }
         }
 
-        private List<User> userList
-        {
-            get { return new(); }
-        }
-
         [TestCase(1)]
         public async Task GetUserIsNotNull(int id)
         {
             mokMock.Setup(repo => repo.GetAsync(1)).ReturnsAsync(fakeUser);
             var testconfig = new MapperConfiguration(x => x.AddProfile<AutoMapperProfile>());
-
             var testService = new UserService(mokMock.Object, testconfig.CreateMapper());
 
             UserDto result = await testService.GetUserAsync(1);
@@ -68,7 +65,6 @@ namespace VaccineApp.Tests
         {
             mokMock.Setup(repo => repo.GetAllAsync()).ReturnsAsync(userList);
             var testconfig = new MapperConfiguration(x => x.AddProfile<AutoMapperProfile>());
-
             var testService = new UserService(mokMock.Object, testconfig.CreateMapper());
 
             List<UserDto> result = await testService.GetUsersAsync();

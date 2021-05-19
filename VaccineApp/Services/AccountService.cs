@@ -12,10 +12,10 @@ namespace VaccineApp.Services
     public class AccountService : IAccountService
     {
         private ITokenService _tokenService;
-        private IGenericRepo<User> _userRepo;
+        private IUserRepo _userRepo;
         private DatabaseContext _context;
 
-        public AccountService(ITokenService tokenService, IGenericRepo<User> userRepo, DatabaseContext context)
+        public AccountService(ITokenService tokenService, IUserRepo userRepo, DatabaseContext context)
         {
             _tokenService = tokenService;
             _userRepo = userRepo;

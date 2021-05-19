@@ -14,9 +14,9 @@
     {
         private IMapper _mapper;
 
-        private IGenericRepo<User> _userRepo;
+        private IUserRepo _userRepo;
 
-        public UserService(IGenericRepo<User> userRepo, IMapper mapper)
+        public UserService(IUserRepo userRepo, IMapper mapper)
         {
             _userRepo = userRepo;
             _mapper = mapper;
@@ -47,6 +47,13 @@
         public async Task<UserDto> GetUserAsync(int id)
         {
             User user = await _userRepo.GetAsync(id);
+            UserDto result = _mapper.Map<UserDto>(user);
+            return result;
+        }
+
+        public async Task<UserDto> GetUserByEmailAsync(string email)
+        {
+            User user = await _userRepo.GetUserByEmail(email);
             UserDto result = _mapper.Map<UserDto>(user);
             return result;
         }
