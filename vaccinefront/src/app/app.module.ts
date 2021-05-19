@@ -13,6 +13,7 @@ import { VaccineDetailComponent } from './vaccine-detail/vaccine-detail.componen
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
+import { AllVaccinsComponent } from './all-vaccins/all-vaccins.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AppointmentsComponent } from './appointments/appointments.component';
     UserDetailsComponent,
     NavigationComponent,
     AppointmentsComponent,
+    AllVaccinsComponent,
 
   ],
   imports: [

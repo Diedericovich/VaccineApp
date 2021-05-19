@@ -8,15 +8,19 @@ import { RightArmVaccinsComponent } from './right-arm-vaccins/right-arm-vaccins.
 import { TorsoVaccinsComponent } from './torso-vaccins/torso-vaccins.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
+import { AllVaccinsComponent } from './all-vaccins/all-vaccins.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'appointments', component: AppointmentsComponent},
   { path: 'body', component: BodyComponent, children: [
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'head', component: HeadVaccinsComponent },
     { path: 'leftarm', component: LeftArmVaccinsComponent },
     { path: 'torso', component: TorsoVaccinsComponent },
     { path: 'rightarm', component: RightArmVaccinsComponent },
-    { path: 'legs', component: LegsVaccinsComponent }
+    { path: 'legs', component: LegsVaccinsComponent },
+    { path: 'home', component: AllVaccinsComponent}
+
   ]},
   // { path: 'head', component: HeadVaccinsComponent },
   // { path: 'leftarm', component: LeftArmVaccinsComponent },
