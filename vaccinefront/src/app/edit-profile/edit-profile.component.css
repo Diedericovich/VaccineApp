@@ -1,13 +1,17 @@
 label {
-    margin-left: 20px;
-    width:100px;
+    margin-left: 1rem;
+    width:5rem;
 }
 
 h1 {
-margin-left: 50px;;
+margin-left: 10rem;;
 }
 
 .card {
-    margin-left: 50px;
-    width: 25rem;;
+    margin:auto;
+    width: 30rem;;
+}
+
+input {
+    width: 18rem;
 }
