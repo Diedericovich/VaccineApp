@@ -18,9 +18,9 @@
     {
         private IMapper _mapper;
 
-        private VaccineRepo _vaccineRepo;
+        private IVaccineRepo _vaccineRepo;
 
-        public VaccineService(VaccineRepo vaccineRepo, IMapper mapper)
+        public VaccineService(IVaccineRepo vaccineRepo, IMapper mapper)
         {
             _vaccineRepo = vaccineRepo;
             _mapper = mapper;

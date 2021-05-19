@@ -81,7 +81,7 @@ namespace VaccineApp
             services.AddScoped<IGenericRepo<User>, UserRepo>();
             services.AddScoped<IGenericRepo<Appointment>, AppointmentRepo>();
             services.AddScoped<IVaccinationCenterRepo, VaccinationCenterRepo>();
-            services.AddScoped<VaccineRepo, VaccineRepo>();
+            services.AddScoped<IVaccineRepo, VaccineRepo>();
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IVaccineService, VaccineService>();

@@ -6,7 +6,7 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    public class VaccineRepo : GenericRepo<Vaccine>
+    public class VaccineRepo : GenericRepo<Vaccine>, IVaccineRepo
     {
         public VaccineRepo(DatabaseContext context)
             : base(context)
@@ -36,7 +36,7 @@
                 return await _context.Vaccines
                     .Include(x => x.BodyPart)
                     .Include(x => x.Company)
-                    .Where(x => x.BodyPart.Name == "Nose" || x.BodyPart.Name == "Mouth" || x.BodyPart.Name == "Nose" || x.BodyPart.Name == "Eyes")
+                    .Where(x => x.BodyPart.Name == "Nose" || x.BodyPart.Name == "Mouth" || x.BodyPart.Name == "Ears" || x.BodyPart.Name == "Eyes")
                     .ToListAsync();
             }
             else
