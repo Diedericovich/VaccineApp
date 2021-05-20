@@ -22,6 +22,7 @@ export class AppointmentService {
     const url = `${this.appointmentUrl}/${appointmentId}/${statusId}`;
     return this.http.put(url, this.httpOptions);
   }
+
   addAppointment(userId: number, vaccinId: number ): Observable<Appointment>{
     
     const url = `${this.appointmentUrl}/${userId}/${vaccinId}`;
