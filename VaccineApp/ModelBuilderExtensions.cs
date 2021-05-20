@@ -59,7 +59,11 @@ namespace VaccineApp
         private static void BuildUsers(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasData(
-                new User { Id = 1, FirstName = "Bond", Surname = "James", LoginId = 1, Address = "Koekoekstraat 70, 9090 Melle", BirthDate = new DateTime(1940, 01, 20) }
+                new User { Id = 1, FirstName = "Bond", Surname = "James", LoginId = 1, Address = "Koekoekstraat 70, 9090 Melle", BirthDate = new DateTime(1968, 03, 02) },
+                new User { Id = 2, FirstName = "Monroe", Surname = "Marilyn", LoginId = 2, Address = "Meir 20, 2000 Antwerpen", BirthDate = new DateTime(1926, 06, 01) },
+                new User { Id = 3, FirstName = "Van Ranst", Surname = "Marc", LoginId = 3, Address = "Joseph Smeetslaan 311, 3630 Maasmechelen", BirthDate = new DateTime(1965, 06, 20) },
+                new User { Id = 4, FirstName = "Pitt", Surname = "Brad", LoginId = 4, Address = "Oudstrijdersstraat 27, 8370 Blankenberge", BirthDate = new DateTime(1963, 12, 18) },
+                new User { Id = 5, FirstName = "Gates", Surname = "Bill", LoginId = 5, Address = "Latemstraat 122, 9830 Sint-Martens-Latem", BirthDate = new DateTime(1955, 10, 28) }
                 );
         }
 
