@@ -10,5 +10,5 @@
   </div> 
 </div>
 <div *ngIf="isLoggedIn==false">
-  <app-login (boolEvent)="isLoggedIn"></app-login>
+  <app-login (boolEvent)="receiverBool($event)"></app-login>
 </div>

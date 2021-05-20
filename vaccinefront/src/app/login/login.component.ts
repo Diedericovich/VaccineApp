@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
     .subscribe(x => {
       console.log(x);
       this.boolEvent.emit(true);
+      console.log('emitted');
       this.router.navigateByUrl('body'); 
     },
     error => { console.log(error);
