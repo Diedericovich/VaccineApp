@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { User } from '../user';
 import { Appointment } from '../appointment';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -9,11 +10,12 @@ import { Router } from '@angular/router';
 })
 export class EditProfileComponent implements OnInit {
   user?: User ;
-  save() :void {
-    this.newUser();
-    this.router.navigateByUrl('user-details'); 
-  }
-  constructor(private router: Router) { }
+ 
+  constructor(
+    private router: Router,
+    private userService: UserService
+
+    ) { }
   
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('fullUser')||'{}');
@@ -23,6 +25,14 @@ export class EditProfileComponent implements OnInit {
 newUser() {
 
     localStorage.setItem('fullUser',JSON.stringify(this.user));
+    this.userService.updateUser(this.user)
  // this.data.changeUser();
 }
+
+save() :void {
+  this.newUser();
+  this.router.navigateByUrl('user-details'); 
+}
+
+
 }
