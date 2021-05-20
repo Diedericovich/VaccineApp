@@ -7,7 +7,7 @@ import { AccountService } from '../services/account.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit  {
   model: any = {};
   @Output() boolEvent = new EventEmitter<boolean>();
 
