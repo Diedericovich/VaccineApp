@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using VaccineApp.DTO;
 using VaccineApp.Services;
 
 namespace VaccineApp.Controllers
@@ -25,9 +21,18 @@ namespace VaccineApp.Controllers
         }
 
         [HttpPut("{appointmentId}/{statusId}")]
-        public async Task UpdateAppointmentStatusAsync(int appointmentId, int statusId)
+        public async Task<ActionResult> UpdateAppointmentStatusAsync(int appointmentId, int statusId)
         {
+            if (!await _service.AppointmentExists(appointmentId))
+            {
+                return BadRequest("Appointment not Found");
+            }
+            else if (statusId < 1 || statusId > 3)
+            {
+                return BadRequest("Invalid appointment status");
+            }
             await _service.UpdateAppointmentStatusAsync(appointmentId, statusId);
+            return Ok("Update OK");
         }
     }
 }
