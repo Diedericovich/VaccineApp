@@ -60,6 +60,13 @@
             await _appointmentRepo.UpdateAsync(appointment);
         }
 
+        public async Task UpdateAppointmentStatusAsync(int appointmentId, int status)
+        {
+            Appointment temp = await _appointmentRepo.GetAsync(appointmentId);
+            temp.StatusId = status;
+            await UpdateAppointmentAsync(temp);
+        }
+
         public async Task<AppointmentDto> GetAppointmentAsync(int id)
         {
             Appointment appointment = await _appointmentRepo.GetAsync(id);

@@ -25,7 +25,7 @@
                                  .Include(x => x.Vaccination)
                                     .ThenInclude(x => x.BodyPart)
                                  .Include(x => x.Status)
-                                 .FirstOrDefaultAsync();
+                                 .FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public override async Task<List<Appointment>> GetAllAsync()

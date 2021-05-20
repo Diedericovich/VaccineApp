@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Appointment } from '../appointment';
 import { UserService } from './user.service';
 import { User } from '../user';
+import { Vaccine } from '../vaccine';
+import { Status } from '../status';
 
 @Injectable({
   providedIn: 'root'
@@ -15,15 +17,17 @@ export class AppointmentService {
   httpOptions = {
     headers: new HttpHeaders({'Content-Type':'application/json'})
   };
-
-
   
+  updateAppointmentStatus(appointmentId: number, statusId : number): Observable<any> {
+    const url = `${this.appointmentUrl}/${appointmentId}/${statusId}`;
+    return this.http.put(url, this.httpOptions);
+  }
+
   addAppointment(userId: number, vaccinId: number ): Observable<Appointment>{
     
     const url = `${this.appointmentUrl}/${userId}/${vaccinId}`;
     return this.http.post<Appointment>(url, this.httpOptions);
   } 
-
 
 
 
