@@ -1,5 +1,5 @@
-<div class="container-fluid justify-content-center d-flex flex-row ">
-
+<div class="container-fluid login">
+<div class="login-box" >
         <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off" class="m-5">
                 <div>
                         <input name="username" class="form-control m-2" [(ngModel)]="model.email" type="text"
@@ -16,4 +16,5 @@
                         <button class="btn btn-primary mx-2" (click)="register()">Register</button>
                 </div>
         </form>
+</div>
 </div>

@@ -3,7 +3,8 @@
 html, body { height: 100%; }
 body { 
     margin: 0; 
-    font-family: Roboto, "Helvetica Neue", sans-serif;     
+    font-family: Roboto, "Helvetica Neue", sans-serif;             
+    
 }
 
 #head, #left-arm, #chest, #right-arm, #legs {
@@ -16,5 +17,15 @@ body {
 }
 
 .vaccines {
-    background-color: rgba(127,219,255,.2);
+    background-color: rgba(127,219,255,.7);
+}
+.login {
+    width: 100%;
+    height: 100vh;
+        font-size: larger;        
+}
+.login-box {
+    width: 300px;
+    margin: auto;
+    margin-top: 40vh;
 }
