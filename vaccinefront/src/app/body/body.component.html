@@ -1,6 +1,9 @@
 
 <div *ngIf="user !== null" class="d-flex">
-    <div class="col-5">
+    <div class="col-4">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="col-6">
     <div class="human-body">
         <svg [routerLink]="'head'" data-position='head' id='head' class='head' xmlns='http://www.w3.org/2000/svg' width='56.594' height='95.031'
         viewBox='0 0 56.594 95.031'>
@@ -74,5 +77,4 @@ id="path151" />
 </svg>
 </div>
 </div>
-<router-outlet></router-outlet>
 </div>
