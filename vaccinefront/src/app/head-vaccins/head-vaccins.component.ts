@@ -19,8 +19,5 @@ ngOnInit(): void {
   this.vaccineService.getVaccinesByBodyPart("Head").subscribe(x => {this.vaccines=x})
 }
 
-getHeadVaccines(): void {
-// ....
-};
 
 }
