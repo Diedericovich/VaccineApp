@@ -1,9 +1,14 @@
 <!-- Toolbar -->
-<div class="py-5">
-  <app-navigation></app-navigation>
+<div *ngIf="isLoggedIn">
+  <div class="py-5">
+    <app-navigation></app-navigation>
+  </div>
+  
+  <div class="container-fluid fill">
+    <router-outlet></router-outlet>
+    <!-- <app-body></app-body> -->
+  </div> 
 </div>
-
-<div class="container-fluid fill">
-  <router-outlet></router-outlet>
-  <!-- <app-body></app-body> -->
-</div> 
+<div *ngIf="isLoggedIn==false">
+  <app-login (boolEvent)="isLoggedIn"></app-login>
+</div>

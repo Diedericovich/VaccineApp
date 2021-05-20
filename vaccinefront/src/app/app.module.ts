@@ -18,6 +18,8 @@ import { RegisterComponent } from './register/register.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+
 
 @NgModule({
     declarations: [
@@ -35,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
         AllVaccinsComponent,
         RegisterComponent,
         EditProfileComponent,
+        LoginComponent,
 
     ],
     imports: [

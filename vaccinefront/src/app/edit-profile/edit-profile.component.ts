@@ -25,7 +25,7 @@ export class EditProfileComponent implements OnInit {
 newUser() {
 
     localStorage.setItem('fullUser',JSON.stringify(this.user));
-    this.userService.updateUser(this.user)
+    this.userService.updateUser(this.user);
  // this.data.changeUser();
 }
 
