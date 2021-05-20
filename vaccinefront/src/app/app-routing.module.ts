@@ -17,14 +17,15 @@ const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
   {
     path: 'landing', component: LandingpageComponent, children: [
+      
       { path: '', redirectTo: 'body', pathMatch: 'full' },
       { path: 'register', component: RegisterComponent },
       { path: 'appointments', component: AppointmentsComponent },
       { path: 'edit-profile', component: EditProfileComponent },
       { path: 'user-details', component: UserDetailsComponent },
       { path: 'login', component: LoginComponent },
-      {
-        path: 'body', component: BodyComponent, children: [
+      { path: 'body', component: BodyComponent, children: [
+          
           { path: '', redirectTo: 'home', pathMatch: 'full' },
           { path: 'head', component: HeadVaccinsComponent },
           { path: 'leftarm', component: LeftArmVaccinsComponent },
