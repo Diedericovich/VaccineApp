@@ -18,5 +18,7 @@ namespace VaccineApp.Services
         Task UpdateAppointmentAsync(Appointment appointment);
 
         Task UpdateAppointmentStatusAsync(int appointmentId, int statusId);
+
+        Task<bool> AppointmentExists(int appointmentId);
     }
 }

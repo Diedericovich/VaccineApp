@@ -7,19 +7,10 @@ import { LoginComponent } from './login/login.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  isLoggedIn: boolean = false;
+
   
   ngOnInit(): void {
-    console.log('entered')
+    
+  }
 
-    if (localStorage.getItem('user')!= null)
-     {
-       console.log('loggedin')
-       this.isLoggedIn = true;
-     }
-  }
-  receiverBool($event : boolean) {
-    console.log('reveived');
-    this.isLoggedIn = $event;
-  }
 }

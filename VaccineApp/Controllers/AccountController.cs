@@ -21,7 +21,7 @@ namespace VaccineApp.Controllers
         {
             if (await _service.UserExists(dto.Email))
             {
-                return BadRequest("Username already exists");
+                return BadRequest("Email already exists");
             }
             var user = await _service.RegisterAsync(dto);
             return Created(uri: "", user);

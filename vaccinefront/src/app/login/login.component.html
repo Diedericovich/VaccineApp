@@ -1,22 +1,19 @@
-<form #loginForm="ngForm"
-(ngSubmit)="login()" 
-  class="d-flex right"
+<div class="container-fluid justify-content-center d-flex flex-row ">
 
-  autocomplete="off">
+        <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off" class="m-5">
+                <div>
+                        <input name="username" class="form-control m-2" [(ngModel)]="model.email" type="text"
+                                placeholder="UserName" />
+                </div>
 
-<input  name="username"
-        class="form-control mx-2" 
-        [(ngModel)]="model.email"
-        type="text" 
-        placeholder="UserName" />
+                <div>
+                        <input name="password" class="form-control m-2" [(ngModel)]="model.password" type="password"
+                                placeholder="Password" />
+                </div>
 
-
-<input  name="password"
-        class="form-control me-2" 
-        [(ngModel)]="model.password"
-        type="password" 
-        placeholder="Password" />
-
-
-<button class="btn btn-success mx-2"  type="submit">Login</button>
-</form>
+                <div>
+                        <button class="btn btn-success mx-2" type="submit">Login</button>
+                        <button class="btn btn-primary mx-2" (click)="register()">Register</button>
+                </div>
+        </form>
+</div>

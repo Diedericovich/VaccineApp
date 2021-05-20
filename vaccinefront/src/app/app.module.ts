@@ -19,6 +19,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { LandingpageComponent } from './landingpage/landingpage.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { LoginComponent } from './login/login.component';
         RegisterComponent,
         EditProfileComponent,
         LoginComponent,
+        LandingpageComponent,
 
     ],
     imports: [

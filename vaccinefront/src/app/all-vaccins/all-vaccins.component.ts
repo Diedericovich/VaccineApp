@@ -7,25 +7,22 @@ import { VaccineService } from '../services/vaccine.service';
   styleUrls: ['./all-vaccins.component.css']
 })
 export class AllVaccinsComponent implements OnInit {
-  vaccines: Vaccine [] = [];
+  vaccines: Vaccine[] = [];
   selectedVaccine?: Vaccine;
-  
+
   onSelect(vaccine: Vaccine): void {
     this.selectedVaccine = vaccine;
   }
-  
-  constructor(private vaccineService: VaccineService ) { }
+
+  constructor(private vaccineService: VaccineService) { }
 
   ngOnInit(): void {
     this.getVaccines();
   }
 
-getVaccines(): void {
-  this.vaccineService.getVaccines()
-    .subscribe(x => this.vaccines = x);
-    
-}
+  getVaccines(): void {
+    this.vaccineService.getVaccines()
+      .subscribe(x => this.vaccines = x);
 
-
-
+  }
 }
