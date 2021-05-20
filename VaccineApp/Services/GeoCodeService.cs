@@ -21,7 +21,7 @@ namespace VaccineApp.Services
 
         public async Task<LocationDto> GetLocation(string address)
         {
-            var locationService = new GoogleLocationService("AIzaSyD7PxbrSfbIjOcREaGqCs2Xo3plhDeHOVg");
+            var locationService = new GoogleLocationService();
             var point = locationService.GetLatLongFromAddress(address);
             double latitude = point.Latitude;
             double longitude = point.Longitude;
