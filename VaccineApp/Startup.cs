@@ -88,6 +88,7 @@ namespace VaccineApp
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IAppointmentService, AppointmentService>();
+            services.AddScoped<IGeoCodeService, GeoCodeService>();
         }
     }
 }
