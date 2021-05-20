@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AccountService } from '../services/account.service';
 import { UserService } from '../services/user.service';
 
@@ -13,7 +14,7 @@ export class NavigationComponent implements OnInit {
   model: any = {};
   loggedIn: boolean = false;
 
-  constructor(private accountService: AccountService, private userService: UserService) { }
+  constructor(private accountService: AccountService, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -23,10 +24,12 @@ login(): void {
   .subscribe(x => {
     this.loggedIn = true;
     console.log(x);
+    this.router.navigateByUrl('user-details'); 
   },
   error => { console.log(error);
   }
   );
+  
   //this.userService.getUserByEmail(JSON.parse(localStorage.getItem('user')||'{}').email)
   //console.log(this.dataStore.changeUser);
 }

@@ -1,11 +1,6 @@
 
-<div class="row">
+<div *ngIf="user !== undefined && user.email != null" class="d-flex">
     <div class="col-5">
-            <router-outlet></router-outlet>
-            <!-- <app-messages></app-messages> -->
-    </div>
-    <div class="col-7">
-
     <div class="human-body">
         <svg [routerLink]="'head'" data-position='head' id='head' class='head' xmlns='http://www.w3.org/2000/svg' width='56.594' height='95.031'
         viewBox='0 0 56.594 95.031'>
@@ -78,4 +73,6 @@ d="m 59.530531,252.16656 c -40.202661,20.558 -20.10133,10.279 0,0 z m -5.974,5.9
 id="path151" />
 </svg>
 </div>
+</div>
+<router-outlet></router-outlet>
 </div>

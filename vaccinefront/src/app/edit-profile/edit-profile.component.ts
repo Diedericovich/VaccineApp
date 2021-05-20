@@ -16,9 +16,13 @@ export class EditProfileComponent implements OnInit {
   constructor(private router: Router) { }
   
   ngOnInit(): void {
+    this.user = JSON.parse(localStorage.getItem('fullUser')||'{}');
+
     // this.data.currentUser?.subscribe(user => this.user = user )
   }
 newUser() {
+
+    localStorage.setItem('fullUser',JSON.stringify(this.user));
  // this.data.changeUser();
 }
 }
