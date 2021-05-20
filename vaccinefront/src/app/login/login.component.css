@@ -1,0 +1,15 @@
+.login {
+    width: 100%;
+    height: 100vh;
+        font-size: larger;        
+}
+.login-box {
+    width: 300px;
+    margin: auto;
+    margin-top: 40vh;
+}
+.register-box {
+    width: 500px;
+    margin: auto;
+    margin-top: 10vh;
+}

@@ -12,8 +12,8 @@ import { User } from '../user';
 export class AccountService {
   private accountUrl = "https://localhost:44317/api/Account"
   currentUser?: Account;
-  fullUser? : User;
-  constructor(private http: HttpClient, private userService : UserService) { }
+  fullUser?: User;
+  constructor(private http: HttpClient, private userService: UserService) { }
 
   login(model: any): Observable<any> {
     let url = `${this.accountUrl}/Login`;
@@ -26,15 +26,33 @@ export class AccountService {
               localStorage.setItem('user', JSON.stringify(user));
               this.currentUser = user;
               this.userService.getUserByEmail(this.currentUser.email)
-              .subscribe(fullUser => 
-                {this.fullUser = fullUser; 
-                localStorage.setItem('fullUser',JSON.stringify(this.fullUser));
-            });
+                .subscribe(fullUser => {
+                  this.fullUser = fullUser;
+                  localStorage.setItem('fullUser', JSON.stringify(this.fullUser));
+                });
             }
           })
       );
-    };
-    
+  };
+  register(model: any): Observable<any> {
+    let url = `${this.accountUrl}/Register`;
+    return this.http.post(url, model)
+      .pipe(
+        map(
+          (response: any) => {
+            const user: Account = response;
+            if (user) {
+              localStorage.setItem('user', JSON.stringify(user));
+              this.currentUser = user;
+              this.userService.getUserByEmail(this.currentUser.email)
+                .subscribe(fullUser => {
+                  this.fullUser = fullUser;
+                  localStorage.setItem('fullUser', JSON.stringify(this.fullUser));
+                });
+            }
+          })
+      );
+  }
 
-  
+
 }

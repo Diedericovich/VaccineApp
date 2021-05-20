@@ -19,13 +19,6 @@ body {
 .vaccines {
     background-color: rgba(127,219,255,.7);
 }
-.login {
-    width: 100%;
-    height: 100vh;
-        font-size: larger;        
-}
-.login-box {
-    width: 300px;
-    margin: auto;
-    margin-top: 40vh;
+legend {
+    font-size: medium;
 }

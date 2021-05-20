@@ -1,34 +1,49 @@
 <div class="d-flex">
     <div class="card text-left bg-light">
         <div>
-            <h1>User Details</h1>
+            <h1>Register User</h1>
         </div>
         <div *ngIf="register" class="card-body">
-            <p class="card-text">
-            <label> Email: </label>
-            <input id="user-firstname" [(ngModel)]="register.email" placeholder="name">
-    </p>
-    <p class="card-text">
-        <label> Name: </label>
-            <input id="user-firstname" [(ngModel)]="register.firstName" placeholder="name">
-        </p>
-            <p class="card-text">
-            <label> Surname: </label>
-            <input id="user-surname" [(ngModel)]="register.surName" placeholder="name">
-    </p>    
-    <p class="card-text">
-            <label>Address: </label>
-            <input id="user-address" [(ngModel)]="register.address" placeholder="name">
-            </p>
-            <p class="card-text">
-            <label>Birthdate: </label>
-         
-            <input id="user-birthdate" [(ngModel)]="register.birthDate" placeholder="name">
-        </p>
-        <div class="text-right">
-    
-            <a class="btn btn-outline-primary" (click)="Register()">Register</a>
-        </div>
+            <fieldset>
+                <legend>Login Details</legend>
+                <p class="card-text">
+                    <label> Email: </label>
+                    <input id="user-email" [(ngModel)]="register.email" placeholder="email">
+                </p>
+                <p class="card-text">
+                    <label> Password: </label>
+                    <input id="user-pass" [(ngModel)]="register.password" placeholder="password">
+                </p>
+                <p class="card-text">
+                    <label> Confirm Password: </label>
+                    <input id="verify-pass" [(ngModel)]="verify" placeholder="password">
+                </p>
+            </fieldset>
+<fieldset>
+            <legend>User Details</legend>
+
+                <p class="card-text">
+                    <label> Name: </label>
+                    <input id="user-firstname" [(ngModel)]="register.firstName" placeholder="firstname">
+                </p>
+                <p class="card-text">
+                    <label> Surname: </label>
+                    <input id="user-surname" [(ngModel)]="register.surName" placeholder="surname">
+                </p>
+                <p class="card-text">
+                    <label>Address: </label>
+                    <input id="user-address" [(ngModel)]="register.address" placeholder="address">
+                </p>
+                <p class="card-text">
+                    <label>Birthdate: </label>
+
+                    <input id="user-birthdate" [(ngModel)]="register.birthDate">
+                </p>
+                <div class="text-right">
+                    <a class="btn btn-primary mr-2" (click)="Register()">Submit Registration</a>
+                    <a class="btn btn-danger" (click)="Cancel()">Cancel</a>
+                </div>
+            </fieldset>
         </div>
     </div>
-    </div>
+</div>

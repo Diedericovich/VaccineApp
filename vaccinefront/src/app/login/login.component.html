@@ -1,4 +1,5 @@
-<div class="container-fluid login">
+<div *ngIf="!isRegistering" >
+<div class="container-fluid overflow-hidden">
 <div class="login-box" >
         <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off" class="m-5">
                 <div>
@@ -13,8 +14,12 @@
 
                 <div>
                         <button class="btn btn-success mx-2" type="submit">Login</button>
-                        <button class="btn btn-primary mx-2" (click)="register()">Register</button>
+                        <button class="btn btn-primary mx-2" type="button" (click)="register()">Register</button>
                 </div>
         </form>
 </div>
+</div>
+</div>
+<div *ngIf="isRegistering" class="register-box overflow-hidden">
+        <app-register></app-register>
 </div>
