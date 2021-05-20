@@ -2,27 +2,27 @@
 <div>
     <h1>Appointments</h1>
 </div>
-<div class="d-flex flex-wrap justify-content-start m-5">
-    <div class="card text-left bg-light m-1" *ngFor="let appointment of user.appointments">
-        <div class="card-body">
-            <h3 class="card-title">{{appointment.vaccination.name}}</h3>
+<div class="d-flex flex-wrap text-left m-5">
+    <div class="col-12 text-info card text-light m-1 border-white rounded" *ngFor="let appointment of user.appointments">
+        <div class="font-weight-bold">
+            <h2 class="text-black-50">{{appointment.vaccination.name}}</h2>
             <!-- <p class="card-text"> -->
-                <ul class="vaccines list-group mx-3 mb-2 bg-primary text-left">
-                    <li class="list-group-item list-group-item-info" >
-                        <span class="text-dark text-left font-weight-bold">{{appointment.location.name}}</span>
-                        <span style="white-space: pre-line">&#10;(on: {{appointment.date}})</span>
-                    <p>
-                        <span style="white-space: pre-line">&#10;--> {{appointment.location.location}}</span>
-                        <span style="white-space: pre-line">&#10;status:{{appointment.status.status}}</span>
+
+                <h3 class="font-weight-bold text-secondary">
+                    <div class="col-10">
+                        planned on: {{appointment.date}})
+                        <span class="text-light text-left font-weight-bold mx-5">{{appointment.location.name}}</span>
+                        <span style="white-space: pre-line">--> {{appointment.location.location}}</span>
+                        <span class="text-info font-weight-bold mx-5">status:</span><span class="text-warning">{{appointment.status.status}}</span>
+                    </div>   
+                    <div class="col-1 float-right mr-5">
+                        <button class="text-right btn btn-danger ml-5 mb-2 button" (click)="CancelAppointment(appointment.id)">Cancel</button>
+                    </div>           
+                    </h3>
                     
-                    </p>
-                    </li>
-                </ul>
-                <!-- </p> -->
-                <div class="text-right">
+ 
+                
                     
-                    <button class="btn btn-outline-danger" (click)="CancelAppointment(appointment.id)">Cancel</button>
-                </div>
             </div>
         </div>
     </div>
