@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Login } from '../login';
+import { UserService } from '../services/user.service';
 import { User } from '../user';
 
 @Component({
@@ -8,11 +10,15 @@ import { User } from '../user';
 })
 export class BodyComponent implements OnInit {
 user? : User;
-  constructor() { }
+loggedInUser? : Login;
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.user = JSON.parse(localStorage.getItem('fullUser')||'{}');
-    console.log(this.user);
+        this.loggedInUser = JSON.parse(localStorage.getItem('User')||'{}');
+    if (this.loggedInUser!=null) {
+      this.userService.getUserByEmail(this.loggedInUser.email).subscribe(user => this.user = user);
+      console.log(this.user);     
+    }
   }
 
 }

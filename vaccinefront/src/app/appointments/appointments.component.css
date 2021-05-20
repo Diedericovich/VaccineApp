@@ -6,8 +6,11 @@ label {
 h1 {
 margin-left: 50px;;
 }
-
 .card {
-    margin-left: 50px;
-    width: 27rem;;
+    background-color: rgba(0,184 , 200, .0);
+ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.button {
+    border: solid darkred 2px;
 }

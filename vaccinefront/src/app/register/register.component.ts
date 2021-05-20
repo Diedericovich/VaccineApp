@@ -1,28 +1,44 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { Register } from '../register';
 import { Appointment } from '../appointment';
 import { Router } from '@angular/router';
+import { AccountService } from '../services/account.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  verify?: string;
 register: Register = {
-  email: "ward@impesoft.com",
+  email: "",
   password: "",
-  firstName: "Ward",
-  surName:"Impe",
-  address:"Tervenen 47F, 9940, Ertvelde, België",
-  birthDate : new Date(1974, 4,19,4,50),
+  firstName: "",
+  surName:"",
+  address:"",
+  birthDate : new Date(),
 };
-Register(): void {
-  
-}
-  constructor(private router: Router) { }
+@Output() boolEvent = new EventEmitter<boolean>();
+  constructor(private router: Router, private accountService : AccountService) { }
 
   ngOnInit(): void {
     // this.data.currentUser.subscribe(user => this.user = user )
   }
+  Register(): void {
+  if (this.register) {
+    this.accountService
+    .register(this.register)
+    .subscribe(x => {
+      this.boolEvent.emit(true);
+      window.location.href = 'landing/body/home';
 
+
+      
+    }, retVal => {console.log(retVal)} );
+
+  }
+  }
+  Cancel(): void {
+    
+  }
 }
