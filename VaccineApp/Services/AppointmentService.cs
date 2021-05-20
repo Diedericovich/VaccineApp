@@ -15,12 +15,12 @@
 
     public class AppointmentService : IAppointmentService
     {
-        private IGenericRepo<Appointment> _appointmentRepo;
+        private IAppointmentRepo _appointmentRepo;
         private IVaccineRepo _vaccineRepo;
         private IVaccinationCenterRepo _centerRepo;
         private IMapper _mapper;
 
-        public AppointmentService(IGenericRepo<Appointment> appointmentRepo, IVaccineRepo vaccineRepo, IVaccinationCenterRepo centerRepo, IMapper mapper)
+        public AppointmentService(IAppointmentRepo appointmentRepo, IVaccineRepo vaccineRepo, IVaccinationCenterRepo centerRepo, IMapper mapper)
         {
             _appointmentRepo = appointmentRepo;
             _vaccineRepo = vaccineRepo;
@@ -72,6 +72,11 @@
             Appointment appointment = await _appointmentRepo.GetAsync(id);
             AppointmentDto result = _mapper.Map<AppointmentDto>(appointment);
             return result;
+        }
+
+        public async Task<bool> AppointmentExists(int appointmentId)
+        {
+            return await _appointmentRepo.AppointmentExists(appointmentId);
         }
     }
 }

@@ -11,7 +11,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
 
-    public class AppointmentRepo : GenericRepo<Appointment>
+    public class AppointmentRepo : GenericRepo<Appointment>, IAppointmentRepo
     {
         public AppointmentRepo(DatabaseContext context)
             : base(context)
@@ -35,6 +35,11 @@
                                  .Include(x => x.Vaccination)
                                  .Include(x => x.Status)
                                  .ToListAsync();
+        }
+
+        public async Task<bool> AppointmentExists(int id)
+        {
+            return await _context.Appointments.AnyAsync(x => x.Id == id);
         }
     }
 }

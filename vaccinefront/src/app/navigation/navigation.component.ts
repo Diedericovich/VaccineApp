@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AccountService } from '../services/account.service';
 import { UserService } from '../services/user.service';
 
@@ -11,26 +11,15 @@ import { UserService } from '../services/user.service';
 export class NavigationComponent implements OnInit {
 
   title = 'Vaxx.id';
-  // model: any = {};
-  
-  constructor(private accountService: AccountService, private userService: UserService, private router: Router) { }
+
+  constructor(private activeRoute: ActivatedRoute, private accountService: AccountService, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-// login(): void {
-//   this.accountService.login(this.model)
-//   .subscribe(x => {
-//     this.loggedIn = true;
-//     console.log(x);
-//     this.router.navigateByUrl('user-details'); 
-//   },
-//   error => { console.log(error);
-//   }
-//   );
-  
-  //this.userService.getUserByEmail(JSON.parse(localStorage.getItem('user')||'{}').email)
-  //console.log(this.dataStore.changeUser);
-// }
+  logout(): void {
+    localStorage.removeItem('user');
+    window.location.href = '/';
+  }
 
 }

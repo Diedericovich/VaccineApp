@@ -11,31 +11,33 @@ import { AppointmentsComponent } from './appointments/appointments.component';
 import { AllVaccinsComponent } from './all-vaccins/all-vaccins.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { RegisterComponent } from './register/register.component';
-import { LoginComponent} from './login/login.component';
+import { LoginComponent } from './login/login.component';
+import { LandingpageComponent } from './landingpage/landingpage.component';
 const routes: Routes = [
-  { path: '', redirectTo: 'body', pathMatch: 'full' },
-  { path: 'register', component: RegisterComponent},
-  { path: 'appointments', component: AppointmentsComponent},
-  { path: 'edit-profile', component: EditProfileComponent},
-  { path: 'user-details', component: UserDetailsComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'body', component: BodyComponent, children: [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'head', component: HeadVaccinsComponent },
-    { path: 'leftarm', component: LeftArmVaccinsComponent },
-    { path: 'torso', component: TorsoVaccinsComponent },
-    { path: 'rightarm', component: RightArmVaccinsComponent },
-    { path: 'legs', component: LegsVaccinsComponent },
-    { path: 'home', component: AllVaccinsComponent},
-    
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
+  {
+    path: 'landing', component: LandingpageComponent, children: [
+      { path: '', redirectTo: 'body', pathMatch: 'full' },
+      { path: 'register', component: RegisterComponent },
+      { path: 'appointments', component: AppointmentsComponent },
+      { path: 'edit-profile', component: EditProfileComponent },
+      { path: 'user-details', component: UserDetailsComponent },
+      { path: 'login', component: LoginComponent },
+      {
+        path: 'body', component: BodyComponent, children: [
+          { path: '', redirectTo: 'home', pathMatch: 'full' },
+          { path: 'head', component: HeadVaccinsComponent },
+          { path: 'leftarm', component: LeftArmVaccinsComponent },
+          { path: 'torso', component: TorsoVaccinsComponent },
+          { path: 'rightarm', component: RightArmVaccinsComponent },
+          { path: 'legs', component: LegsVaccinsComponent },
+          { path: 'home', component: AllVaccinsComponent },
+        ]
+      },
+      { path: 'profile', component: UserDetailsComponent }
+    ]
+  }];
 
-  ]},
-  // { path: 'head', component: HeadVaccinsComponent },
-  // { path: 'leftarm', component: LeftArmVaccinsComponent },
-  // { path: 'torso', component: TorsoVaccinsComponent },
-  // { path: 'rightarm', component: RightArmVaccinsComponent },
-  { path: 'profile', component: UserDetailsComponent }
-];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
