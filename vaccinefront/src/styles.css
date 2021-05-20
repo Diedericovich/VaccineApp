@@ -1,7 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;             
+    
+}
+
 #head, #left-arm, #chest, #right-arm, #legs {
     outline: none;
+}
+
+.navbar {
+    background-color: #65AFCC;
+    font-size: large;
+}
+
+.vaccines {
+    background-color: rgba(127,219,255,.7);
+}
+legend {
+    font-size: medium;
 }

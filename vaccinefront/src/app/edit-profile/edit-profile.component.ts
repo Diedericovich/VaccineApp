@@ -31,7 +31,7 @@ newUser() {
 
 save() :void {
   this.newUser();
-  this.router.navigateByUrl('user-details'); 
+  this.router.navigateByUrl('landing/user-details'); 
 }
 
 

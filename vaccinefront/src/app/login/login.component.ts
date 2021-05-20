@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { RegisterComponent } from '../register/register.component';
 import { AccountService } from '../services/account.service';
 
 @Component({
@@ -7,8 +8,9 @@ import { AccountService } from '../services/account.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit  {
   model: any = {};
+  isRegistering: boolean = false;
   @Output() boolEvent = new EventEmitter<boolean>();
 
 
@@ -24,13 +26,14 @@ export class LoginComponent implements OnInit {
       console.log(x);
       this.boolEvent.emit(true);
       console.log('emitted');
-      this.router.navigateByUrl('body'); 
+      this.router.navigateByUrl('landing/body'); 
     },
     error => { console.log(error);
     });
   }
   register(): void{
-    
+    console.log('supp doc?');
+this.isRegistering = true;
   }
     
 }
