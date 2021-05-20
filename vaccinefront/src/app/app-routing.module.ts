@@ -12,7 +12,7 @@ import { AllVaccinsComponent } from './all-vaccins/all-vaccins.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
-  { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '', redirectTo: 'body', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent},
   { path: 'appointments', component: AppointmentsComponent},
   { path: 'edit-profile', component: EditProfileComponent},
