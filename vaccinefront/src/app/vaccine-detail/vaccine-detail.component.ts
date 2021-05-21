@@ -13,13 +13,16 @@ export class VaccineDetailComponent implements OnInit {
   @Input() vaccine?: Vaccine;
   constructor(private userService: UserService, private appointmentService : AppointmentService) { }
   ngOnInit(): void {
-    this.user = JSON.parse(localStorage.getItem('fullUser')||'{}');
+    //this.user = JSON.parse(localStorage.getItem('fullUser')||'{}');
 
   }
   createAppointment() {
   if (this.user && this.vaccine) {
     this.appointmentService.addAppointment(this.user.id, this.vaccine.id).subscribe();
-    this.userService.getUser(this.user.id).subscribe(x => { this.user = x; localStorage.setItem('fullUser',JSON.stringify(this.user));})
+    this.userService.getUser(this.user.id).subscribe(x => {
+      this.user = x;
+    //  localStorage.setItem('fullUser', JSON.stringify(this.user));
+    })
 
   }
 

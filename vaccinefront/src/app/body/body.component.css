@@ -68,3 +68,9 @@ button {
     height: 200px;
     margin: 10px;
 }
+.sticky {
+    top: 250px;
+    position: sticky;
+    right: 50px;
+    
+}
