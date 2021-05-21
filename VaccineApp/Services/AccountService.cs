@@ -45,36 +45,38 @@
             }
 
             return new AccountDto
-                   {
-                       Email = user.Email,
-                       Token = _tokenService.CreateToken(user),
-                   };
+            {
+                Email = user.Email,
+                Id = user.Id,
+                Token = _tokenService.CreateToken(user),
+            };
         }
 
         public async Task<AccountDto> RegisterAsync(RegisterDto registerDto)
         {
             var hmac = new HMACSHA512();
             User user = new User
-                        {
-                            FirstName = registerDto.FirstName.ToLower(),
-                            Surname = registerDto.SurName.ToLower(),
-                            BirthDate = registerDto.BirthDate,
-                            Address = registerDto.Address,
-                            Email = registerDto.Email,
-                            Login = new Login
-                                    {
-                                        PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-                                        PasswordSalt = hmac.Key,
-                                    },
-                            Appointments = new System.Collections.Generic.List<Appointment>(),
-                        };
+            {
+                FirstName = registerDto.FirstName.ToLower(),
+                Surname = registerDto.SurName.ToLower(),
+                BirthDate = registerDto.BirthDate,
+                Address = registerDto.Address,
+                Email = registerDto.Email,
+                Login = new Login
+                {
+                    PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
+                    PasswordSalt = hmac.Key,
+                },
+                Appointments = new System.Collections.Generic.List<Appointment>(),
+            };
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
             return new AccountDto
-                   {
-                       Email = user.Email,
-                       Token = _tokenService.CreateToken(user),
-                   };
+            {
+                Email = user.Email,
+                Id = user.Id,
+                Token = _tokenService.CreateToken(user),
+            };
         }
 
         public async Task<bool> UserExists(string email)
@@ -87,11 +89,11 @@
             User user = await _context.Users.FirstOrDefaultAsync(x => x.Email == email);
             using var hmac = new HMACSHA512();
             var login = new Login()
-                        {
-                            Id = user.LoginId,
-                            PasswordSalt = hmac.Key,
-                            PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(newpassword))
-                        };
+            {
+                Id = user.LoginId,
+                PasswordSalt = hmac.Key,
+                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(newpassword))
+            };
 
             _context.Logins.Attach(login);
             _context.Entry(login)
