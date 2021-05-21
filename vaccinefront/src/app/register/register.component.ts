@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Register } from '../interfaces/register';
 import { Appointment } from '../interfaces/appointment';
 import { Router } from '@angular/router';
@@ -11,45 +11,40 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   verify?: string;
-register: Register = {
-  email: "",
-  password: "",
-  firstName: "",
-  surName:"",
-  address:"",
-  birthDate : new Date(),
-  
-};
-@Output() boolEvent = new EventEmitter<boolean>();
-// passwordForm?: FormGroup;
-  constructor(private router: Router, private accountService : AccountService) { }
+  // register: Register = {
+  //   email: "",
+  //   password: "",
+  //   firstName: "",
+  //   surName: "",
+  //   address: "",
+  //   birthDate: new Date(),
+  // };
+  registerUser: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(100)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+    firstName: new FormControl('', [Validators.required, Validators.maxLength(30)]),
+    surName: new FormControl('', [Validators.required, Validators.maxLength(55)]),
+    address: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+    birthDate: new FormControl('', Validators.required),
+  });
+  validationErrors: string[] = [];
+  @Output() boolEvent = new EventEmitter<boolean>();
+  constructor(private router: Router, private accountService: AccountService) { }
 
   ngOnInit(): void {
-    // this.passwordForm = new FormGroup({
-    //   password: new FormControl(
-    //     this.register.password,
-    //     [Validators.required,
-    //     Validators.minLength(4)]),
-    //     alterPassword: new FormControl(this.register.password)
-    // });
-    // this.data.currentUser.subscribe(user => this.user = user )
   }
-  Register(): void {
-  if (this.register) {
-    this.accountService
-    .register(this.register)
-    .subscribe(x => {
-      this.boolEvent.emit(true);
-      window.location.href = 'landing/body/home';
-
-
-      
-    }, retVal => {console.log(retVal)} );
-
+  register(): void {
+    if (this.registerUser) {
+      this.accountService
+        .register(this.registerUser.value)
+        .subscribe(x => {
+          this.boolEvent.emit(true);
+          window.location.href = 'landing/body/home';
+        }, retVal => { console.log(retVal) });
+    }
   }
-  }
-  Cancel(): void {
-    
+  cancel(): void {
+    window.location.href = '/';
   }
 
 }
