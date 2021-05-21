@@ -38,8 +38,9 @@ namespace VaccineApp.Repositories
             return await _context.Set<T>().ToListAsync();
         }
 
-        public async Task UpdateAsync(T item)
+        public virtual async Task UpdateAsync(T item)
         {
+            _context.Attach(item);
             _context.Update(item);
             await _context.SaveChangesAsync();
         }

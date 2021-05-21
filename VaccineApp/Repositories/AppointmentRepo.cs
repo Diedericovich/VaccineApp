@@ -41,5 +41,12 @@
         {
             return await _context.Appointments.AnyAsync(x => x.Id == id);
         }
+
+        public override async Task UpdateAsync(Appointment item)
+        {
+            _context.Appointments.Attach(item);
+            _context.Entry(item).Property(x => x.StatusId).IsModified = true;
+            await _context.SaveChangesAsync();
+        }
     }
 }
