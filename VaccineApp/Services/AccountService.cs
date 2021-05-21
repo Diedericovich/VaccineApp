@@ -1,17 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using VaccineApp.DTO;
-using VaccineApp.Entities;
-using VaccineApp.Repositories;
-
-namespace VaccineApp.Services
+﻿namespace VaccineApp.Services
 {
-    using System.Linq;
-    using Interfaces;
-    using Microsoft.EntityFrameworkCore.Metadata.Internal;
+    using System;
+    using System.Security.Cryptography;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using Microsoft.EntityFrameworkCore;
+
+    using VaccineApp.DTO;
+    using VaccineApp.Entities;
+    using VaccineApp.Repositories;
+    using VaccineApp.Services.Interfaces;
 
     public class AccountService : IAccountService
     {
@@ -35,7 +34,7 @@ namespace VaccineApp.Services
                 throw new UnauthorizedAccessException("Invalid username");
             }
 
-            using var hmac = new HMACSHA512(user.Login.PasswordSalt);
+            var hmac = new HMACSHA512(user.Login.PasswordSalt);
             var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
             for (int i = 0; i < hash.Length; i++)
             {
@@ -54,7 +53,7 @@ namespace VaccineApp.Services
 
         public async Task<AccountDto> RegisterAsync(RegisterDto registerDto)
         {
-            using var hmac = new HMACSHA512();
+            var hmac = new HMACSHA512();
             User user = new User
                         {
                             FirstName = registerDto.FirstName.ToLower(),

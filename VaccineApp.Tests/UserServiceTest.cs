@@ -6,21 +6,15 @@ namespace VaccineApp.Tests
 
     using AutoMapper;
 
-    using DTO;
-
-    using Entities;
-
-    using Helpers;
-
     using Moq;
-    using Moq.Language.Flow;
 
     using NUnit.Framework;
-    using NUnit.Framework.Internal;
 
-    using Repositories;
-
-    using Services;
+    using VaccineApp.DTO;
+    using VaccineApp.Entities;
+    using VaccineApp.Helpers;
+    using VaccineApp.Repositories;
+    using VaccineApp.Services;
 
     [TestFixture]
     public class UserServiceTest
