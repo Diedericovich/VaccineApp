@@ -6,6 +6,8 @@ using VaccineApp.Services;
 
 namespace VaccineApp.Controllers
 {
+    using Services.Interfaces;
+
     [ApiController, Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
@@ -39,6 +41,13 @@ namespace VaccineApp.Controllers
             {
                 return Unauthorized(e.Message);
             }
+        }
+
+        [HttpPut("UpdatePassword/{email}-{password}")]
+        public async Task<ActionResult> UpdatePasswordAsync(string email, string password)
+        {
+            await _service.UpdateUserPassword(email, password);
+            return Ok();
         }
     }
 }
