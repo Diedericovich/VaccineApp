@@ -69,7 +69,7 @@
         </div>
 
         <div class="form-group text-center">
-            <button class="btn btn-success mr-2" type="submit">Register</button>
+            <button class="btn btn-success mr-2" [disabled]="!registerUser.valid" type="submit">Register</button>
             <a class="btn btn-danger" (click)="cancel()">Cancel</a>
         </div>
     </form>

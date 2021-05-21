@@ -11,13 +11,25 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./edit-profile.component.css'],
 })
 export class EditProfileComponent implements OnInit {
-  user?: User ;
+  user?: User;
   userProfile: FormGroup = new FormGroup({
-    email: new FormControl( '', [Validators.required, Validators.minLength(4), Validators.maxLength(100)]),
-    password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-    firstName: new FormControl('', [Validators.required, Validators.maxLength(30)]),
-    surName: new FormControl('', [Validators.required, Validators.maxLength(55)]),
-    address: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.maxLength(100),
+    ]),
+    firstName: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(30),
+    ]),
+    surname: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(55),
+    ]),
+    address: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(100),
+    ]),
     birthDate: new FormControl('', Validators.required),
   });
 
@@ -32,16 +44,31 @@ export class EditProfileComponent implements OnInit {
     if (this.email) {
       this.userService.getUserByEmail(this.email).subscribe((x) => {
         this.user = x;
-        this.userProfile.setValue( this.user);
+        this.userProfile.setValue({
+          email: this.user.email,
+          firstName: this.user.firstName,
+          surname: this.user.surname,
+          address: this.user.address,
+          birthDate: this.user.birthDate,
+        });
       });
     }
   }
-  // this.data.currentUser?.subscribe(user => this.user = user )
+
   updateUser(user: User) {
-    this.userService.updateUser(this.user).subscribe();
     if (user) {
-      localStorage.setItem('user', JSON.stringify(user));
+      user.email = this.userProfile.value.email;
+      user.firstName = this.userProfile.value.firstName;
+      user.surname = this.userProfile.value.surname;
+      user.address = this.userProfile.value.address;
+      user.birthDate = this.userProfile.value.birthDate;
+
+      this.userService.updateUser(this.user).subscribe();
+      let localStorageUser = JSON.parse(localStorage.getItem('user') || '{}');
+      localStorageUser.email = user.email;
+      localStorage.setItem('user', JSON.stringify(localStorageUser));
+      this.router.navigateByUrl('landing/user-details');
     }
-    this.router.navigateByUrl('landing/user-details');
   }
+
 }

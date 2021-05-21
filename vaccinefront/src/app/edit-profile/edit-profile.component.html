@@ -1,48 +1,31 @@
 <div class="d-flex">
-  <form *ngIf="user" class="card-body" [formGroup]= "userProfile">
+  <form *ngIf="user" class="card-body" [formGroup]="userProfile">
     <div class="card text-left bg-light">
       <div>
         <h1>User Details</h1>
       </div>
       <p class="card-text">
         <label> Email: </label>
-        <input id="user-email" [(ngModel)]="user.email" placeholder="name" />
+        <input id="user-email" formControlName="email" placeholder="name" />
       </p>
       <p class="card-text">
         <label> Name: </label>
-        <input
-          id="user-firstName"
-          [(ngModel)]="user.firstName"
-          placeholder="name"
-        />
+        <input id="user-firstName" formControlName="firstName" placeholder="name" />
       </p>
       <p class="card-text">
         <label> Surname: </label>
-        <input
-          id="user-surname"
-          [(ngModel)]="user.surname"
-          placeholder="name"
-        />
+        <input id="user-surname" formControlName="surname" placeholder="name" />
       </p>
       <p class="card-text">
         <label>Address: </label>
-        <input
-          id="user-address"
-          [(ngModel)]="user.address"
-          placeholder="name"
-        />
+        <input id="user-address" formControlName="address" placeholder="name" />
       </p>
       <p class="card-text">
         <label>Birthdate: </label>
-        <input
-          type="date"
-          id="user-birthDate"
-          value="{{ user.birthDate }}"
-          [(ngModel)]="user.birthDate"
-        />
+        <input type="date" id="user-birthDate" formControlName="birthDate" />
       </p>
       <div class="text-right">
-        <a class="btn btn-outline-primary"  (click)="updateUser(user)">Save</a>
+        <a class="btn btn-outline-primary" (click)="updateUser(user)">Save</a>
       </div>
     </div>
   </form>

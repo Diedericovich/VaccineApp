@@ -1,11 +1,4 @@
-.bodycontainer{
-    height: 70em;
-}
-.vaccinContainer{
-    max-height: 50em;
-    overflow: auto;
 
-}
 .human-body {
     width: 207px;
     position: relative;
