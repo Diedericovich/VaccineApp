@@ -67,6 +67,10 @@
         public override async Task UpdateAsync(User item)
         {
             _context.Entry(item).Property(x => x.Email).IsModified = true;
+            _context.Entry(item).Property(x => x.FirstName).IsModified = true;
+            _context.Entry(item).Property(x => x.Surname).IsModified = true;
+            _context.Entry(item).Property(x => x.Address).IsModified = true;
+            _context.Entry(item).Property(x => x.BirthDate).IsModified = true;
             await _context.SaveChangesAsync();
         }
     }
