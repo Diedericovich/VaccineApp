@@ -1,48 +1,48 @@
-<div *ngIf="!isRegistering" >
-<div class="container-fluid overflow-hidden">
-<div class="login-box" >
-        <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off" class="m-5">
-                <div >
-                        <input name="email" 
-                                class="form-control m-2" 
-                                required maxlength="100" 
-                                required minlength="4"  
-                                [(ngModel)]="model.email" 
-                                type="text"
-                                placeholder="Email Address" 
-                                #name="ngModel"/>
-                        <div *ngIf="[name.invalid && (name.dirty || name.touched)]" class="alert">
-                                <div *ngIf="name.errors?.required">Email Adress is required.</div>
-                                <div *ngIf="name.errors?.minlength">Email Adress must be at least 4 characters.</div>
-                                <div *ngIf="name.errors?.maxlength">Email Adress cant have more then 100 characters.</div>
-                        </div>
-                        
-                </div>
+<div *ngIf="!isRegistering">
+        <div class="container-fluid overflow-hidden">
+                <div class="login-box">
+                        <form [formGroup]="loginUser" (ngSubmit)="login()" autocomplete="off">
+                                <h2 class="text-center text-primary">Sign up</h2>
+                                <div class="form-group">
+                                        <input type="text"
+                                                [class.is-invalid]="loginUser.get('email')?.errors && loginUser.get('email')?.touched"
+                                                class="form-control" formControlName="email" placeholder="Email" />
+                                        <div *ngIf="loginUser.get('password')?.hasError('required')"
+                                                class="invalid-feedback">Please enter an Email Address</div>
+                                        <div *ngIf="loginUser.get('password')?.hasError('minlength')"
+                                                class="invalid-feedback">Login not found</div>
+                                        <div *ngIf="loginUser.get('password')?.hasError('maxlength')"
+                                                class="invalid-feedback">Login not found</div>
 
-                <div>
-                        <input name="password" 
-                                class="form-control m-2" 
-                                required maxlength="50" 
-                                required minlength="8" 
-                                [(ngModel)]="model.password" 
-                                type="password"
-                                placeholder="Password" 
-                                #password="ngModel"
-                                />
-                                <div *ngIf="[password.invalid && (password.dirty || password.touched)]" class="alert">
-                                        <div *ngIf="password.errors?.required">Password is required.</div>
-                                        <div *ngIf="password.errors?.minlength">Password must be at least 8 characters.</div>
-                                        <div *ngIf="password.errors?.maxlength">Password cant have more then 50 characters.</div>
                                 </div>
-                </div>
+                                <div class="form-group">
+                                        <input type="password"
+                                                [class.is-invalid]="loginUser.get('password')?.errors && loginUser.get('password')?.touched"
+                                                class="form-control" formControlName="password"
+                                                placeholder="Password" />
+                                        <div *ngIf="loginUser.get('password')?.hasError('required')"
+                                                class="invalid-feedback">Please enter a password</div>
+                                        <div *ngIf="loginUser.get('password')?.hasError('minlength')"
+                                                class="invalid-feedback">Login not found</div>
+                                        <div *ngIf="loginUser.get('password')?.hasError('maxlength')"
+                                                class="invalid-feedback">Login not found</div>
 
-                <div>
-                        <button class="btn btn-success mx-2" type="submit">Login</button>
-                        <button class="btn btn-primary mx-2" type="button" (click)="register()">Register</button>
+                                        <div *ngIf="validationErrors.length > 0">
+                                                <ul class="text-danger">
+                                                        <li *ngFor="let error of validationErrors">
+                                                                {{error}}
+                                                        </li>
+                                                </ul>
+                                        </div>
+                                </div>
+                                <div class="form-group text-center">
+                                        <button class="btn btn-success mx-2" type="submit">Login</button>
+                                        <button class="btn btn-primary mx-2" type="button"
+                                                (click)="register()">Register</button>
+                                </div>
+                        </form>
                 </div>
-        </form>
-</div>
-</div>
+        </div>
 </div>
 <div *ngIf="isRegistering" class="register-box overflow-hidden">
         <app-register></app-register>
