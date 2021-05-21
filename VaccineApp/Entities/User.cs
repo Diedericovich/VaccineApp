@@ -9,6 +9,7 @@
         public int Id { get; set; }
         public int LoginId { get; set; }
         public Login Login { get; set; }
+        public string Email { get; set; }
 
         [StringLength(30)]
         public string FirstName { get; set; }

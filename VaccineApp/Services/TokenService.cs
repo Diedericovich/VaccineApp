@@ -20,12 +20,12 @@ namespace VaccineApp.Services
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));
         }
 
-        public string CreateToken(Login login)
+        public string CreateToken(User user)
         {
             // Define user claims
             var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.NameId, login.Email)
+                new Claim(JwtRegisteredClaimNames.NameId, user.Email)
             };
 
             // Choose an encryption algorithm
