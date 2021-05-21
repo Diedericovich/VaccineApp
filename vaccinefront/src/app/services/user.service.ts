@@ -36,7 +36,9 @@ export class UserService {
   } 
 
   updateUser(user: User| undefined): Observable<any> {
+    if (user) { user.appointments= []; }
     return this.http.put(this.userUrl, user, this.httpOptions);
+    
   }
 
   deleteUser(user: User): Observable<User> {

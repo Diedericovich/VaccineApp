@@ -4,7 +4,6 @@ html, body { height: 100%; }
 body { 
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif;             
-    overflow: scroll; /* Show scrollbars */
 }
 
 #head, #left-arm, #chest, #right-arm, #legs {
@@ -21,4 +20,15 @@ body {
 }
 legend {
     font-size: medium;
+}
+
+.bodycontainer{
+    height: 70vh;
+    max-height: 70vh;
+}
+.vaccinContainer{
+    max-height: 70vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+
 }
