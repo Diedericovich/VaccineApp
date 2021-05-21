@@ -8,36 +8,106 @@
                 <legend>Login Details</legend>
                 <p class="card-text">
                     <label> Email: </label>
-                    <input id="user-email" [(ngModel)]="register.email" placeholder="email">
+                    <input id="user-email" 
+                            [(ngModel)]="register.email" 
+                            placeholder="Email"
+                            required maxlength="100" 
+                            required minlength="4"
+                            #email="ngModel">
+                            <span *ngIf="[email.invalid && (email.dirty || email.touched)]" class="alert">
+                                <div *ngIf="email.errors?.required">Email Adress is required.</div>
+                                <div *ngIf="email.errors?.minlength">Email Adress must be at least 4 characters.</div>
+                                <div *ngIf="email.errors?.maxlength">Email Adress cant have more then 100 characters.</div>
+                            </span>
                 </p>
                 <p class="card-text">
                     <label> Password: </label>
-                    <input id="user-pass" [(ngModel)]="register.password" placeholder="password">
+                    <input id="user-pass" 
+                            [(ngModel)]="register.password" 
+                            type="password"
+                            placeholder="Password"
+                            required maxlength="50" 
+                            required minlength="8" 
+                            #password="ngModel">
+                            <span *ngIf="[password.invalid && (password.dirty || password.touched)]" class="alert">
+                                <div *ngIf="password.errors?.required">Password is required.</div>
+                                <div *ngIf="password.errors?.minlength">Password must be at least 8 characters.</div>
+                                <div *ngIf="password.errors?.maxlength">Password cant have more then 50 characters.</div>
+                            </span>
                 </p>
                 <p class="card-text">
                     <label> Confirm Password: </label>
-                    <input id="verify-pass" [(ngModel)]="verify" placeholder="password">
+                    <input id="verify-pass" 
+                            [(ngModel)]="verify" 
+                            type="password"
+                            placeholder="Password"
+                            required maxlength="50" 
+                            required minlength="8" 
+                            #confirmpassword="ngModel">
+                            <span *ngIf="[confirmpassword.invalid && (confirmpassword.dirty || confirmpassword.touched)]" class="alert">
+                                <div *ngIf="confirmpassword.errors?.required">Password is required.</div>
+                                <div *ngIf="confirmpassword.errors?.minlength">Password must be at least 8 characters.</div>
+                                <div *ngIf="confirmpassword.errors?.maxlength">Password cant have more then 50 characters.</div>
+                            </span>
                 </p>
             </fieldset>
 <fieldset>
             <legend>User Details</legend>
 
                 <p class="card-text">
-                    <label> Name: </label>
-                    <input id="user-firstname" [(ngModel)]="register.firstName" placeholder="firstname">
+                    <label> First Name: </label>
+                    <input id="user-firstname" 
+                            [(ngModel)]="register.firstName" 
+                            placeholder="Name"
+                            required maxlength="30" 
+                            required minlength="2"  
+                            type="text"
+                            placeholder="Email Address" 
+                            #firstname="ngModel">
+                            <span *ngIf="[firstname.invalid && (firstname.dirty || firstname.touched)]" class="alert">
+                                <div *ngIf="firstname.errors?.required">First Name is required.</div>
+                                <div *ngIf="firstname.errors?.minlength">First Name must have at least 2 characters.</div>
+                                <div *ngIf="firstname.errors?.maxlength">First Name cant have more then 30 characters.</div>
+                            </span>
                 </p>
                 <p class="card-text">
                     <label> Surname: </label>
-                    <input id="user-surname" [(ngModel)]="register.surName" placeholder="surname">
+                    <input id="user-surname" 
+                    [(ngModel)]="register.surName" 
+                    placeholder="Surname"
+                    required maxlength="55" 
+                    required minlength="4" 
+                    #surname="ngModel">
+                    <span *ngIf="[surname.invalid && (surname.dirty || surname.touched)]" class="alert">
+                        <div *ngIf="surname.errors?.required">Surname is required.</div>
+                        <div *ngIf="surname.errors?.minlength">Surname must be at least 4 characters.</div>
+                        <div *ngIf="surname.errors?.maxlength">Surname cant have more then 55 characters.</div>
+                    </span>
+
                 </p>
                 <p class="card-text">
                     <label>Address: </label>
-                    <input id="user-address" [(ngModel)]="register.address" placeholder="address">
+                    <input id="user-address" 
+                            [(ngModel)]="register.address" 
+                            placeholder="Address"
+                            required maxlength="100" 
+                            required minlength="10"  
+                            #address="ngModel">
+                            <span *ngIf="[address.invalid && (address.dirty || address.touched)]" class="alert">
+                                <div *ngIf="address.errors?.required">Address is required.</div>
+                                <div *ngIf="address.errors?.minlength">Address must be at least 10 characters.</div>
+                                <div *ngIf="address.errors?.maxlength">Address cant have more then 100 characters.</div>
+                            </span>
                 </p>
                 <p class="card-text">
                     <label>Birthdate: </label>
-
-                    <input id="user-birthdate" [(ngModel)]="register.birthDate">
+                    <input type="date" 
+                              id="user-birthdate" 
+                            [(ngModel)]="register.birthDate"
+                            #date="ngModel">
+                            <span *ngIf="[date.invalid && (date.dirty || date.touched)]" class="alert">
+                                <div *ngIf="date.errors?.required">Birthdate is required.</div>
+                            </span>
                 </p>
                 <div class="text-right">
                     <a class="btn btn-primary mr-2" (click)="Register()">Submit Registration</a>

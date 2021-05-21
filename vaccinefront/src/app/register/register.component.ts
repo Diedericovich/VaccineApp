@@ -3,6 +3,7 @@ import { Register } from '../register';
 import { Appointment } from '../appointment';
 import { Router } from '@angular/router';
 import { AccountService } from '../services/account.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,11 +18,20 @@ register: Register = {
   surName:"",
   address:"",
   birthDate : new Date(),
+  
 };
 @Output() boolEvent = new EventEmitter<boolean>();
+// passwordForm?: FormGroup;
   constructor(private router: Router, private accountService : AccountService) { }
 
   ngOnInit(): void {
+    // this.passwordForm = new FormGroup({
+    //   password: new FormControl(
+    //     this.register.password,
+    //     [Validators.required,
+    //     Validators.minLength(4)]),
+    //     alterPassword: new FormControl(this.register.password)
+    // });
     // this.data.currentUser.subscribe(user => this.user = user )
   }
   Register(): void {
@@ -41,4 +51,5 @@ register: Register = {
   Cancel(): void {
     
   }
+
 }
