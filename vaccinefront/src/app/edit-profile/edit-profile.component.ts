@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
-import { User } from '../user';
-import { Appointment } from '../appointment';
+import { User } from '../interfaces/user';
+import { Appointment } from '../interfaces/appointment';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 @Component({
@@ -10,29 +10,30 @@ import { UserService } from '../services/user.service';
 })
 export class EditProfileComponent implements OnInit {
   user?: User ;
- 
+  email?: string;
+
   constructor(
     private router: Router,
     private userService: UserService
-
-    ) { }
+    ) {}
   
   ngOnInit(): void {
-    this.user = JSON.parse(localStorage.getItem('fullUser')||'{}');
+    this.email = JSON.parse(localStorage.getItem('user') || '{}').email;
 
-    // this.data.currentUser?.subscribe(user => this.user = user )
+    if (this.email) {
+      this.userService.getUserByEmail(this.email).subscribe((x) => {
+        this.user = x;
+      });
+    }
   }
-newUser() {
-
-    localStorage.setItem('fullUser',JSON.stringify(this.user));
-    this.userService.updateUser(this.user);
- // this.data.changeUser();
-}
-
-save() :void {
-  this.newUser();
-  this.router.navigateByUrl('landing/user-details'); 
-}
+    // this.data.currentUser?.subscribe(user => this.user = user )
+    updateUser(user: User) {
+      this.userService
+      .updateUser(this.user)
+      .subscribe();
+      this.router.navigateByUrl('landing/user-details'); 
+  
+    }
 
 
 }

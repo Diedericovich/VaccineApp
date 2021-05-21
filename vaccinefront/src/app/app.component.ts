@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  title = 'Vaxx.id';
 
   
   ngOnInit(): void {

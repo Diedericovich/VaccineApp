@@ -4,7 +4,7 @@ html, body { height: 100%; }
 body { 
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif;             
-    
+    overflow: scroll; /* Show scrollbars */
 }
 
 #head, #left-arm, #chest, #right-arm, #legs {

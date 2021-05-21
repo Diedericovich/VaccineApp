@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
-import { Register } from '../register';
-import { Appointment } from '../appointment';
+import { Register } from '../interfaces/register';
+import { Appointment } from '../interfaces/appointment';
 import { Router } from '@angular/router';
 import { AccountService } from '../services/account.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';

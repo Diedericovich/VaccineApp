@@ -6,11 +6,11 @@
         <div *ngIf="user" class="card-body">
             <p class="card-text">
             <label> Email: </label>
-            <input id="user-firstname" [(ngModel)]="user.email" placeholder="name">
+            <input id="user-email" [(ngModel)]="user.email" placeholder="name">
     </p>
     <p class="card-text">
         <label> Name: </label>
-            <input id="user-firstname" [(ngModel)]="user.firstName" placeholder="name">
+            <input id="user-firstName" [(ngModel)]="user.firstName" placeholder="name">
         </p>
             <p class="card-text">
             <label> Surname: </label>
@@ -21,13 +21,11 @@
             <input id="user-address" [(ngModel)]="user.address" placeholder="name">
             </p>
             <p class="card-text">
-            <label>Birthdate: </label>
-         
-            <input id="user-birthdate" [(ngModel)]="user.birthDate" placeholder="name">
+            <label>Birthdate: </label>       
+            <input type="date" id="user-birthDate" value={{user.birthDate}} [(ngModel)]="user.birthDate">
         </p>
         <div class="text-right">
-    
-            <a class="btn btn-outline-primary" (click)="save()">Save</a>
+            <a class="btn btn-outline-primary" (click)="updateUser(user)">Save</a>
         </div>
         </div>
     </div>

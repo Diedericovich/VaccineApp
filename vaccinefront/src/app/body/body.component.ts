@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Login } from '../login';
+import { Login } from '../interfaces/login';
 import { UserService } from '../services/user.service';
-import { User } from '../user';
+import { User } from '../interfaces/user';
 
 @Component({
   selector: 'app-body',
