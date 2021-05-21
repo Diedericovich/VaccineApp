@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterComponent } from '../register/register.component';
 import { AccountService } from '../services/account.service';
@@ -9,7 +10,11 @@ import { AccountService } from '../services/account.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  model: any = {};
+  loginUser: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(100)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+  });
+  validationErrors: string[] = [];
   isRegistering: boolean = false;
   @Output() boolEvent = new EventEmitter<boolean>();
 
@@ -19,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.accountService.login(this.model)
+    this.accountService.login(this.loginUser.value)
       .subscribe(x => {
         console.log(x);
         this.boolEvent.emit(true);
@@ -27,6 +32,7 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('landing/body');
       },
         error => {
+          this.validationErrors.push(error.error);
           console.log(error);
         });
   }
