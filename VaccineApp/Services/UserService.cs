@@ -41,7 +41,8 @@
 
         public async Task UpdateUserAsync(UserDto user)
         {
-            await _userRepo.UpdateAsync(_mapper.Map<User>(user));
+            User temp = _mapper.Map<User>(user);
+            await _userRepo.UpdateAsync(temp);
         }
 
         public async Task<UserDto> GetUserAsync(int id)
