@@ -33,11 +33,11 @@ namespace VaccineApp
         {
             var hmac = new HMACSHA512();
             modelBuilder.Entity<Login>().HasData(
-                new Login { Id = 1, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key, Email = "test1" },
-                new Login { Id = 2, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key, Email = "test2" },
-                new Login { Id = 3, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key, Email = "test3" },
-                new Login { Id = 4, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key, Email = "test4" },
-                new Login { Id = 5, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key, Email = "test5" }
+                new Login { Id = 1, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key  },
+                new Login { Id = 2, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key  },
+                new Login { Id = 3, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key  },
+                new Login { Id = 4, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key  },
+                new Login { Id = 5, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key }
 
 
 
@@ -67,11 +67,11 @@ namespace VaccineApp
         private static void BuildUsers(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasData(
-                new User { Id = 1, FirstName = "James", Surname = "Bond", LoginId = 1, Address = "Koekoekstraat 70, 9090 Melle", BirthDate = new DateTime(1968, 03, 02) },
-                new User { Id = 2, FirstName = "Marilyn", Surname = "Monroe", LoginId = 2, Address = "Meir 20, 2000 Antwerpen", BirthDate = new DateTime(1926, 06, 01) },
-                new User { Id = 3, FirstName = "Marc", Surname = "Van Ranst", LoginId = 3, Address = "Joseph Smeetslaan 311, 3630 Maasmechelen", BirthDate = new DateTime(1965, 06, 20) },
-                new User { Id = 4, FirstName = "Brad", Surname = "Pitt", LoginId = 4, Address = "Oudstrijdersstraat 27, 8370 Blankenberge", BirthDate = new DateTime(1963, 12, 18) },
-                new User { Id = 5, FirstName = "Bill", Surname = "Gates", LoginId = 5, Address = "Latemstraat 122, 9830 Sint-Martens-Latem", BirthDate = new DateTime(1955, 10, 28) }
+                new User { Id = 1, FirstName = "James", Surname = "Bond", LoginId = 1, Address = "Koekoekstraat 70, 9090 Melle", BirthDate = new DateTime(1968, 03, 02), Email = "test" },
+                new User { Id = 2, FirstName = "Marilyn", Surname = "Monroe", LoginId = 2, Address = "Meir 20, 2000 Antwerpen", BirthDate = new DateTime(1926, 06, 01), Email = "test2" },
+                new User { Id = 3, FirstName = "Marc", Surname = "Van Ranst", LoginId = 3, Address = "Joseph Smeetslaan 311, 3630 Maasmechelen", BirthDate = new DateTime(1965, 06, 20), Email = "test3" },
+                new User { Id = 4, FirstName = "Brad", Surname = "Pitt", LoginId = 4, Address = "Oudstrijdersstraat 27, 8370 Blankenberge", BirthDate = new DateTime(1963, 12, 18), Email = "test4" },
+                new User { Id = 5, FirstName = "Bill", Surname = "Gates", LoginId = 5, Address = "Latemstraat 122, 9830 Sint-Martens-Latem", BirthDate = new DateTime(1955, 10, 28), Email = "test5" }
                 );
         }
 
