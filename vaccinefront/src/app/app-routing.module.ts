@@ -13,11 +13,13 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
+import { MaptestComponent } from './maptest/maptest.component';
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'landing', component: LandingpageComponent, children: [  
     { path: '', redirectTo: 'body', pathMatch: 'full' },
+    { path: 'map', component: MaptestComponent },
     { path: 'appointments', component: AppointmentsComponent },
     { path: 'edit-profile', component: EditProfileComponent },
     { path: 'user-details', component: UserDetailsComponent },

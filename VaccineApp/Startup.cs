@@ -83,6 +83,7 @@ namespace VaccineApp
             services.AddScoped<IAppointmentRepo, AppointmentRepo>();
             services.AddScoped<IVaccinationCenterRepo, VaccinationCenterRepo>();
             services.AddScoped<IVaccineRepo, VaccineRepo>();
+            services.AddScoped<IGenericRepo<VaccinationCenter>, GenericRepo<VaccinationCenter>>();
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IVaccineService, VaccineService>();
@@ -90,6 +91,7 @@ namespace VaccineApp
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IAppointmentService, AppointmentService>();
             services.AddScoped<IGeoCodeService, GeoCodeService>();
+            services.AddScoped<IVaccinationCenterService, VaccinationCenterService>();
         }
     }
 }
