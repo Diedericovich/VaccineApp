@@ -3,6 +3,7 @@ import { User } from '../interfaces/user';
 import { Appointment } from '../interfaces/appointment';
 import { AppointmentService } from '../services/appointment.service';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-appointments',
@@ -15,7 +16,8 @@ export class AppointmentsComponent implements OnInit {
 
   constructor(
     private appointmentService: AppointmentService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +33,14 @@ export class AppointmentsComponent implements OnInit {
     this.appointmentService
       .updateAppointmentStatus(appointmentId, 2)
       .subscribe();
-    console.log('ok ok, I got here...');
+      this.reloadCurrentRoute();
   }
+
+  reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currentUrl]);
+    });
+}
+
 }
