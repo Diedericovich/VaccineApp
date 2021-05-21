@@ -10,7 +10,7 @@
 
                 <h3 class="font-weight-bold text-secondary">
                     <div class="col-10">
-                        planned on: {{appointment.date}})
+                        planned on: {{appointment.date | date: "medium" }}
                         <span class="text-light text-left font-weight-bold mx-5">{{appointment.location.name}}</span>
                         <span style="white-space: pre-line">--> {{appointment.location.location}}</span>
                         <span class="text-info font-weight-bold mx-5">status:</span><span class="text-warning">{{appointment.status.status}}</span>
@@ -19,10 +19,6 @@
                         <button class="text-right btn btn-danger ml-5 mb-2 button" (click)="CancelAppointment(appointment.id)">Cancel</button>
                     </div>           
                     </h3>
-                    
- 
-                
-                    
             </div>
         </div>
     </div>
