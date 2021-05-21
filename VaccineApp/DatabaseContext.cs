@@ -31,6 +31,7 @@
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Seed();
+            modelBuilder.Entity<User>(x => { x.HasIndex(y => y.Email).IsUnique(); });
         }
     }
 }
