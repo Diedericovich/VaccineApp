@@ -24,7 +24,7 @@ namespace VaccineApp.Services
 
         public async Task<AccountDto> LoginAsync(string email, string password)
         {
-            var user = await _context.Users.Include(x => x.Login).SingleOrDefaultAsync(x => x.Login.Email == email);
+            var user = await _context.Users.Include(x => x.Login).SingleOrDefaultAsync(x => x.Email == email);
             if (user == null)
             {
                 throw new UnauthorizedAccessException("Invalid username");
@@ -40,8 +40,8 @@ namespace VaccineApp.Services
             }
             return new AccountDto
             {
-                Email = user.Login.Email,
-                Token = _tokenService.CreateToken(user.Login),
+                Email = user.Email,
+                Token = _tokenService.CreateToken(user),
             };
         }
 
@@ -54,9 +54,9 @@ namespace VaccineApp.Services
                 Surname = registerDto.SurName.ToLower(),
                 BirthDate = registerDto.BirthDate,
                 Address = registerDto.Address,
+                Email = registerDto.Email,
                 Login = new Login
                 {
-                    Email = registerDto.Email,
                     PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
                     PasswordSalt = hmac.Key,
                 },
@@ -66,14 +66,14 @@ namespace VaccineApp.Services
             await _context.SaveChangesAsync();
             return new AccountDto
             {
-                Email = user.Login.Email,
-                Token = _tokenService.CreateToken(user.Login),
+                Email = user.Email,
+                Token = _tokenService.CreateToken(user),
             };
         }
 
         public async Task<bool> UserExists(string email)
         {
-            return await _context.Users.AnyAsync(x => x.Login.Email == email);
+            return await _context.Users.AnyAsync(x => x.Email == email);
         }
     }
 }

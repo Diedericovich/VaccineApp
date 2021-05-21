@@ -61,12 +61,12 @@
                 .Include(x => x.Appointments)
                     .ThenInclude(x => x.Location)
                 .Include(x => x.Login)
-                .FirstOrDefaultAsync(x => x.Login.Email == email);
+                .FirstOrDefaultAsync(x => x.Email == email);
         }
 
         public override async Task UpdateAsync(User item)
         {
-            _context.Entry(item).Property(x => x.Login.Email).IsModified = true;
+            _context.Entry(item).Property(x => x.Email).IsModified = true;
             await _context.SaveChangesAsync();
         }
     }

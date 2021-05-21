@@ -18,7 +18,6 @@
         public AutoMapperProfile()
         {
             CreateMap<User, UserDto>()
-                .ForMember(dst => dst.Email, opt => opt.MapFrom(src => src.Login.Email))
                 .ForMember(dst => dst.Appointments, opt => opt.MapFrom(src => src.Appointments))
                 .ReverseMap();
 
