@@ -2,14 +2,38 @@
 <div class="container-fluid overflow-hidden">
 <div class="login-box" >
         <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off" class="m-5">
-                <div>
-                        <input name="username" class="form-control m-2" [(ngModel)]="model.email" type="text"
-                                placeholder="UserName" />
+                <div >
+                        <input name="email" 
+                                class="form-control m-2" 
+                                required maxlength="100" 
+                                required minlength="4"  
+                                [(ngModel)]="model.email" 
+                                type="text"
+                                placeholder="Email Address" 
+                                #name="ngModel"/>
+                        <div *ngIf="[name.invalid && (name.dirty || name.touched)]" class="alert">
+                                <div *ngIf="name.errors?.required">Email Adress is required.</div>
+                                <div *ngIf="name.errors?.minlength">Email Adress must be at least 4 characters.</div>
+                                <div *ngIf="name.errors?.maxlength">Email Adress cant have more then 100 characters.</div>
+                        </div>
+                        
                 </div>
 
                 <div>
-                        <input name="password" class="form-control m-2" [(ngModel)]="model.password" type="password"
-                                placeholder="Password" />
+                        <input name="password" 
+                                class="form-control m-2" 
+                                required maxlength="50" 
+                                required minlength="8" 
+                                [(ngModel)]="model.password" 
+                                type="password"
+                                placeholder="Password" 
+                                #password="ngModel"
+                                />
+                                <div *ngIf="[password.invalid && (password.dirty || password.touched)]" class="alert">
+                                        <div *ngIf="password.errors?.required">Password is required.</div>
+                                        <div *ngIf="password.errors?.minlength">Password must be at least 8 characters.</div>
+                                        <div *ngIf="password.errors?.maxlength">Password cant have more then 50 characters.</div>
+                                </div>
                 </div>
 
                 <div>
