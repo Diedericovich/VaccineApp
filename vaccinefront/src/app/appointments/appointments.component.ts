@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { User } from '../user';
-import { Appointment } from '../appointment';
+import { User } from '../interfaces/user';
+import { Appointment } from '../interfaces/appointment';
 import { AppointmentService } from '../services/appointment.service';
 import { UserService } from '../services/user.service';
 

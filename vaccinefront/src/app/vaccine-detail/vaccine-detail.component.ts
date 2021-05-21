@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AppointmentService } from '../services/appointment.service';
 import { UserService } from '../services/user.service';
-import { User } from '../user';
-import { Vaccine } from '../vaccine';
+import { User } from '../interfaces/user';
+import { Vaccine } from '../interfaces/vaccine';
 @Component({
   selector: 'app-vaccine-detail',
   templateUrl: './vaccine-detail.component.html',

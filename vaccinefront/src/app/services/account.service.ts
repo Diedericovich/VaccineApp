@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Account } from '../account';
+import { Account } from '../interfaces/account';
 import { map } from 'rxjs/operators';
 import { UserService } from './user.service';
-import { User } from '../user';
+import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
