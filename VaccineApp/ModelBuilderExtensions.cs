@@ -24,7 +24,7 @@ namespace VaccineApp
         {
             modelBuilder.Entity<Appointment>().HasData(
                 new Appointment { Id = 1, Date = new DateTime(2021, 07, 10), StatusId = 1, UserId = 1, LocationId = 1, VaccinationId = 1 }
-                //data aanvullen
+                //data aanvullen voor 1 user: 3-tal
 
                 );
         }
@@ -156,9 +156,9 @@ namespace VaccineApp
         private static void BuildAppointmentStatus(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AppointmentStatus>().HasData(
-                new AppointmentStatus { Id = 1, Status = "Approved" },
+                new AppointmentStatus { Id = 1, Status = "Scheduled" },
                 new AppointmentStatus { Id = 2, Status = "Canceled" },
-                new AppointmentStatus { Id = 3, Status = "Administered" }
+                new AppointmentStatus { Id = 3, Status = "Completed" }
                 );
         }
     }
