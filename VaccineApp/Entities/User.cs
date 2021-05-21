@@ -1,5 +1,6 @@
 ﻿namespace VaccineApp.Entities
 {
+    using Microsoft.EntityFrameworkCore;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -9,6 +10,7 @@
         public int Id { get; set; }
         public int LoginId { get; set; }
         public Login Login { get; set; }
+        public string Email { get; set; }
 
         [StringLength(30)]
         public string FirstName { get; set; }

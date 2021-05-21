@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Account } from '../account';
+import { Account } from '../interfaces/account';
 import { map } from 'rxjs/operators';
 import { UserService } from './user.service';
-import { User } from '../user';
+import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -25,11 +25,6 @@ export class AccountService {
             if (user) {
               localStorage.setItem('user', JSON.stringify(user));
               this.currentUser = user;
-              this.userService.getUserByEmail(this.currentUser.email)
-                .subscribe(fullUser => {
-                  this.fullUser = fullUser;
-                  localStorage.setItem('fullUser', JSON.stringify(this.fullUser));
-                });
             }
           })
       );
@@ -44,11 +39,6 @@ export class AccountService {
             if (user) {
               localStorage.setItem('user', JSON.stringify(user));
               this.currentUser = user;
-              this.userService.getUserByEmail(this.currentUser.email)
-                .subscribe(fullUser => {
-                  this.fullUser = fullUser;
-                  localStorage.setItem('fullUser', JSON.stringify(this.fullUser));
-                });
             }
           })
       );

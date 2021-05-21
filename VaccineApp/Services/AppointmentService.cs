@@ -62,8 +62,7 @@
 
         public async Task UpdateAppointmentStatusAsync(int appointmentId, int status)
         {
-            Appointment temp = await _appointmentRepo.GetAsync(appointmentId);
-            temp.StatusId = status;
+            Appointment temp = new Appointment { Id = appointmentId, StatusId = status };
             await UpdateAppointmentAsync(temp);
         }
 

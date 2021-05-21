@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Appointment } from '../appointment';
+import { Appointment } from '../interfaces/appointment';
 import { UserService } from './user.service';
-import { User } from '../user';
-import { Vaccine } from '../vaccine';
-import { Status } from '../status';
+import { User } from '../interfaces/user';
+import { Vaccine } from '../interfaces/vaccine';
+import { Status } from '../interfaces/status';
 
 @Injectable({
   providedIn: 'root'

@@ -1,17 +1,46 @@
 label {
-    margin-left: 1rem;
-    width:5rem;
+  margin-left: 1rem;
+  width: 5rem;
 }
 
 h1 {
-margin-left: 10rem;;
+  margin-left: 10rem;
 }
 
 .card {
-    margin:auto;
-    width: 30rem;;
+  margin: auto;
+  width: 30rem;
+  overflow: hidden;
+  margin-top: 130px;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  width: 70%;
+}
+input {
+  width: 18rem;
+  margin: auto;
+}
+.invalid-feedback{
+  margin: auto;
+}
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid #42a948; /* green */
 }
 
-input {
-    width: 18rem;
+.ng-invalid:not(form) {
+  border-left: 5px solid #a94442; /* red */
+}
+
+.alert div {
+  color: #b80808;
+  text-align: right;
+  font-size: small;
+}
+
+.form-group {
+  margin-bottom: 1rem;
 }

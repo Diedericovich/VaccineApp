@@ -1,49 +1,76 @@
-<div class="d-flex">
-    <div class="card text-left bg-light">
-        <div>
-            <h1>Register User</h1>
+<div class="card">
+    <form [formGroup]="registerUser" (ngSubmit)="register()" autocomplete="off" class="justify-content-center">
+        <h2 class="text-center text-primary">Sign up</h2>
+        <div class="form-group">
+            <input type="text"
+                [class.is-invalid]="registerUser.get('email')?.errors && registerUser.get('email')?.touched"
+                class="form-control" formControlName="email" placeholder="Email" />
+            <div class="invalid-feedback">Please enter an Email</div>
         </div>
-        <div *ngIf="register" class="card-body">
-            <fieldset>
-                <legend>Login Details</legend>
-                <p class="card-text">
-                    <label> Email: </label>
-                    <input id="user-email" [(ngModel)]="register.email" placeholder="email">
-                </p>
-                <p class="card-text">
-                    <label> Password: </label>
-                    <input id="user-pass" [(ngModel)]="register.password" placeholder="password">
-                </p>
-                <p class="card-text">
-                    <label> Confirm Password: </label>
-                    <input id="verify-pass" [(ngModel)]="verify" placeholder="password">
-                </p>
-            </fieldset>
-<fieldset>
-            <legend>User Details</legend>
+        <div class="form-group input">
+            <input type="password"
+                [class.is-invalid]="registerUser.get('password')?.errors && registerUser.get('password')?.touched"
+                class="form-control" formControlName="password" placeholder="Password" />
+            <div *ngIf="registerUser.get('password')?.hasError('required')" class="invalid-feedback">Please enter a
+                password
+            </div>
+            <div *ngIf="registerUser.get('password')?.hasError('minlength')" class="invalid-feedback">Password needs to
+                be
+                longer than characters</div>
+            <div *ngIf="registerUser.get('password')?.hasError('maxlength')" class="invalid-feedback">Password can't be
+                more
+                than 8 characters</div>
+        </div>
+        <div class="form-group">
+            <input type="text"
+                [class.is-invalid]="registerUser.get('firstName')?.errors && registerUser.get('firstName')?.touched"
+                class="form-control" formControlName="firstName" placeholder="FirstName" />
+            <div *ngIf="registerUser.get('password')?.hasError('required')" class="invalid-feedback">Please enter a name
+            </div>
+            <div *ngIf="registerUser.get('firstName')?.hasError('maxlength')" class="invalid-feedback">Name too long
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="text"
+                [class.is-invalid]="registerUser.get('surName')?.errors && registerUser.get('surName')?.touched"
+                class="form-control" formControlName="surName" placeholder="Surname" />
+            <div *ngIf="registerUser.get('surName')?.hasError('required')" class="invalid-feedback">Please enter a
+                surname
+            </div>
+            <div *ngIf="registerUser.get('surName')?.hasError('maxlength')" class="invalid-feedback">Name too long</div>
+        </div>
+        <div class="form-group">
+            <input type="text"
+                [class.is-invalid]="registerUser.get('address')?.errors && registerUser.get('address')?.touched"
+                class="form-control" formControlName="address" placeholder="Address" />
+            <div *ngIf="registerUser.get('address')?.hasError('required')" class="invalid-feedback">Please enter an
+                address
+            </div>
+            <div *ngIf="registerUser.get('address')?.hasError('maxlength')" class="invalid-feedback">Address too long
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="date"
+                [class.is-invalid]="registerUser.get('birthDate')?.errors && registerUser.get('birthDate')?.touched"
+                class="form-control" formControlName="birthDate" placeholder="BirthDate" />
+            <div *ngIf="registerUser.get('birthDate')?.hasError('required')" class="invalid-feedback">Please enter your
+                date of birth
+            </div>
 
-                <p class="card-text">
-                    <label> Name: </label>
-                    <input id="user-firstname" [(ngModel)]="register.firstName" placeholder="firstname">
-                </p>
-                <p class="card-text">
-                    <label> Surname: </label>
-                    <input id="user-surname" [(ngModel)]="register.surName" placeholder="surname">
-                </p>
-                <p class="card-text">
-                    <label>Address: </label>
-                    <input id="user-address" [(ngModel)]="register.address" placeholder="address">
-                </p>
-                <p class="card-text">
-                    <label>Birthdate: </label>
-
-                    <input id="user-birthdate" [(ngModel)]="register.birthDate">
-                </p>
-                <div class="text-right">
-                    <a class="btn btn-primary mr-2" (click)="Register()">Submit Registration</a>
-                    <a class="btn btn-danger" (click)="Cancel()">Cancel</a>
+            <div *ngIf="validationErrors.length > 0">
+                <div class="center">
+                    <ul class="text-danger errorMessages">
+                        <li *ngFor="let error of validationErrors">
+                            {{error}}
+                        </li>
+                    </ul>
                 </div>
-            </fieldset>
+            </div>
         </div>
-    </div>
+
+        <div class="form-group text-center">
+            <button class="btn btn-success mr-2" [disabled]="!registerUser.valid" type="submit">Register</button>
+            <a class="btn btn-danger" (click)="cancel()">Cancel</a>
+        </div>
+    </form>
 </div>

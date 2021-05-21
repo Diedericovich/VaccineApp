@@ -4,7 +4,7 @@
         font-size: larger;        
 }
 .login-box {
-    width: 300px;
+    width: 350px;
     margin: auto;
     margin-top: 40vh;
 }
@@ -13,3 +13,22 @@
     margin: auto;
     margin-top: 10vh;
 }
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:after  {
+    border-left: 5px solid #a94442; /* red */
+  }
+  
+  .alert div {
+    color: #b80808;
+    text-align: right;
+    font-size: small;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  

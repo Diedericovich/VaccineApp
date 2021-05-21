@@ -1,14 +1,14 @@
-<div class="container h-100 bg-light">
+<div>
     <h2>All Vaccines overview</h2>
-        <div class="row">
-        <div class="col-6">
-                <ul class="list-group mx-3 mb-2 text-left">
-                  <li class="vaccines list-group-item m-1" *ngFor="let vaccine of vaccines" (click)="onSelect(vaccine)" [class.active]="vaccine == selectedVaccine">
+        <div class="row vaccinContainer">
+        <div class="col-6 ">
+                <table class="list-group mx-3 mb-2 text-left">
+                  <tr class="vaccines list-group-item m-1" *ngFor="let vaccine of vaccines" (click)="onSelect(vaccine)" [class.active]="vaccine == selectedVaccine">
                     <span class="text-dark text-left font-weight-bold">{{vaccine.name}}</span> --> {{vaccine.description}}
-                  </li>
-                </ul>
+                  </tr>
+                </table>
                 </div>
-    <div class="col-5">
+    <div class="col-5 " style="position: fixed; top: 248px; left: 550px; width: 500px;">
       <app-vaccine-detail [vaccine]="selectedVaccine"></app-vaccine-detail>
     </div>
   </div>

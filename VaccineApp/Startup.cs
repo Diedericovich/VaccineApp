@@ -23,6 +23,7 @@ namespace VaccineApp
     using Repositories;
 
     using Services;
+    using Services.Interfaces;
     using VaccineApp.Entities;
 
     public class Startup

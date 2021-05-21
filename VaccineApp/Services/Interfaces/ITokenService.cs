@@ -4,6 +4,6 @@ namespace VaccineApp.Services
 {
     public interface ITokenService
     {
-        string CreateToken(Login login);
+        string CreateToken(User user);
     }
 }

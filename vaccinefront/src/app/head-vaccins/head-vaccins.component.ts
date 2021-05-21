@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Vaccine } from '../vaccine';
+import { Vaccine } from '../interfaces/vaccine';
 import { VaccineService } from '../services/vaccine.service';
 @Component({
   selector: 'app-head-vaccins',
