@@ -1,6 +1,6 @@
-.sticky {
-    top: 250px;
-    position: sticky;
-    right: 50px;
-    
+.vaccinContainer{
+    max-height: 50em;
+    overflow: scroll;
+    overflow-x: hidden;
+
 }

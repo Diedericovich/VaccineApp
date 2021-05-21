@@ -1,97 +1,76 @@
 <div class="card">
-<form [formGroup]="registerUser" (ngSubmit)="register()" autocomplete="off" class="justify-content-center">
-    <h2 class="text-center text-primary">Sign up</h2>
-    <div class="form-group">
-        <input type="text" [class.is-invalid]="registerUser.get('email')?.errors && registerUser.get('email')?.touched"
-            class="form-control" formControlName="email" placeholder="Email" />
-        <div class="invalid-feedback">Please enter an Email</div>
-    </div>
-    <div class="form-group input">
-        <input type="password"
-            [class.is-invalid]="registerUser.get('password')?.errors && registerUser.get('password')?.touched"
-            class="form-control" formControlName="password" placeholder="Password" />
-        <div *ngIf="registerUser.get('password')?.hasError('required')" class="invalid-feedback">Please enter a password
+    <form [formGroup]="registerUser" (ngSubmit)="register()" autocomplete="off" class="justify-content-center">
+        <h2 class="text-center text-primary">Sign up</h2>
+        <div class="form-group">
+            <input type="text"
+                [class.is-invalid]="registerUser.get('email')?.errors && registerUser.get('email')?.touched"
+                class="form-control" formControlName="email" placeholder="Email" />
+            <div class="invalid-feedback">Please enter an Email</div>
         </div>
-        <div *ngIf="registerUser.get('password')?.hasError('minlength')" class="invalid-feedback">Password needs to be
-            longer than characters</div>
-        <div *ngIf="registerUser.get('password')?.hasError('maxlength')" class="invalid-feedback">Password can't be more
-            than 8 characters</div>
+        <div class="form-group input">
+            <input type="password"
+                [class.is-invalid]="registerUser.get('password')?.errors && registerUser.get('password')?.touched"
+                class="form-control" formControlName="password" placeholder="Password" />
+            <div *ngIf="registerUser.get('password')?.hasError('required')" class="invalid-feedback">Please enter a
+                password
+            </div>
+            <div *ngIf="registerUser.get('password')?.hasError('minlength')" class="invalid-feedback">Password needs to
+                be
+                longer than characters</div>
+            <div *ngIf="registerUser.get('password')?.hasError('maxlength')" class="invalid-feedback">Password can't be
+                more
+                than 8 characters</div>
+        </div>
+        <div class="form-group">
+            <input type="text"
+                [class.is-invalid]="registerUser.get('firstName')?.errors && registerUser.get('firstName')?.touched"
+                class="form-control" formControlName="firstName" placeholder="FirstName" />
+            <div *ngIf="registerUser.get('password')?.hasError('required')" class="invalid-feedback">Please enter a name
+            </div>
+            <div *ngIf="registerUser.get('firstName')?.hasError('maxlength')" class="invalid-feedback">Name too long
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="text"
+                [class.is-invalid]="registerUser.get('surName')?.errors && registerUser.get('surName')?.touched"
+                class="form-control" formControlName="surName" placeholder="Surname" />
+            <div *ngIf="registerUser.get('surName')?.hasError('required')" class="invalid-feedback">Please enter a
+                surname
+            </div>
+            <div *ngIf="registerUser.get('surName')?.hasError('maxlength')" class="invalid-feedback">Name too long</div>
+        </div>
+        <div class="form-group">
+            <input type="text"
+                [class.is-invalid]="registerUser.get('address')?.errors && registerUser.get('address')?.touched"
+                class="form-control" formControlName="address" placeholder="Address" />
+            <div *ngIf="registerUser.get('address')?.hasError('required')" class="invalid-feedback">Please enter an
+                address
+            </div>
+            <div *ngIf="registerUser.get('address')?.hasError('maxlength')" class="invalid-feedback">Address too long
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="date"
+                [class.is-invalid]="registerUser.get('birthDate')?.errors && registerUser.get('birthDate')?.touched"
+                class="form-control" formControlName="birthDate" placeholder="BirthDate" />
+            <div *ngIf="registerUser.get('birthDate')?.hasError('required')" class="invalid-feedback">Please enter your
+                date of birth
+            </div>
 
-        <div *ngIf="validationErrors.length > 0">
-            <ul class="text-danger">
-                <li *ngFor="let error of validationErrors">
-                    {{error}}
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="form-group">
-        <input type="text"
-            [class.is-invalid]="registerUser.get('firstName')?.errors && registerUser.get('firstName')?.touched"
-            class="form-control" formControlName="firstName" placeholder="FirstName" />
-        <div *ngIf="registerUser.get('password')?.hasError('required')" class="invalid-feedback">Please enter a name
-        </div>
-        <div *ngIf="registerUser.get('firstName')?.hasError('maxlength')" class="invalid-feedback">Name too long</div>
-
-        <div *ngIf="validationErrors.length > 0">
-            <ul class="text-danger">
-                <li *ngFor="let error of validationErrors">
-                    {{error}}
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="form-group">
-        <input type="text"
-            [class.is-invalid]="registerUser.get('surName')?.errors && registerUser.get('surName')?.touched"
-            class="form-control" formControlName="surName" placeholder="Surname" />
-        <div *ngIf="registerUser.get('surName')?.hasError('required')" class="invalid-feedback">Please enter a surname
-        </div>
-        <div *ngIf="registerUser.get('surName')?.hasError('maxlength')" class="invalid-feedback">Name too long</div>
-
-        <div *ngIf="validationErrors.length > 0">
-            <ul class="text-danger">
-                <li *ngFor="let error of validationErrors">
-                    {{error}}
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="form-group">
-        <input type="text"
-            [class.is-invalid]="registerUser.get('address')?.errors && registerUser.get('address')?.touched"
-            class="form-control" formControlName="address" placeholder="Address" />
-        <div *ngIf="registerUser.get('address')?.hasError('required')" class="invalid-feedback">Please enter an address
-        </div>
-        <div *ngIf="registerUser.get('address')?.hasError('maxlength')" class="invalid-feedback">Address too long</div>
-
-        <div *ngIf="validationErrors.length > 0">
-            <ul class="text-danger">
-                <li *ngFor="let error of validationErrors">
-                    {{error}}
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="form-group">
-        <input type="date"
-            [class.is-invalid]="registerUser.get('birthDate')?.errors && registerUser.get('birthDate')?.touched"
-            class="form-control" formControlName="birthDate" placeholder="BirthDate" />
-        <div *ngIf="registerUser.get('birthDate')?.hasError('required')" class="invalid-feedback">Please enter your date of birth
+            <div *ngIf="validationErrors.length > 0">
+                <div class="center">
+                    <ul class="text-danger errorMessages">
+                        <li *ngFor="let error of validationErrors">
+                            {{error}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
-        <div *ngIf="validationErrors.length > 0">
-            <ul class="text-danger">
-                <li *ngFor="let error of validationErrors">
-                    {{error}}
-                </li>
-            </ul>
+        <div class="form-group text-center">
+            <button class="btn btn-success mr-2" type="submit">Register</button>
+            <a class="btn btn-danger" (click)="cancel()">Cancel</a>
         </div>
-    </div>
-
-    <div class="form-group text-center">
-        <button class="btn btn-success mr-2" type="submit">Register</button>
-        <a class="btn btn-danger" (click)="cancel()">Cancel</a>
-    </div>
-</form>
+    </form>
 </div>

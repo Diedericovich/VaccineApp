@@ -11,14 +11,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   verify?: string;
-  // register: Register = {
-  //   email: "",
-  //   password: "",
-  //   firstName: "",
-  //   surName: "",
-  //   address: "",
-  //   birthDate: new Date(),
-  // };
   registerUser: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(100)]),
     password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
@@ -40,7 +32,7 @@ export class RegisterComponent implements OnInit {
         .subscribe(x => {
           this.boolEvent.emit(true);
           window.location.href = 'landing/body/home';
-        }, retVal => { console.log(retVal) });
+        }, error => { console.log(error); this.validationErrors.pop();this.validationErrors.push(error.error); });
     }
   }
   cancel(): void {
