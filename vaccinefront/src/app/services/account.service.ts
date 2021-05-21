@@ -25,11 +25,6 @@ export class AccountService {
             if (user) {
               localStorage.setItem('user', JSON.stringify(user));
               this.currentUser = user;
-              this.userService.getUserByEmail(this.currentUser.email)
-                .subscribe(fullUser => {
-                  this.fullUser = fullUser;
-                 /* localStorage.setItem('fullUser', JSON.stringify(this.fullUser));*/
-                });
             }
           })
       );
@@ -44,11 +39,6 @@ export class AccountService {
             if (user) {
               localStorage.setItem('user', JSON.stringify(user));
               this.currentUser = user;
-              this.userService.getUserByEmail(this.currentUser.email)
-                .subscribe(fullUser => {
-                  this.fullUser = fullUser;
-                  //localStorage.setItem('fullUser', JSON.stringify(this.fullUser));
-                });
             }
           })
       );

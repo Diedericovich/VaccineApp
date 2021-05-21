@@ -9,21 +9,16 @@ import { Vaccine } from '../interfaces/vaccine';
   styleUrls: ['./vaccine-detail.component.css']
 })
 export class VaccineDetailComponent implements OnInit {
-  user? : User;
+
   @Input() vaccine?: Vaccine;
   constructor(private userService: UserService, private appointmentService : AppointmentService) { }
   ngOnInit(): void {
-    //this.user = JSON.parse(localStorage.getItem('fullUser')||'{}');
 
   }
   createAppointment() {
-  if (this.user && this.vaccine) {
-    this.appointmentService.addAppointment(this.user.id, this.vaccine.id).subscribe();
-    this.userService.getUser(this.user.id).subscribe(x => {
-      this.user = x;
-    //  localStorage.setItem('fullUser', JSON.stringify(this.user));
-    })
-
+  if (this.vaccine) {
+    let userId = JSON.parse(localStorage.getItem('user') || '{}').id;
+    this.appointmentService.addAppointment(userId, this.vaccine.id).subscribe();
   }
 
   }
