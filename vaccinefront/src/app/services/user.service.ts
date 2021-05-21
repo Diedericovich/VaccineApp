@@ -44,9 +44,6 @@ export class UserService {
     return this.http.delete<User>(url, this.httpOptions);
   }
 
-
-
-
 }
 
 
