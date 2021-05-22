@@ -3,15 +3,19 @@
     height: 100vh;
         font-size: larger;        
 }
+.card {
+  margin: auto;
+  width: 30rem;
+  overflow: hidden;
+  margin-top: 130px;
+  margin-bottom: 50px;
+  border-radius: 25px;
+}
 .login-box {
     width: 350px;
     margin: auto;
-    margin-top: 40vh;
-}
-.register-box {
-    width: 500px;
-    margin: auto;
-    margin-top: 10vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
 }
 
 .ng-valid[required], .ng-valid.required  {

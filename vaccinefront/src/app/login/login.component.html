@@ -1,4 +1,4 @@
-<div *ngIf="!isRegistering">
+<div *ngIf="!isRegistering" class="card">
         <div class="container-fluid overflow-hidden">
                 <div class="login-box">
                         <form [formGroup]="loginUser" (ngSubmit)="login()" autocomplete="off">
@@ -44,6 +44,6 @@
                 </div>
         </div>
 </div>
-<div *ngIf="isRegistering" class="register-box overflow-hidden">
+<div *ngIf="isRegistering" class="overflow-hidden">
         <app-register></app-register>
 </div>
