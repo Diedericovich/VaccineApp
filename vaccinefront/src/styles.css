@@ -1,34 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { 
-    margin: 0; 
-    font-family: Roboto, "Helvetica Neue", sans-serif;             
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #77A1D3;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #E684AE, #79CBCA, #77A1D3);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #E684AE, #79CBCA, #1a025c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            
 }
 
-#head, #left-arm, #chest, #right-arm, #legs {
-    outline: none;
+#head,
+#left-arm,
+#chest,
+#right-arm,
+#legs {
+  outline: none;
 }
 
 .navbar {
-    background-color: #65AFCC;
-    font-size: large;
+  background-color: #000;
+  font-size: large;
 }
 
 .vaccines {
-    background-color: rgba(127,219,255,.7);
+  background-color: rgba(127, 219, 255, 0.7);
 }
 legend {
-    font-size: medium;
+  font-size: medium;
 }
 
-.bodycontainer{
-    height: 70vh;
-    max-height: 70vh;
+.bodycontainer {
+  height: 70vh;
+  max-height: 70vh;
 }
-.vaccinContainer{
-    max-height: 70vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-
+.vaccinContainer {
+  max-height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.card {
+    background-color: rgba(255,255,255, 0.1);
 }
