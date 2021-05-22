@@ -7,12 +7,12 @@
     {
         public int Id { get; set; }
 
-        [StringLength(50)]
         [Required]
+        [StringLength(50)]
         public string Name { get; set; }
 
-        [StringLength(150)]
         [Required]
+        [StringLength(150)]
         public string Description { get; set; }
 
         [ForeignKey("BodyPart")]

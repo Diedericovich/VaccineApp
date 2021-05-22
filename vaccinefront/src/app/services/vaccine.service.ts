@@ -12,17 +12,17 @@ export class VaccineService {
   //TODO: link to API = need to be filled in!!
   private vaccineUrl = 'https://localhost:44317/api/Vaccine/';
   httpOptions = {
-    headers: new HttpHeaders({'Content-Type':'application/json'})
+    headers: new HttpHeaders({Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')||'{}').token}`})
   };
 
   getVaccine(id: number): Observable<Vaccine> {
     const url = `${this.vaccineUrl}/${id}`;
-    const vaccine = this.http.get<Vaccine>(url);
+    const vaccine = this.http.get<Vaccine>(url, this.httpOptions);
     return vaccine;
   }
   getVaccinesByBodyPart(bodypart: string): Observable<Vaccine[]> {
     const url = `${this.vaccineUrl}ForBodyPart/${bodypart}`;
-    const vaccines = this.http.get<Vaccine[]>(url);
+    const vaccines = this.http.get<Vaccine[]>(url, this.httpOptions);
     return vaccines;
   }
 

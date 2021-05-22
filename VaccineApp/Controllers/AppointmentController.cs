@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 using VaccineApp.Services;
 
 namespace VaccineApp.Controllers
 {
-    [ApiController, Route("api/[controller]")]
+    [ApiController, Authorize, Route("api/[controller]")]
     public class AppointmentController : ControllerBase
     {
         private IAppointmentService _service;
@@ -15,9 +17,17 @@ namespace VaccineApp.Controllers
         }
 
         [HttpPost("{userId}/{vaccineId}")]
-        public async Task AddAppointmentAsync(int userId, int vaccineId)
+        public async Task<ActionResult> AddAppointmentAsync(int userId, int vaccineId)
         {
-            await _service.AddAppointmentAsync(userId, vaccineId);
+            try
+            {
+                await _service.AddAppointmentAsync(userId, vaccineId);
+                return Ok("Appointment Created");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpPut("{appointmentId}/{statusId}")]

@@ -6,6 +6,7 @@ using VaccineApp.Services;
 
 namespace VaccineApp.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using Services.Interfaces;
 
     [ApiController, Route("api/[controller]")]
@@ -25,8 +26,15 @@ namespace VaccineApp.Controllers
             {
                 return BadRequest("Email already exists");
             }
-            var user = await _service.RegisterAsync(dto);
-            return Created(uri: "", user);
+            try
+            {
+                var user = await _service.RegisterAsync(dto);
+                return Created(uri: "", user);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Register Failed");
+            }
         }
 
         [HttpPost("Login")]
@@ -43,6 +51,7 @@ namespace VaccineApp.Controllers
             }
         }
 
+        [Authorize]
         [HttpPut("UpdatePassword/{email}-{password}")]
         public async Task<ActionResult> UpdatePasswordAsync(string email, string password)
         {

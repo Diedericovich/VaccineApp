@@ -8,10 +8,10 @@ import { VaccinationCenterService } from '../services/vaccination-center.service
 
 @Component({
   selector: 'app-maptest',
-  templateUrl: './maptest.component.html',
-  styleUrls: ['./maptest.component.css']
+  templateUrl: './vaccinationcenter-map.html',
+  styleUrls: ['./vaccinationcenter-map.component.css']
 })
-export class MaptestComponent implements OnInit {
+export class VaccinationCenterMapComponent implements OnInit {
   centers: VaccinationCenter[] = [];
   map?: mapboxgl.Map
   temp: GeoJSON.FeatureCollection[] = [];
