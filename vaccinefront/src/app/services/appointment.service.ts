@@ -12,21 +12,21 @@ import { Status } from '../interfaces/status';
 })
 export class AppointmentService {
   constructor(private http: HttpClient) { }
-  //TODO: #54 link to API = need to be filled in!!
+
   private appointmentUrl = 'https://localhost:44317/api/Appointment';
   httpOptions = {
-    headers: new HttpHeaders({Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')||'{}').token}`})
+    headers: new HttpHeaders({ Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')||'{}').token}`})
   };
   
   updateAppointmentStatus(appointmentId: number, statusId : number): Observable<any> {
     const url = `${this.appointmentUrl}/${appointmentId}/${statusId}`;
-    return this.http.put(url, this.httpOptions);
+    return this.http.put(url,"", this.httpOptions);
   }
 
   addAppointment(userId: number, vaccinId: number ): Observable<Appointment>{
     
     const url = `${this.appointmentUrl}/${userId}/${vaccinId}`;
-    return this.http.post<Appointment>(url, this.httpOptions);
+    return this.http.post<Appointment>(url,"", this.httpOptions);
   } 
 
 

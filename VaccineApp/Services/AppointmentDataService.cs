@@ -30,6 +30,8 @@ namespace VaccineApp.Services
             else
             {
                 var date = user.Appointments.Last().Date.AddDays(rand.Next(14, 28));
+                TimeSpan ts = new TimeSpan(rand.Next(9, 18), rand.Next(0, 60), 0);
+                date = date.Date + ts;
                 return date;
             }
         }

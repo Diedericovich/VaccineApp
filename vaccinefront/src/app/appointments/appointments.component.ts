@@ -18,7 +18,7 @@ export class AppointmentsComponent implements OnInit {
     private appointmentService: AppointmentService,
     private userService: UserService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.email = JSON.parse(localStorage.getItem('user') || '{}').email;
@@ -33,14 +33,14 @@ export class AppointmentsComponent implements OnInit {
     this.appointmentService
       .updateAppointmentStatus(appointmentId, 2)
       .subscribe();
-      this.reloadCurrentRoute();
+    this.reloadCurrentRoute();
   }
 
   reloadCurrentRoute() {
     let currentUrl = this.router.url;
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-        this.router.navigate([currentUrl]);
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
     });
-}
+  }
 
 }
