@@ -8,12 +8,12 @@
     using DTO;
 
     using Entities;
-
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
     using Services;
 
-    [ApiController, Route("api/[controller]")]
+    [ApiController, Authorize, Route("api/[controller]")]
     public class VaccineController : ControllerBase
     {
         private IVaccineService _service;
@@ -36,19 +36,19 @@
             return Ok("Delete OK");
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}"), AllowAnonymous]
         public async Task<VaccineDto> GetVaccineAsync(int id)
         {
             return await _service.GetVaccineAsync(id);
         }
 
-        [HttpGet]
+        [HttpGet, AllowAnonymous]
         public async Task<IEnumerable<VaccineDto>> GetVaccinesAsync()
         {
             return await _service.GetVaccinesAsync();
         }
 
-        [HttpGet("ForBodyPart/{bodypart}")]
+        [HttpGet("ForBodyPart/{bodypart}"), AllowAnonymous]
         public async Task<IEnumerable<VaccineDto>> GetVaccinesByPartAsync(string bodypart)
         {
             return await _service.GetVaccinesAsyncByPartAsync(bodypart);

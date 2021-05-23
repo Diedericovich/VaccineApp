@@ -50,6 +50,7 @@ namespace VaccineApp
             app.UseRouting();
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
@@ -83,12 +84,15 @@ namespace VaccineApp
             services.AddScoped<IAppointmentRepo, AppointmentRepo>();
             services.AddScoped<IVaccinationCenterRepo, VaccinationCenterRepo>();
             services.AddScoped<IVaccineRepo, VaccineRepo>();
+            services.AddScoped<IGenericRepo<VaccinationCenter>, GenericRepo<VaccinationCenter>>();
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IVaccineService, VaccineService>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IAppointmentService, AppointmentService>();
+            services.AddScoped<IVaccinationCenterService, VaccinationCenterService>();
+            services.AddScoped<IAppointmentDataService, AppointmentDataService>();
         }
     }
 }

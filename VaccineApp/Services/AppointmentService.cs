@@ -17,27 +17,28 @@
     {
         private IAppointmentRepo _appointmentRepo;
         private IVaccineRepo _vaccineRepo;
-        private IVaccinationCenterRepo _centerRepo;
+        private IAppointmentDataService _dateService;
         private IMapper _mapper;
 
-        public AppointmentService(IAppointmentRepo appointmentRepo, IVaccineRepo vaccineRepo, IVaccinationCenterRepo centerRepo, IMapper mapper)
+        public AppointmentService(IAppointmentRepo appointmentRepo, IVaccineRepo vaccineRepo, IAppointmentDataService dateService, IMapper mapper)
         {
             _appointmentRepo = appointmentRepo;
             _vaccineRepo = vaccineRepo;
-            _centerRepo = centerRepo;
+            _dateService = dateService;
             _mapper = mapper;
         }
 
         public async Task AddAppointmentAsync(int userId, int vaccineId)
         {
             Vaccine vaccine = await _vaccineRepo.GetAsync(vaccineId);
-            var location = await _centerRepo.GetRandomItem(1);
+            DateTime date = await _dateService.GetAppointmentDateAsync(userId);
+            VaccinationCenter center = await _dateService.GetVaccinationCenterAsync(userId);
             Appointment appointment = new Appointment
             {
                 Vaccination = vaccine,
                 UserId = userId,
-                Date = DateTime.Now.AddDays(7),
-                LocationId = location[0].Id,
+                Date = date,
+                LocationId = center.Id,
                 StatusId = 1
             };
             await _appointmentRepo.AddAsync(appointment);

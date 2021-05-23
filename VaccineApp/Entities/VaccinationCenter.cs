@@ -10,12 +10,12 @@
     {
         public int Id { get; set; }
 
-        [StringLength(50)]
         [Required]
+        [StringLength(50)]
         public string Name { get; set; }
 
-        [StringLength(100)]
         [Required]
+        [StringLength(100)]
         public string Location { get; set; }
     }
 }

@@ -1,17 +1,18 @@
 ﻿namespace VaccineApp.Controllers
 {
+    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
     using DTO;
 
     using Entities;
-
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
     using Services;
 
-    [ApiController, Route("api/[controller]")]
+    [ApiController, Authorize, Route("api/[controller]")]
     public class UserController : ControllerBase
     {
         private IUserService _service;
@@ -30,8 +31,15 @@
         [HttpDelete("{id:int})")]
         public async Task<ActionResult> DeleteUserAsync(int id)
         {
-            await _service.DeleteUserAsync(id);
-            return Ok("Delete OK");
+            try
+            {
+                await _service.DeleteUserAsync(id);
+                return Ok("Delete OK");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpGet("{id:int}")]

@@ -20,6 +20,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
+import { VaccinationCenterMapComponent } from './vaccinationcenter-map/vaccinationcenter-map.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
         EditProfileComponent,
         LoginComponent,
         LandingpageComponent,
+        VaccinationCenterMapComponent,
 
     ],
     imports: [

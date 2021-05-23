@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Account } from '../interfaces/account';
@@ -10,14 +10,17 @@ import { User } from '../interfaces/user';
   providedIn: 'root'
 })
 export class AccountService {
-  private accountUrl = "https://localhost:44317/api/Account"
+  private accountUrl = "https://localhost:44317/api/Account";
+  httpOptions = {
+    headers: new HttpHeaders({Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')||'{}').token}`})
+  };
   currentUser?: Account;
   fullUser?: User;
   constructor(private http: HttpClient, private userService: UserService) { }
 
   login(model: any): Observable<any> {
     let url = `${this.accountUrl}/Login`;
-    return this.http.post(url, model)
+    return this.http.post(url, model, this.httpOptions)
       .pipe(
         map(
           (response: any) => {
@@ -31,7 +34,7 @@ export class AccountService {
   };
   register(model: any): Observable<any> {
     let url = `${this.accountUrl}/Register`;
-    return this.http.post(url, model)
+    return this.http.post(url, model, this.httpOptions)
       .pipe(
         map(
           (response: any) => {

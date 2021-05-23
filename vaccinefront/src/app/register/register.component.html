@@ -1,6 +1,6 @@
 <div class="card">
-    <form [formGroup]="registerUser" (ngSubmit)="register()" autocomplete="off" class="justify-content-center">
-        <h2 class="text-center text-primary">Sign up</h2>
+    <form [formGroup]="registerUser" (ngSubmit)="register()" autocomplete="off" class="justify-content-center register">
+        <h2 class="text-center text-primary">Register</h2>
         <div class="form-group">
             <input type="text"
                 [class.is-invalid]="registerUser.get('email')?.errors && registerUser.get('email')?.touched"
