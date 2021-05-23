@@ -1,17 +1,24 @@
 label {
-    margin-left: 1rem;
-    width:5rem;
+  margin-left: 1rem;
+  width: 6rem;
+  font-size: large;
+  font-weight: bold;
 }
 
 h1 {
-margin-left: 10rem;;
+  margin-left: 10rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
 }
 
 .card {
-    margin:auto;
-    width: 30rem;;
+  margin: auto;
+  width: 30rem;
 }
 
 input {
-    width: 18rem;
+  width: 18rem;
+}
+p {
+  font-size: large;
 }

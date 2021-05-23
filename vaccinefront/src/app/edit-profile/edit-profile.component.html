@@ -1,6 +1,6 @@
-<div class="d-flex">
-  <form *ngIf="user" class="card-body" [formGroup]="userProfile">
-    <div class="card text-left bg-light">
+<div class="d-flex my-5">
+  <form *ngIf="user" class="card mt-5" [formGroup]="userProfile">
+    <div class="card-body text-left bg-light center">
       <div>
         <h1>User Details</h1>
       </div>
@@ -25,7 +25,7 @@
         <input type="date" id="user-birthDate" formControlName="birthDate" />
       </p>
       <div class="text-right">
-        <a class="btn btn-outline-primary" (click)="updateUser(user)">Save</a>
+        <a class="btn btn-outline-primary " (click)="updateUser(user)">Save</a>
       </div>
     </div>
   </form>

@@ -10,10 +10,10 @@
           data-target="#exampleModal"
           (click)="onSelect(vaccine)"
           [class.active]="vaccine == selectedVaccine">
-          <span class="text-dark text-left font-weight-bold">
+          <h1 class="text-dark text-left font-weight-bold">
             {{vaccine.name}}
-          </span>
-          -->{{vaccine.description}}
+          </h1>
+          <h3 class="font-italic">Description:<p>{{vaccine.description}}</p></h3>
         </tr>
       </table>
     </div>

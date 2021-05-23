@@ -1,14 +1,14 @@
 <div *ngIf="isLoggedIn">
-  <div class="py-5">
+  <div class="pb-5 pt-3">
     <app-navigation></app-navigation>
   </div>
 
-  <div class="container-fluid fill">
+  <div class="container-fluid bottom">
     <router-outlet></router-outlet>
   </div>
 </div>
 
-<div *ngIf="isLoggedIn==false">
+<div *ngIf="isLoggedIn==false" class="login">
   <video autoplay muted loop id="bgVideo" src="assets/dna2.mp4" type="video/mp4"></video>
   <div class="content">
     <app-login (boolEvent)="receiverBool($event)"></app-login>
