@@ -9,9 +9,7 @@
 </div>
 
 <div *ngIf="isLoggedIn==false">
-  <video autoplay muted loop id="bgVideo">
-    <source src="assets/dna.mp4" type="video/mp4">
-  </video>
+  <video autoplay muted loop id="bgVideo" src="assets/dna2.mp4" type="video/mp4"></video>
   <div class="content">
     <app-login (boolEvent)="receiverBool($event)"></app-login>
   </div>

@@ -9,10 +9,6 @@
                                                 class="form-control" formControlName="email" placeholder="Email" />
                                         <div *ngIf="loginUser.get('password')?.hasError('required')"
                                                 class="invalid-feedback">Please enter an Email Address</div>
-                                        <div *ngIf="loginUser.get('password')?.hasError('minlength')"
-                                                class="invalid-feedback">Login not found</div>
-                                        <div *ngIf="loginUser.get('password')?.hasError('maxlength')"
-                                                class="invalid-feedback">Login not found</div>
 
                                 </div>
                                 <div class="form-group">
@@ -22,11 +18,6 @@
                                                 placeholder="Password" />
                                         <div *ngIf="loginUser.get('password')?.hasError('required')"
                                                 class="invalid-feedback">Please enter a password</div>
-                                        <div *ngIf="loginUser.get('password')?.hasError('minlength')"
-                                                class="invalid-feedback">Login not found</div>
-                                        <div *ngIf="loginUser.get('password')?.hasError('maxlength')"
-                                                class="invalid-feedback">Login not found</div>
-
                                         <div *ngIf="validationErrors.length > 0">
                                                 <ul class="text-danger">
                                                         <li *ngFor="let error of validationErrors">

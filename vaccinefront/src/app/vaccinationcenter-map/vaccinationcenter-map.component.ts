@@ -13,7 +13,7 @@ import { VaccinationCenterService } from '../services/vaccination-center.service
 })
 export class VaccinationCenterMapComponent implements OnInit {
   centers: VaccinationCenter[] = [];
-  map?: mapboxgl.Map
+  map?: mapboxgl.Map;
   temp: GeoJSON.FeatureCollection[] = [];
   bounds = [
     [49.443950, 1.856807], // Southwest coordinates
@@ -52,6 +52,7 @@ export class VaccinationCenterMapComponent implements OnInit {
       let coords: GeoJSON.FeatureCollection;
       this.mapboxService.getGeocoding(center.location).subscribe(x => {
         coords = x;
+        this.temp.push(x);
         if (coords.features[0].geometry.type === 'Point') {
           let long = coords.features[0].geometry.coordinates[0];
           let lat = coords.features[0].geometry.coordinates[1];
@@ -67,27 +68,12 @@ export class VaccinationCenterMapComponent implements OnInit {
       });
     }
   };
-  // test2() {
-  //   this.temp.forEach((point) => {
-  //     console.log(point.features[0].geometry);
-  //     // add markers to map
-  //     if (point.features[0].geometry.type === 'Point') {
-  //       let long = point.features[0].geometry.coordinates[0];
-  //       let lat = point.features[0].geometry.coordinates[1];
-  //       console.log("yes");
+  setCenter(){
+    if(this.map){
 
-
-  //       if (this.map) {
-  //         let marker1 = new mapboxgl.Marker()
-  //           .setLngLat([long, lat])
-  //           .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-  //             .setHTML('<h3>' + '' + '</h3><p>' + 'VaxxCenterLocation' + '</p>'))
-  //           .addTo(this.map);
-  //       }
-
-  //     }
-  //   }
-  //   )
-  // }
+      this.map.setCenter([4.3,51]);
+      this.map.setZoom(10);
+    }
+  }
 }
 
