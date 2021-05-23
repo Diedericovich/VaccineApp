@@ -13,6 +13,9 @@ import { Router } from '@angular/router';
 export class AppointmentsComponent implements OnInit {
   user?: User;
   email?: string;
+completed: boolean = false;
+
+
 
   constructor(
     private appointmentService: AppointmentService,
@@ -42,5 +45,15 @@ export class AppointmentsComponent implements OnInit {
       this.router.navigate([currentUrl]);
     });
   }
-
+scheduled() {
+ return this.user?.appointments.filter(appointment => appointment.status.id==1) || [];
+ }
+ canceledAndCompleted() {
+  
+  return this.user?.appointments.filter(appointment => appointment.status.id>=2) || [];
+  
+ }
+switchButton(): void {
+  this.completed = !this.completed;
+}
 }

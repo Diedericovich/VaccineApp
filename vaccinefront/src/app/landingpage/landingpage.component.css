@@ -31,3 +31,12 @@
     background: #ddd;
     color: black;
   }
+
+  .bottom {
+    margin-bottom: 5vh;
+  }
+  .login {
+    position: fixed; 
+    left:0; 
+    top:0
+  }

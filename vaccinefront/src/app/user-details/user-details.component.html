@@ -1,33 +1,32 @@
-<div class="d-flex">
-    <div class="card text-left">
-        <div>
-            <h1>User Details</h1>
-        </div>
-        <div *ngIf="user" class="card-body">
-            <p class="card-text">
-            <label> Email: </label>
-          {{user.email}}
-    </p>
-    <p class="card-text">
+<div class="d-flex my-5">
+  <div class="card text-left mt-5">
+      <div *ngIf="user" class="card-body text-left bg-light center">
+    <div>
+      <h1>User Details</h1>
+    </div>
+      <p class="card-text">
+        <label class="font-weight-bold"> Email: </label>
+        {{ user.email }}
+      </p>
+      <p class="card-text">
         <label> Name: </label>
-            {{user.firstName}}
-        </p>
-            <p class="card-text">
-            <label> Surname: </label>
-            {{user.surname}}
-    </p>    
-    <p class="card-text">
-            <label>Address: </label>
-            {{user.address}}
-            </p>
-            <p class="card-text">
-            <label>Birthdate: </label>
-            {{user.birthDate | date: "longDate"}}
-        </p>
-        <div class="text-right">
-    
-            <a class="btn btn-outline-primary" href="landing/edit-profile">Edit Profile</a>
-        </div>
-        </div>
+        {{ user.firstName }}
+      </p>
+      <p class="card-text">
+        <label> Surname: </label>
+        {{ user.surname }}
+      </p>
+      <p class="card-text">
+        <label>Address: </label>
+        {{ user.address }}
+      </p>
+      <p class="card-text">
+        <label>Birthdate: </label>
+        {{ user.birthDate | date: "longDate" }}
+      </p>
+      <div class="text-right">
+        <a class="btn btn-outline-primary" href="landing/edit-profile">Edit Profile</a>
+      </div>
     </div>
-    </div>
+  </div>
+</div>

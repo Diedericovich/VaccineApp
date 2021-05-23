@@ -8,15 +8,15 @@ h1 {
 }
 
 .card {
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 30rem;
-  overflow: hidden;
   border-radius: 25px;
-  margin-top: 800px;
+  
 }
 .register{
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  padding-top: 4vh;
+  padding-bottom: 3vh;
 }
 .center {
   margin-left: auto;

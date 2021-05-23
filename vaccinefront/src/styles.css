@@ -6,8 +6,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-          
+  font-family: Roboto, "Helvetica Neue", sans-serif;          
 }
 
 #head,
@@ -40,5 +39,5 @@ legend {
   overflow-x: hidden;
 }
 .card {
-    background-color: rgba(255,255,255, 0.1);
+    background-color: rgba(255,255,255, .9);
 }

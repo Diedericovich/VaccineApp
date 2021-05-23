@@ -1,28 +1,89 @@
-<div *ngIf="user && user.appointments !== undefined" style="height: 70vh; overflow-y: auto; margin-bottom: 20px;"> 
-<div>
-    <h1>Appointments</h1>
+<div class="align-items-right justify-content-end text-right">
+  <label class="largeText" *ngIf="completed">Completed:</label
+  ><label class="largeText" *ngIf="!completed">Scheduled:</label>
+  <label class="switch">
+    <input [checked]="completed" (change)="switchButton()" type="checkbox" />
+    <span class="slider round"></span>
+  </label>
 </div>
-<table class="d-flex flex-wrap text-left m-5">
- 
-    <tr class="col-12 text-info card text-dark m-1 border-white rounded" *ngFor="let appointment of user.appointments">
-        <div class="font-weight-bold">
-         <td><h2 class="text-black-50">{{appointment.vaccination.name}}</h2></td>
-            <!-- <p class="card-text"> -->
-<table><tr>
-    <td class="col-4"> <h3 class="font-weight-bold text-secondary">
-         <td class="col-3">planned on: {{appointment.date | date: "medium" }}</td>
-             <td class="col-3 text-dark text-left font-weight-bold">{{appointment.location.name}}</td>
-             <td class="col-3"> adress: {{appointment.location.location}}</td>
-             <td class="col-3 text-info font-weight-bold">status:<span class="text-warning">{{appointment.status.status}}</span></td>
-
-                 <td class="text-right">
-                     <button class="text-right btn btn-danger mb-2 button" (click)="CancelAppointment(appointment.id)">Cancel</button>
-
-                 </td>
-         </h3></td>
-
-</tr></table>
-            </div>
-        </tr>
-</table>
-</div>        
+<h1>Appointments</h1>
+<div
+  *ngIf="user && user.appointments !== undefined"
+  style="height: 65vh; overflow-y: auto; margin-bottom: 20px">
+  <table *ngIf="!completed" class="d-flex flex-wrap text-left mx-5">
+    <tr
+      class="col-12 text-info card text-dark m-1 border-white rounded"
+      *ngFor="let appointment of scheduled()">
+      <div class="font-weight-bold">
+        <td class="col-12">
+          <h2 class="text-black-50">{{ appointment.date | date: "medium" }}</h2>
+        </td>
+        <!-- <p class="card-text"> -->
+        <table>
+          <tr class="text-left">
+            <td class="col-3">
+              <h3>{{ appointment.location.name }}</h3>
+            </td>
+            <td class="col-6 text-left moveToLeft">
+              <h1>{{ appointment.vaccination.name }}</h1>
+            </td>
+            <td class="col-3 font-weight-bold">
+              <h3>
+                Status: <span class="">{{
+                  appointment.status.status
+                }}</span>
+              </h3>
+            </td>
+            <td class="col-3 text-right">
+              <button class="text-right btn btn-danger mb-2 button"
+               (click)="CancelAppointment(appointment.id)">
+                Cancel
+              </button>
+            </td>
+          </tr>
+          <tr >
+              <td class="col-6">
+                  <h3>Address:  {{appointment.location.location}}</h3>
+              </td>
+          </tr>
+        </table>
+      </div>
+    </tr>
+  </table>
+  <table *ngIf="completed" class="d-flex flex-wrap text-left mx-5">
+    <tr
+      class="col-12 text-info card text-dark m-1 border-white rounded"
+      *ngFor="let appointment of canceledAndCompleted()">
+      <div class="font-weight-bold">
+        <td class="col-12">
+          <h2 class="text-black-50">{{ appointment.date | date: "medium" }}</h2>
+        </td>
+        <!-- <p class="card-text"> -->
+        <table>
+          <tr class="text-left">
+            <td class="col-3">
+              <h3>{{ appointment.location.name }}</h3>
+            </td>
+            <td class="col-6 text-left moveToLeft">
+              <h1>{{ appointment.vaccination.name }}</h1>
+            </td>
+            <td class="col-3 font-weight-bold">
+              <h3>
+                Status: <span class="">{{
+                  appointment.status.status
+                }}</span>
+              </h3>
+            </td>
+            <td class="col-3 text-right">
+            </td>
+          </tr>
+          <tr >
+              <td class="col-6">
+                  <h3>Address:  {{appointment.location.location}}</h3>
+              </td>
+          </tr>
+        </table>
+      </div>
+    </tr>
+  </table>
+</div>
