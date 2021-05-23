@@ -9,7 +9,6 @@ import { User } from '../interfaces/user';
 export class UserService {
 
   constructor(private http: HttpClient) { }
-  //TODO: link to API = need to be filled in!!
   private userUrl = 'https://localhost:44317/api/User';
   httpOptions = {
     headers: new HttpHeaders({  Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')||'{}').token}`})
