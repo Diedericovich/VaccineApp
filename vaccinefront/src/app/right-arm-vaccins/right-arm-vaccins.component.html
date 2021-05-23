@@ -1,20 +1,20 @@
-<div class="vaccinContainer h-100">
+<div>
   <h2>Vaccines for your right arm</h2>
-  <div class="col-12">
-    <table class="list-group mx-3 mb-2 text-left">
-      <tr
-        class="vaccines list-group-item m-1"
-        *ngFor="let vaccine of vaccines"
-        data-toggle="modal"
-        data-target="#exampleModal"
-        (click)="onSelect(vaccine)"
-        [class.active]="vaccine == selectedVaccine">
-        <span class="text-dark text-left font-weight-bold">
-          {{vaccine.name}}
-        </span>
-        -->{{vaccine.description}}
-      </tr>
-    </table>
-  </div>
+  <div class="row vaccinContainer">
+    <div class="col-12">
+      <table class="list-group mx-3 mb-2 text-left">
+        <tr
+          class="vaccines list-group-item m-1"
+          *ngFor="let vaccine of vaccines"
+          data-toggle="modal"
+          data-target="#exampleModal"
+          (click)="onSelect(vaccine)"
+          [class.active]="vaccine == selectedVaccine">
+          <h1 class="text-dark text-left font-weight-bold">
+            {{vaccine.name}}
+          </h1>
+          <h3 class="font-italic">Description:<p>{{vaccine.description}}</p></h3>
+        </tr>
+      </table>
+    </div>
 <app-vaccine-detail [vaccine]="selectedVaccine"></app-vaccine-detail>
-       

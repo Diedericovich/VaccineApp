@@ -8,7 +8,7 @@ aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Vaccin Details</h5>
+      <h3 *ngIf="vaccine" class="modal-title" id="exampleModalLabel">{{vaccine.id}}) {{vaccine.name | uppercase}}</h3>
       <button
         type="button"
         class="close"
@@ -19,18 +19,17 @@ aria-hidden="true">
       </button>
     </div>
     <div class="modal-body">
-<div *ngIf="vaccine" class="bg-light rounded">
-    <h3>  {{vaccine.id}}) {{vaccine.name | uppercase}}</h3>
+<div *ngIf="vaccine" class="p-3 bg-light rounded">
 <p>Details:</p>
     <div class="col-12 text-left">
 <div>
-    Description:{{vaccine.description}}
+    Description: {{vaccine.description}}
 </div>
 <div>
     Target: {{vaccine.bodyPart}}
 </div>
 <div>
-    Made by:{{vaccine.CompanyName}}
+    Made by: {{ vaccine.companyName}}
 
 </div>
     </div>
@@ -38,7 +37,6 @@ aria-hidden="true">
 </div>
 <div class="modal-footer">
     <button (click)="createAppointment()" class="btn btn-primary">Make an appointment for this vaccine</button>
-
     <button
     type="button"
     class="btn btn-secondary"

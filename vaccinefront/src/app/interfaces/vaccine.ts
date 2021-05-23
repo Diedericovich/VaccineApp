@@ -3,5 +3,5 @@ export interface Vaccine{
     name: string;
     description: string;
     bodyPart: string;
-    CompanyName: string;
+    companyName: string;
 }
