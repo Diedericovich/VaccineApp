@@ -7,6 +7,7 @@ namespace VaccineApp.Services
     public interface IAppointmentDataService
     {
         Task<DateTime> GetAppointmentDateAsync(int userId);
+
         Task<VaccinationCenter> GetVaccinationCenterAsync(int userId);
     }
 }

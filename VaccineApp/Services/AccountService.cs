@@ -1,12 +1,10 @@
 ﻿namespace VaccineApp.Services
 {
+    using Microsoft.EntityFrameworkCore;
     using System;
     using System.Security.Cryptography;
     using System.Text;
     using System.Threading.Tasks;
-
-    using Microsoft.EntityFrameworkCore;
-
     using VaccineApp.DTO;
     using VaccineApp.Entities;
     using VaccineApp.Repositories;

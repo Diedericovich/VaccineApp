@@ -1,15 +1,9 @@
 ﻿namespace VaccineApp.Repositories
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Runtime.InteropServices;
-    using System.Threading.Tasks;
-
     using Entities;
-
-    using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     public class AppointmentRepo : GenericRepo<Appointment>, IAppointmentRepo
     {

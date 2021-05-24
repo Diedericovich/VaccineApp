@@ -30,13 +30,13 @@ export class VaccinationCenterMapComponent implements OnInit {
     let temp: GeoJSON.FeatureCollection;
     this.map = new mapboxgl.Map({
       container: 'map',
-      //style: 'mapbox://styles/cyberdark/ckoxhja9m0tfr17o5xlwucaxs',
-      style: 'mapbox://styles/mapbox/streets-v11',
+      style: 'mapbox://styles/cyberdark/ckp2we7sq0jxb17kuaefnsu9l',
       center: [4.248005, 50.8911041], // starting position
       zoom: 5, // starting zoom
-      maxBounds: [1.856807, 49.443950, 7.041192, 51.736159]
+      maxBounds: [1.856807, 49.443950, 7.041192, 51.736159],
+      antialias: true,
     });
-  }
+  };
 
   placeCentersOnMap() {
     this.centerService.getCenters().subscribe(x => {

@@ -1,18 +1,11 @@
 ﻿namespace VaccineApp.Services
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Reflection.PortableExecutable;
-    using System.Threading.Tasks;
-
     using AutoMapper;
-
     using DTO;
-
     using Entities;
-
     using Repositories;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     public class VaccineService : IVaccineService
     {

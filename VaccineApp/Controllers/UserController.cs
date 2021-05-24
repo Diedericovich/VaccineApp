@@ -1,16 +1,12 @@
 ﻿namespace VaccineApp.Controllers
 {
+    using DTO;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+    using Services;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-
-    using DTO;
-
-    using Entities;
-    using Microsoft.AspNetCore.Authorization;
-    using Microsoft.AspNetCore.Mvc;
-
-    using Services;
 
     [ApiController, Authorize, Route("api/[controller]")]
     public class UserController : ControllerBase
