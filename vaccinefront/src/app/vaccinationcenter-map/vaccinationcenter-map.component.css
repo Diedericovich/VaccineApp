@@ -27,7 +27,5 @@ margin-left: -150px;}
     margin-left: 10rem;
     overflow-y: scroll;
     height: 52vh;
-  }
-  tr{
-    height: 50px;
+    width: 80vw;
   }

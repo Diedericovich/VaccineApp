@@ -75,6 +75,6 @@ button {
     
 }
 .human-body svg.Selected {
-    fill: #ff7d16;
+    fill: var(--main-accent);
 
 }

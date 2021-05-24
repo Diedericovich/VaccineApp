@@ -23,9 +23,11 @@ namespace VaccineApp
         private static void BuildAppointments(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Appointment>().HasData(
-                new Appointment { Id = 1, Date = new DateTime(2021, 07, 10), StatusId = 1, UserId = 1, LocationId = 1, VaccinationId = 1 }
-                //data aanvullen voor 1 user: 3-tal
-
+                new Appointment { Id = 1, Date = new DateTime(2021, 02, 16), StatusId = 3, UserId = 1, LocationId = 2, VaccinationId = 39 },
+                new Appointment { Id = 2, Date = new DateTime(2021, 03, 10), StatusId = 3, UserId = 1, LocationId = 1, VaccinationId = 1 },
+                new Appointment { Id = 3, Date = new DateTime(2021, 04, 17), StatusId = 2, UserId = 1, LocationId = 1, VaccinationId = 8 },
+                new Appointment { Id = 4, Date = new DateTime(2021, 05, 25), StatusId = 1, UserId = 1, LocationId = 4, VaccinationId = 28 },
+                new Appointment { Id = 5, Date = new DateTime(2021, 06, 18), StatusId = 1, UserId = 1, LocationId = 1, VaccinationId = 12 }
                 );
         }
 
@@ -57,7 +59,11 @@ namespace VaccineApp
                 new VaccinationCenter { Id = 10, Name = "OLV Center", Location = "Mariakerkeplein, 9030 Mariakerke" },
                 new VaccinationCenter { Id = 11, Name = "Central Castle of Poeke", Location = "Poeke Castle, 9880 Aalter" },
                 new VaccinationCenter { Id = 12, Name = "Green Meise Garden", Location = "Nieuwelaan 38, 1860 Meise" },
-                new VaccinationCenter { Id = 13, Name = "Technopolis Center", Location = "Technologielaan 1, 2800 Mechelen" }
+                new VaccinationCenter { Id = 13, Name = "Technopolis Center", Location = "Technologielaan 1, 2800 Mechelen" },
+                new VaccinationCenter { Id = 14, Name = "Primus Brewery", Location = "Brouwerij Haacht, 3150 Haacht" },
+                new VaccinationCenter { Id = 15, Name = "Thomas Stapleton, Irish Pub", Location = "Standonckstraat 4, 3000 Leuven" },
+                new VaccinationCenter { Id = 16, Name = "National Jenevermuseum", Location = "Witte Nonnenstraat 19, 3500 Hasselt" },
+                new VaccinationCenter { Id = 17, Name = "K in Kortrijk", Location = "Steenpoort 2, 8500 Kortrijk" }
                 );
         }
 

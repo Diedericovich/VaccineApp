@@ -7,8 +7,8 @@
             <table class="list-group mx-3 mb-2 text-left">
                 <tr class="vaccines list-group-item m-1" *ngFor="let location of centers" (click)="setCenter(location)"
                     [class.active]="location == selectedLocation">
-                    <p class="text-dark text-left font-weight-bold">
-                        {{location.name}}, {{location.location}}
+                    <p class="text-left font-weight-bold">
+                        {{location.name}}<br>{{location.location}}
                     </p>
                 </tr>
             </table>

@@ -41,7 +41,7 @@ body {
 .list-group-item:hover{
   background-color: var(--main-light-blue);
   border-color: var(--main-dark-blue);
-  font:white;
+  color:white;
 }
 .btn-primary{
   background-color: var(--main-light-blue);
