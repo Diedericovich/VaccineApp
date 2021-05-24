@@ -45,7 +45,7 @@
 
         public async Task<bool> UserHasVaccine(int userId, int vaccineId)
         {
-            return await _context.Appointments.AnyAsync(x => (x.UserId == userId) && (x.VaccinationId == vaccineId) && (x.StatusId > 1));
+            return await _context.Appointments.AnyAsync(x => (x.UserId == userId) && (x.VaccinationId == vaccineId));
         }
     }
 }
