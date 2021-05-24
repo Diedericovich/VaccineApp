@@ -66,7 +66,7 @@ namespace VaccineApp
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "VaccineApp", Version = "v1" }));
 
             services.AddDbContext<DatabaseContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("LocalConnectionString")));
+                options => options.UseSqlServer(Configuration.GetConnectionString("OnlineConnectionString")));
 
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
 
