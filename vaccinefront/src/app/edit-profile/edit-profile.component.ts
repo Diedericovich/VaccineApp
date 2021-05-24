@@ -67,7 +67,7 @@ export class EditProfileComponent implements OnInit {
       let localStorageUser = JSON.parse(localStorage.getItem('user') || '{}');
       localStorageUser.email = user.email;
       localStorage.setItem('user', JSON.stringify(localStorageUser));
-      this.router.navigateByUrl('landing/user-details');
+      this.router.navigateByUrl('landing/user-details').then(() => {this.router.navigateByUrl('landing/user-details') })
     }
   }
 }

@@ -6,9 +6,9 @@ role="dialog"
 aria-labelledby="exampleModalLabel"
 aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h3 *ngIf="vaccine" class="modal-title" id="exampleModalLabel">{{vaccine.id}}) {{vaccine.name | uppercase}}</h3>
+  <div class="modal-content bg-light">
+    <div class="modal-header vaccine-card">
+      <h3 *ngIf="vaccine" class="modal-title text-light" id="exampleModalLabel">{{vaccine.id}}) {{vaccine.name | uppercase}}</h3>
       <button
         type="button"
         class="close"
@@ -35,8 +35,8 @@ aria-hidden="true">
     </div>
 </div>
 </div>
-<div class="modal-footer">
-    <button (click)="createAppointment()" class="btn btn-primary">Request Appointment</button>
+<div class="modal-footer vaccine-card">
+    <button (click)="createAppointment()" class="btn btn-primary text-dark">Request Appointment</button>
     <button
     type="button"
     class="btn btn-secondary"
