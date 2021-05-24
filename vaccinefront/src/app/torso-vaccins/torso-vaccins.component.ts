@@ -5,20 +5,20 @@ import { Vaccine } from '../interfaces/vaccine';
 @Component({
   selector: 'app-torso-vaccins',
   templateUrl: './torso-vaccins.component.html',
-  styleUrls: ['./torso-vaccins.component.css']
+  styleUrls: ['./torso-vaccins.component.css'],
 })
 export class TorsoVaccinsComponent implements OnInit {
   vaccines: Vaccine[] = [];
   selectedVaccine?: Vaccine;
-  
+
   onSelect(vaccine: Vaccine): void {
     this.selectedVaccine = vaccine;
   }
-  constructor(private vaccineService : VaccineService) { }
+  constructor(private vaccineService: VaccineService) {}
 
   ngOnInit(): void {
-    this.vaccineService.getVaccinesByBodyPart("Torso").
-    subscribe(x => this.vaccines=x);
+    this.vaccineService
+      .getVaccinesByBodyPart('Torso')
+      .subscribe((x) => (this.vaccines = x));
   }
-
 }
