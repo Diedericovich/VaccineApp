@@ -70,5 +70,4 @@ export class EditProfileComponent implements OnInit {
       this.router.navigateByUrl('landing/user-details');
     }
   }
-
 }
