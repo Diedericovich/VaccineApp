@@ -4,19 +4,20 @@ import { Vaccine } from '../interfaces/vaccine';
 @Component({
   selector: 'app-legs-vaccins',
   templateUrl: './legs-vaccins.component.html',
-  styleUrls: ['./legs-vaccins.component.css']
+  styleUrls: ['./legs-vaccins.component.css'],
 })
 export class LegsVaccinsComponent implements OnInit {
   vaccines: Vaccine[] | undefined;
   selectedVaccine?: Vaccine;
-    
+
   onSelect(vaccine: Vaccine): void {
     this.selectedVaccine = vaccine;
   }
-  constructor(private vaccineService : VaccineService) { }
+  constructor(private vaccineService: VaccineService) {}
 
   ngOnInit(): void {
-    this.vaccineService.getVaccinesByBodyPart("Legs").subscribe(x => {this.vaccines=x})
+    this.vaccineService.getVaccinesByBodyPart('Legs').subscribe((x) => {
+      this.vaccines = x;
+    });
   }
-
 }

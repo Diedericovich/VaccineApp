@@ -94,3 +94,13 @@ font-weight:500;
       /* position:absolute; */
       left: -10vw; 
   }
+  .canceled {
+    color: darkred;
+  }
+  .scheduled {
+    color:lightslategray;
+    font-style: italic;
+  }
+  .completed{
+    color: darkgreen;
+  }

@@ -13,15 +13,13 @@ import { Router } from '@angular/router';
 export class AppointmentsComponent implements OnInit {
   user?: User;
   email?: string;
-completed: boolean = false;
-
-
+  completed: boolean = false;
 
   constructor(
     private appointmentService: AppointmentService,
     private userService: UserService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.email = JSON.parse(localStorage.getItem('user') || '{}').email;
@@ -45,15 +43,21 @@ completed: boolean = false;
       this.router.navigate([currentUrl]);
     });
   }
-scheduled() {
- return this.user?.appointments.filter(appointment => appointment.status.id==1) || [];
- }
- canceledAndCompleted() {
-  
-  return this.user?.appointments.filter(appointment => appointment.status.id>=2) || [];
-  
- }
-switchButton(): void {
-  this.completed = !this.completed;
-}
+  scheduled() {
+    return (
+      this.user?.appointments.filter(
+        (appointment) => appointment.status.id == 1
+      ) || []
+    );
+  }
+  canceledAndCompleted() {
+    return (
+      this.user?.appointments.filter(
+        (appointment) => appointment.status.id >= 2
+      ) || []
+    );
+  }
+  switchButton(): void {
+    this.completed = !this.completed;
+  }
 }

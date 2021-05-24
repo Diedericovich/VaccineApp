@@ -29,7 +29,7 @@
             </td>
             <td class="col-3 font-weight-bold">
               <h3>
-                Status: <span class="">{{
+                Status: <span [class.scheduled]="appointment.status.id == 1">{{
                   appointment.status.status
                 }}</span>
               </h3>
@@ -69,7 +69,7 @@
             </td>
             <td class="col-3 font-weight-bold">
               <h3>
-                Status: <span class="">{{
+                Status: <span [class.canceled]="appointment.status.id == 2" [class.completed]="appointment.status.id == 3">{{
                   appointment.status.status
                 }}</span>
               </h3>
