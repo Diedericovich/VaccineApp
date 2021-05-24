@@ -33,14 +33,11 @@ namespace VaccineApp
         {
             var hmac = new HMACSHA512();
             modelBuilder.Entity<Login>().HasData(
-                new Login { Id = 1, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key  },
-                new Login { Id = 2, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key  },
-                new Login { Id = 3, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key  },
-                new Login { Id = 4, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key  },
+                new Login { Id = 1, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key },
+                new Login { Id = 2, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key },
+                new Login { Id = 3, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key },
+                new Login { Id = 4, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key },
                 new Login { Id = 5, PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")), PasswordSalt = hmac.Key }
-
-
-
 
                 );
         }
@@ -48,17 +45,17 @@ namespace VaccineApp
         private static void BuildVaccinationCenters(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<VaccinationCenter>().HasData(
-                new VaccinationCenter { Id = 1, Name = "Basilik of Koekelmountain", Location = "1083 Brussel" },
+                new VaccinationCenter { Id = 1, Name = "National Basilica of the Sacred Heart", Location = "Elisabeth Park, 1083 Brussel" },
                 new VaccinationCenter { Id = 2, Name = "Dukestones Center", Location = "Sint-Veerleplein 11, 9000 Gent" },
-                new VaccinationCenter { Id = 3, Name = "Sportpalace", Location = "Schijnpoortweg 119, 2170 Antwerpen" },
+                new VaccinationCenter { Id = 3, Name = "Lotto Arena", Location = "Schijnpoortweg 119, 2170 Antwerpen" },
                 new VaccinationCenter { Id = 4, Name = "Chocostory Center", Location = "Wijnzakstraat 2, 8000 Brugge" },
                 new VaccinationCenter { Id = 5, Name = "Casino Center", Location = "Kursaal-Oosthelling 12, 8400 Oostende" },
                 new VaccinationCenter { Id = 6, Name = "Barvaux Labyrint", Location = "Rue Basse Commène, 6940 Barvaux-sur-Ourthe" },
                 new VaccinationCenter { Id = 7, Name = "Citadel Center", Location = "Route Merveilleuse 64, 5000 Namur" },
                 new VaccinationCenter { Id = 8, Name = "Boverie Castle Center", Location = "Allée Frédéric Chopin, 4020 Liège" },
-                new VaccinationCenter { Id = 9, Name = "Zwin Center", Location = "Zwin, Knokke-Heist" },
+                new VaccinationCenter { Id = 9, Name = "Zwin Center", Location = "Expo 'Vogels in het Zwin', Knokke-Heist" },
                 new VaccinationCenter { Id = 10, Name = "OLV Center", Location = "Mariakerkeplein, 9030 Mariakerke" },
-                new VaccinationCenter { Id = 11, Name = "Central Castle of Poeke", Location = "Kasteel van Poeke, 9880 Aalter" },
+                new VaccinationCenter { Id = 11, Name = "Central Castle of Poeke", Location = "Poeke Castle, 9880 Aalter" },
                 new VaccinationCenter { Id = 12, Name = "Green Meise Garden", Location = "Nieuwelaan 38, 1860 Meise" },
                 new VaccinationCenter { Id = 13, Name = "Technopolis Center", Location = "Technologielaan 1, 2800 Mechelen" }
                 );

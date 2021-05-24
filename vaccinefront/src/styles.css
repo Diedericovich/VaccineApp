@@ -1,5 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-
+:root{
+  --main-bg: #09161e;
+  --main-light-blue: #2CD8DB;
+  --main-dark-blue: #267B9A;
+  --main-accent: #b51163;
+  --main-accent-light:#d70c67;
+  --main-bg-light: #B4A4B6;
+}
 html,
 body {
   height: 100%;
@@ -16,15 +23,67 @@ body {
 #legs {
   outline: none;
 }
-
+.login-titles{
+  color: var(--main-dark-blue);
+}
 .navbar {
-  background-color: #000;
+  background-color: var( --main-bg);
   font-size: large;
 }
-
-.vaccines {
-  background-color: rgba(127, 219, 255, 0.7);
+.bg-light{
+  background-color: var(--main-bg-light);
 }
+.list-group-item.active{
+  background-color: var(--main-light-blue) !important;
+  border-color: var(--main-dark-blue);
+  color:white;
+}
+.list-group-item:hover{
+  background-color: var(--main-light-blue);
+  border-color: var(--main-dark-blue);
+  font:white;
+}
+.btn-primary{
+  background-color: var(--main-light-blue);
+  border-color: var(--main-light-blue);
+}
+.btn-primary:hover{
+  background-color: var(--main-dark-blue);
+
+}
+.btn-secondary{
+  background-color: var(--main-accent-light);
+  border-color: var(--main-accent-light);
+}
+.btn-secondary:hover{
+  background-color: var(--main-accent);
+}
+.vaccines {
+  background-color: white;
+  border: solid var(--main-dark-blue);
+}
+.nav-link{
+  color: white;
+}
+.nav-link:hover{
+  color: var(--main-light-blue)
+}
+.navbar-brand{
+  color: var(--main-light-blue);
+  font-size: 2.5em;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.navbar-brand:hover{
+  color: var(--main-dark-blue);
+}
+.btn-danger{
+  background-color:var(--main-accent-light);
+  border-color: var(--main-accent-light);
+}
+.btn-danger:hover{
+  background-color: var(--main-accent);
+}
+
 legend {
   font-size: medium;
 }
@@ -34,10 +93,11 @@ legend {
   max-height: 70vh;
 }
 .vaccinContainer {
-  max-height: 70vh;
+  max-height: 71vh;
   overflow-y: auto;
   overflow-x: hidden;
 }
+
 .card {
     background-color: rgba(255,255,255, .9);
 }

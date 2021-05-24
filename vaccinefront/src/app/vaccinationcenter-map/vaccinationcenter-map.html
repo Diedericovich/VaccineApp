@@ -1,2 +1,17 @@
-<div id="map"></div>
-<button (click)="setCenter()">goto</button>
+<div class="container justify-content-center">
+    <div class="row">
+        <div class="col-5">
+            <div id="map"></div>
+        </div>
+        <div class="col-5 locations">
+            <table class="list-group mx-3 mb-2 text-left">
+                <tr class="vaccines list-group-item m-1" *ngFor="let location of centers" (click)="setCenter(location)"
+                    [class.active]="location == selectedLocation">
+                    <p class="text-dark text-left font-weight-bold">
+                        {{location.name}}, {{location.location}}
+                    </p>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

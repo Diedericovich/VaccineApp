@@ -1,6 +1,7 @@
 #map{width: 750px;
 height: 500px;
-background-color: red;}
+background-color: var(--main-bg-light);
+margin-left: -150px;}
 .marker {
     background-size: cover;
     width: 500px;
@@ -10,7 +11,7 @@ background-color: red;}
   }
   .mapboxgl-popup {
     max-width: 500px;
-    background-color: red;
+    background-color: var(--main-bg-light);
     border-style: ridge;
     border-width: 3px;
   }
@@ -18,7 +19,15 @@ background-color: red;}
   .mapboxgl-popup-content {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
-    background-color: red;
+    background-color: var(--main-bg-light);
     border-style: ridge;
     border-width: 3px;
+  }
+  .locations{
+    margin-left: 10rem;
+    overflow-y: scroll;
+    height: 52vh;
+  }
+  tr{
+    height: 50px;
   }

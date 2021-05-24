@@ -1,5 +1,5 @@
 <div>
-  <h2>Vaccines for your torso</h2>
+  <h1 class="ml-4">Vaccines for your torso</h1>
   <div class="row vaccinContainer">
     <div class="col-12">
       <table class="list-group mx-3 mb-2 text-left">
@@ -10,10 +10,10 @@
           data-target="#exampleModal"
           (click)="onSelect(vaccine)"
           [class.active]="vaccine == selectedVaccine">
-          <h1 class="text-dark text-left font-weight-bold">
+          <h1 class="text-left font-weight-bold">
             {{vaccine.name}}
           </h1>
-          <h3 class="font-italic">Description:<p>{{vaccine.description}}</p></h3>
+          <h3 class="font-italic">{{vaccine.description}}</h3>
         </tr>
       </table>
     </div>
