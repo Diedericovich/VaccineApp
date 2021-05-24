@@ -13,39 +13,39 @@
 }
 
 .human-body svg:hover path {
-    fill: #ff7d16;
+    fill: var(--main-accent-light);
 }
 
 .human-body svg {
     position: absolute;
     left: 50%;
-    fill: #57c9d5;
+    fill: var(--main-light-blue);
 }
 
 .human-body svg#head {
-    margin-left: -28.5px;
-    top: -6px;
+    margin-left: -22px;
+    top: -90px;
 }
 
 .human-body svg#left-arm {
-    margin-left: -104.5px;
-    top: 69px;
+    margin-left: -140px;
+    top: 23px;
 }
 
 .human-body svg#right-arm {
-    margin-left: 13.5px;
-    top: 69px;
+    margin-left: 49px;
+    top: 23px;
 }
 
 .human-body svg#chest {
     margin-left: -43.5px;
-    top: 88px;
+    top: 48px;
 }
 
 
 .human-body svg#legs {
     margin-left: -43.5px;
-    top: 209px;
+    top: 225px;
 }
 
 #area {
@@ -75,6 +75,6 @@ button {
     
 }
 .human-body svg.Selected {
-    fill: #ff7d16;
+    fill: var(--main-accent);
 
 }

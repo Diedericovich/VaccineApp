@@ -1,6 +1,6 @@
 <div class="card">
     <form [formGroup]="registerUser" (ngSubmit)="register()" autocomplete="off" class="register">
-        <h2 class="text-center text-primary">Register</h2>
+        <h2 class="text-center login-titles">Register</h2>
         <div class="form-group">
             <input type="text"
                 [class.is-invalid]="registerUser.get('email')?.errors && registerUser.get('email')?.touched"
@@ -69,8 +69,8 @@
         </div>
 
         <div class="form-group text-center">
-            <button class="btn btn-success mr-2" [disabled]="!registerUser.valid" type="submit">Register</button>
-            <a class="btn btn-danger" (click)="cancel()">Cancel</a>
+            <button class="btn btn-primary mx-2" [disabled]="!registerUser.valid" type="submit">Register</button>
+            <a class="btn btn-secondary" (click)="cancel()">Cancel</a>
         </div>
     </form>
 </div>

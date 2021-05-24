@@ -1,17 +1,12 @@
 ﻿namespace VaccineApp.Services
 {
+    using AutoMapper;
+    using DTO;
+    using Entities;
+    using Repositories;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
-
-    using AutoMapper;
-
-    using DTO;
-
-    using Entities;
-
-    using Repositories;
 
     public class AppointmentService : IAppointmentService
     {
@@ -77,6 +72,11 @@
         public async Task<bool> AppointmentExists(int appointmentId)
         {
             return await _appointmentRepo.AppointmentExists(appointmentId);
+        }
+
+        public async Task<bool> UserHasVaccine(int userId, int vaccineId)
+        {
+            return await _appointmentRepo.UserHasVaccine(userId, vaccineId);
         }
     }
 }

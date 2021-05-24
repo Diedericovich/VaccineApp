@@ -19,6 +19,10 @@ namespace VaccineApp.Controllers
         [HttpPost("{userId}/{vaccineId}")]
         public async Task<ActionResult> AddAppointmentAsync(int userId, int vaccineId)
         {
+            if (await _service.UserHasVaccine(userId, vaccineId))
+            {
+                return BadRequest("You already have this vaccination or already have another appointment for it scheduled.");
+            }
             try
             {
                 await _service.AddAppointmentAsync(userId, vaccineId);

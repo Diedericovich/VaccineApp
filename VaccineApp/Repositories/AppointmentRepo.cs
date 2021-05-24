@@ -1,15 +1,9 @@
 ﻿namespace VaccineApp.Repositories
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Runtime.InteropServices;
-    using System.Threading.Tasks;
-
     using Entities;
-
-    using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     public class AppointmentRepo : GenericRepo<Appointment>, IAppointmentRepo
     {
@@ -47,6 +41,11 @@
             _context.Appointments.Attach(item);
             _context.Entry(item).Property(x => x.StatusId).IsModified = true;
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<bool> UserHasVaccine(int userId, int vaccineId)
+        {
+            return await _context.Appointments.AnyAsync(x => (x.UserId == userId) && (x.VaccinationId == vaccineId) && (x.StatusId > 1));
         }
     }
 }

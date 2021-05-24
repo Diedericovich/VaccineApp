@@ -2,7 +2,6 @@
 using System;
 using System.Threading.Tasks;
 using VaccineApp.DTO;
-using VaccineApp.Services;
 
 namespace VaccineApp.Controllers
 {

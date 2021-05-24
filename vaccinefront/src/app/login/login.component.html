@@ -2,7 +2,7 @@
         <div class="container-fluid overflow-hidden">
                 <div class="login-box">
                         <form [formGroup]="loginUser" (ngSubmit)="login()" autocomplete="off">
-                                <h2 class="text-center text-primary">Sign up</h2>
+                                <h2 class="text-center login-titles">Login To Vaxx.Id</h2>
                                 <div class="form-group">
                                         <input type="text"
                                                 [class.is-invalid]="loginUser.get('email')?.errors && loginUser.get('email')?.touched"
@@ -27,8 +27,8 @@
                                         </div>
                                 </div>
                                 <div class="form-group text-center">
-                                        <button class="btn btn-success mx-2" type="submit">Login</button>
-                                        <button class="btn btn-primary mx-2" type="button"
+                                        <button class="btn btn-primary mx-2" type="submit">Login</button>
+                                        <button class="btn btn-secondary mx-2" type="button"
                                                 (click)="register()">Register</button>
                                 </div>
                         </form>
