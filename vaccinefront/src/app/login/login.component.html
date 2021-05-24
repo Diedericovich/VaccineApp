@@ -1,40 +1,69 @@
 <div *ngIf="!isRegistering" class="card">
-        <div class="container-fluid overflow-hidden">
-                <div class="login-box">
-                        <form [formGroup]="loginUser" (ngSubmit)="login()" autocomplete="off">
-                                <h2 class="text-center login-titles">Login To Vaxx.Id</h2>
-                                <div class="form-group">
-                                        <input type="text"
-                                                [class.is-invalid]="loginUser.get('email')?.errors && loginUser.get('email')?.touched"
-                                                class="form-control" formControlName="email" placeholder="Email" />
-                                        <div *ngIf="loginUser.get('password')?.hasError('required')"
-                                                class="invalid-feedback">Please enter an Email Address</div>
-
-                                </div>
-                                <div class="form-group">
-                                        <input type="password"
-                                                [class.is-invalid]="loginUser.get('password')?.errors && loginUser.get('password')?.touched"
-                                                class="form-control" formControlName="password"
-                                                placeholder="Password" />
-                                        <div *ngIf="loginUser.get('password')?.hasError('required')"
-                                                class="invalid-feedback">Please enter a password</div>
-                                        <div *ngIf="validationErrors.length > 0">
-                                                <ul class="text-danger">
-                                                        <li *ngFor="let error of validationErrors">
-                                                                {{error}}
-                                                        </li>
-                                                </ul>
-                                        </div>
-                                </div>
-                                <div class="form-group text-center">
-                                        <button class="btn btn-primary mx-2" type="submit">Login</button>
-                                        <button class="btn btn-secondary mx-2" type="button"
-                                                (click)="register()">Register</button>
-                                </div>
-                        </form>
-                </div>
+  <div class="container-fluid overflow-hidden">
+    <div class="login-box">
+      <form [formGroup]="loginUser" (ngSubmit)="login()" autocomplete="off">
+        <h2 class="text-center login-titles">Login To Vaxx.Id</h2>
+        <div class="form-group">
+          <input
+            type="text"
+            [class.is-invalid]="
+              loginUser.get('email')?.errors && loginUser.get('email')?.touched
+            "
+            class="form-control"
+            formControlName="email"
+            placeholder="Email"
+          />
+          <div
+            *ngIf="loginUser.get('password')?.hasError('required')"
+            class="invalid-feedback"
+          >
+            Please enter an Email Address
+          </div>
         </div>
+        <div class="form-group">
+          <input
+            type="password"
+            [class.is-invalid]="
+              loginUser.get('password')?.errors &&
+              loginUser.get('password')?.touched
+            "
+            class="form-control"
+            formControlName="password"
+            placeholder="Password"
+          />
+          <div
+            *ngIf="loginUser.get('password')?.hasError('required')"
+            class="invalid-feedback"
+          >
+            Please enter a password
+          </div>
+          <div *ngIf="validationErrors.length > 0">
+            <ul class="text-danger">
+              <li *ngFor="let error of validationErrors">
+                {{ error }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <button
+            class="btn btn-primary mx-2"
+            [disabled]="!loginUser.valid"
+            type="submit"
+          >
+            Login
+          </button>
+          <button
+            class="btn btn-secondary mx-2"
+            type="button"
+            (click)="register()">
+            Register
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 <div *ngIf="isRegistering">
-        <app-register></app-register>
+  <app-register></app-register>
 </div>

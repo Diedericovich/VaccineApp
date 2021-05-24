@@ -5,11 +5,11 @@
   --main-dark-blue: #267B9A;
   --main-accent: #b51163;
   --main-accent-light:#d70c67;
-  --main-bg-light: #B4A4B6;
 }
 html,
 body {
   height: 100%;
+  /* background-color: var(--main-bg); */
 }
 body {
   margin: 0;
@@ -60,7 +60,9 @@ body {
 }
 .vaccines {
   background-color: white;
-  border: solid var(--main-dark-blue);
+  /* border: solid var(--main-dark-blue); */
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
 }
 .nav-link{
   color: white;

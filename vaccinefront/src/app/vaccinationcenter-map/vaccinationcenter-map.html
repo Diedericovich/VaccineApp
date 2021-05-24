@@ -1,22 +1,13 @@
-<div class="container justify-content-center">
+<div class="container-fluid w-100 justify-content-between h-100">
     <div class="row">
-        <div class="col-12">
-            <p>testestest</p>
-            <p>testestest</p>
-            <p>testestest</p>
-            <p>testestest</p>
-            <p>testestest</p>
-            <p>testestest</p>
-            <p>testestest</p>
-            <p>testestest</p>
-            <p>testestest</p>
+        <div class="col-12 mt-5">
+      <h1>Our Vaccination Centers</h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-5">
-            <div id="map"></div>
+        <div class="col-8"><div id="map"></div>
         </div>
-        <div class="col-5 locations">
+        <div class="col-4 locations w-100">
             <table class="list-group mx-3 mb-2 text-left">
                 <tr class="vaccines list-group-item m-1" *ngFor="let location of centers" (click)="setCenter(location)"
                     [class.active]="location == selectedLocation">
