@@ -60,7 +60,7 @@ namespace VaccineApp
                 new VaccinationCenter { Id = 11, Name = "Central Castle of Poeke", Location = "Poeke Castle, 9880 Aalter" },
                 new VaccinationCenter { Id = 12, Name = "Green Meise Garden", Location = "Nieuwelaan 38, 1860 Meise" },
                 new VaccinationCenter { Id = 13, Name = "Technopolis Center", Location = "Technologielaan 1, 2800 Mechelen" },
-                new VaccinationCenter { Id = 14, Name = "Primus Brewery", Location = "Brouwerij Haacht, 3150 Haacht" },
+                new VaccinationCenter { Id = 14, Name = "Primus Brewery", Location = "Provinciesteenweg 28, 3190 Boortmeerbeek" },
                 new VaccinationCenter { Id = 15, Name = "Thomas Stapleton, Irish Pub", Location = "Standonckstraat 4, 3000 Leuven" },
                 new VaccinationCenter { Id = 16, Name = "National Jenevermuseum", Location = "Witte Nonnenstraat 19, 3500 Hasselt" },
                 new VaccinationCenter { Id = 17, Name = "K in Kortrijk", Location = "Steenpoort 2, 8500 Kortrijk" }

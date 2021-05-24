@@ -78,5 +78,10 @@
         {
             return await _appointmentRepo.AppointmentExists(appointmentId);
         }
+
+        public async Task<bool> UserHasVaccine(int userId, int vaccineId)
+        {
+            return await _appointmentRepo.UserHasVaccine(userId, vaccineId);
+        }
     }
 }

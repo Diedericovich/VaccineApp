@@ -9,8 +9,9 @@ namespace VaccineApp.Repositories
         Task<bool> AppointmentExists(int id);
         Task<List<Appointment>> GetAllAsync();
         Task<Appointment> GetAsync(int id);
-        Task AddAsync(Appointment appointment);
+        Task UpdateAsync(Appointment item);
+        Task<bool> UserHasVaccine(int userId, int vaccineId);
         Task DeleteAsync(int id);
-        Task UpdateAsync(Appointment appointment);
+        Task AddAsync(Appointment appointment);
     }
 }

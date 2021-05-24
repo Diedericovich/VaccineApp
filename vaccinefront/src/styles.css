@@ -34,7 +34,7 @@ body {
   background-color: var(--main-bg-light);
 }
 .list-group-item.active{
-  background-color: var(--main-light-blue) !important;
+  background-color: var(--main-dark-blue) !important;
   border-color: var(--main-dark-blue);
   color:white;
 }

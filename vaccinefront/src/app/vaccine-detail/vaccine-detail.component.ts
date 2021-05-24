@@ -22,7 +22,7 @@ export class VaccineDetailComponent implements OnInit {
       this.appointmentService
         .addAppointment(userId, this.vaccine.id)
         .subscribe();
+        window.location.href = 'landing/appointments';
     }
-    window.location.href = 'landing/appointments';
   }
 }

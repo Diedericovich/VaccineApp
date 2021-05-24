@@ -1,7 +1,8 @@
 #map{width: 750px;
 height: 500px;
 background-color: var(--main-bg-light);
-margin-left: -150px;}
+margin-left: -150px;
+}
 .marker {
     background-size: cover;
     width: 500px;
